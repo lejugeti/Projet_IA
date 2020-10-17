@@ -164,6 +164,9 @@ namespace JoliBateau
         public override List<GenericNode> GetListSucc()
         {
             // ici on va faire un pavage de 8 autour du point actuel P1
+
+            List<GenericNode> newNodes = new List<GenericNode>();
+
         }
         public override double CalculeHCost()
         {
