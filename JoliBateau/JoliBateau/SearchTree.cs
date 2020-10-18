@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Xml.Serialization;
 
 namespace JoliBateau
-{
-    class SearchTree
+{   [XmlInclude(typeof(Point))]
+    public class SearchTree
     {
         public List<GenericNode> L_Ouverts;
         public List<GenericNode> L_Fermes;
@@ -20,7 +21,11 @@ namespace JoliBateau
             return L_Fermes.Count;
         }
 
-        private GenericNode ChercheNodeDansFermes(GenericNode N2)
+        public SearchTree()
+        {
+
+        }
+        public GenericNode ChercheNodeDansFermes(GenericNode N2)
         {
             int i = 0;
 
@@ -33,7 +38,7 @@ namespace JoliBateau
             return null;
         }
 
-        private GenericNode ChercheNodeDansOuverts(GenericNode N2)
+        public GenericNode ChercheNodeDansOuverts(GenericNode N2)
         {
             int i = 0;
 
@@ -96,7 +101,7 @@ namespace JoliBateau
             return _LN;
         }
 
-        private void MAJSuccesseurs(GenericNode N)
+        public void MAJSuccesseurs(GenericNode N)
         {
             // On fait appel à GetListSucc, méthode abstraite qu'on doit réécrire pour chaque
             // problème. Elle doit retourner la liste complète des noeuds successeurs de N.
@@ -133,7 +138,7 @@ namespace JoliBateau
                         // N2 est nouveau, MAJ et insertion dans les ouverts
                         N2.SetGCost(N.GetGCost() + N.GetArcCost(N2));
                         N2.SetNoeud_Parent(N);
-                        N2.CalculCoutTotal(); // somme de GCost et HCost
+                        N2.CalculCoutTotal(); // somme de GCost et HCost. HCost calculé dans cette fonction
                         this.InsertNewNodeInOpenList(N2);
                     }
                 }
@@ -190,7 +195,7 @@ namespace JoliBateau
         }
 
         // AjouteBranche est exclusivement appelée par GetSearchTree; les noeuds sont ajoutés de manière récursive
-        private void AjouteBranche( GenericNode GN, TreeNode TN)
+        public void AjouteBranche( GenericNode GN, TreeNode TN)
         {
             foreach (GenericNode GNfils in GN.GetEnfants())
             {

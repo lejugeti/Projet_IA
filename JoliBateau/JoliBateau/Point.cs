@@ -6,16 +6,23 @@ using System.Threading.Tasks;
 
 namespace JoliBateau
 {
-    class Point : GenericNode
+    public class Point : GenericNode
     {
-        public int X { get; set; }
-        public int Y { get; set; }
-        public char cas = 'a';
-
-        //constructeur du point initial du graph en fonction du cas a, b ou c
+        public double X { get; set; }
+        public double Y { get; set; }
+        public static char cas;
+        public double distNoeud = 1; //constante définissant la distance en km entre les noeuds
+         
         public Point()
         {
-            switch (cas)
+
+        }
+
+        //constructeur du point initial du graph en fonction du cas a, b ou c
+        public Point(char inputCas)
+        {
+            cas = inputCas;
+            switch (inputCas)
             {
                 case 'a':
                     X = 100;
@@ -38,7 +45,7 @@ namespace JoliBateau
         }
 
         //constructeur général de la classe Point
-        public Point(int x, int y, Point parent)
+        public Point(double x, double y)
         {
             X = x;
             Y = y;
@@ -52,30 +59,33 @@ namespace JoliBateau
             Enfants = new List<GenericNode>();
         }
 
-        //permet de calculer la vitesse du vent en fonction de P(x, y) le point au milieu de P1 et P2 
-        public double GetWindSpeed(double x, double y)
+        // méthode qui crée le point final à atteindre Pf
+        public static Point PointFinal()
         {
-            if (cas == 'a')
-                return 50;
-            else if (cas == 'b')
-                if (y > 150)
-                    return 50;
-                else return 20;
-            else if (y > 150)
-                return 50;
-            else return 20;
-        }
-        public double GetWindDirection(double x, double y)
-        {
-            if (cas == 'a')
-                return 30;
-            else if (cas == 'b')
-                if (y > 150)
-                    return 180;
-                else return 90;
-            else if (y > 150)
-                return 170;
-            else return 65;
+            int Xf = 0;
+            int Yf = 0;
+            switch (cas)
+            {
+                case 'a':
+                    Xf = 200;
+                    Yf = 100;
+                    break;
+
+                case 'b':
+                    Xf = 200;
+                    Yf = 100;
+                    break;
+
+                case 'c':
+                    Xf = 100;
+                    Yf = 200;
+                    break;
+
+            }
+
+            Point pointFinal = new Point(Xf, Yf);
+            
+            return pointFinal;
         }
 
         //estime le temps que met le bateau pour aller de P1 à P2 en fonction du vent et de l'angle du bateau
@@ -83,8 +93,8 @@ namespace JoliBateau
         {
             double distance = Math.Sqrt((x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2));
             if (distance > 10) return 1000000;
-            double windspeed = GetWindSpeed((x1 + x2) / 2.0, (y1 + y2) / 2.0);
-            double winddirection = GetWindDirection((x1 + x2) / 2.0, (y1 + y2) / 2.0);
+            double windspeed = Vent.GetWindSpeed((x1 + x2) / 2.0, (y1 + y2) / 2.0);
+            double winddirection = Vent.GetWindDirection((x1 + x2) / 2.0, (y1 + y2) / 2.0);
             double boatspeed;
             double boatdirection = Math.Atan2(y2 - y1, x2 - x1) * 180 / Math.PI;
             // On ramène entre 0 et 360
@@ -114,9 +124,10 @@ namespace JoliBateau
             return (distance / boatspeed);
         }
 
-        public bool IsEqual(Point p)
+        public override bool IsEqual(GenericNode p)
         {
-            if (this.X == p.X && this.Y == p.Y)
+            Point tempP = (Point)p;
+            if (this.X == tempP.X && this.Y == tempP.Y)
             {
                 return true;
             }
@@ -161,21 +172,85 @@ namespace JoliBateau
             if (X == Xf && Y == Yf) return true;
             return false;
         }
+
+        // renvoie la liste des 8 noeuds autour du point P1. Un pavage différent pourra être essayé après
         public override List<GenericNode> GetListSucc()
         {
-            // ici on va faire un pavage de 8 autour du point actuel P1
-
             List<GenericNode> newNodes = new List<GenericNode>();
 
+            // distNoeud est la distance en km entre les noeuds. On utilise une variable ici pour 
+            // tester si il y a des modifications de performances en la changeant
+            double xDebut = X - distNoeud;
+            double xFin = X + distNoeud;
+            double yDebut = Y - distNoeud;
+            double yFin = Y + distNoeud;
+
+            // on doit gérer les cas particuliers avec la bordure pour la recherche des noeuds environnants
+            if (X == 0) 
+            {
+                xDebut = X;
+                xFin = X + distNoeud;
+            } 
+            else if(X == 300)
+            {
+                xDebut = X - distNoeud;
+                xFin = X;   
+            }
+            
+            if (Y == 0)
+            {
+                yDebut = Y;
+                yFin = Y + distNoeud;
+            }
+            else if (Y == 300)
+            {
+                yDebut = Y - distNoeud;
+                yFin = Y;
+            }
+
+
+            // on prend les noeuds autour de P1
+            for (double x = xDebut; x <= xFin; x += distNoeud)
+            {
+                for (double  y = yDebut; y <= yFin; y += distNoeud)
+                {
+                    if(x != X || y != Y)
+                    {
+                        Point tempPoint = new Point(x, y);
+                        newNodes.Add(tempPoint);
+                    }
+                }
+            }
+
+            return newNodes;
         }
+
         public override double CalculeHCost()
         {
             // on pourrait prendre comme heuristique le temps qu'on mettrait pour voyager entre P1 et Pf sans les contraites de vent
-            // càd qu'on met toujours le vent dans la meilleure direction par rapport à notre bateau, c'est à dire à 50°.
+            // càd qu'on met toujours le vent dans la meilleure direction par rapport à notre bateau, c'est à dire à 45°.
             // en plus on enlève la restriction des 10km ça rend le calcul plus facile plutôt que de calculer la trajectoire optimale avec 
             // les diagonales.
+
+            Point Pf = Point.PointFinal();
+            double x1 = X;
+            double y1 = Y;
+            double x2 = Pf.X;
+            double y2 = Pf.Y;
+
+            double distance = Math.Sqrt((x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2));
+            double windspeed = 50;
+            double alpha = 45;
+            double boatspeed = (0.9 - 0.2 * (alpha - 45) / 45) * windspeed;
+           
+            return (distance / boatspeed);
         }
         // On peut aussi penser à surcharger ToString() pour afficher correctement un état
         // c'est utile pour l'affichage du treenode
+
+        public override string ToString()
+        {
+            return $"({X}, {Y})";
+        }
     }
 }
