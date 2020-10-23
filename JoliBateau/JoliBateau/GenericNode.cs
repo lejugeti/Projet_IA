@@ -76,7 +76,7 @@ namespace JoliBateau
         public abstract bool IsEqual(GenericNode N2);
         public abstract double GetArcCost(GenericNode N2);
         public abstract bool EndState();
-        public abstract List<GenericNode> GetListSucc();
+        public abstract List<GenericNode> GetListSucc(int pavage);
         public abstract double CalculeHCost();
         // On peut aussi penser à surcharger ToString() pour afficher correctement un état
         // c'est utile pour l'affichage du treenode

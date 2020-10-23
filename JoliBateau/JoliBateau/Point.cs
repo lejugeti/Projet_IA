@@ -174,53 +174,117 @@ namespace JoliBateau
         }
 
         // renvoie la liste des 8 noeuds autour du point P1. Un pavage différent pourra être essayé après
-        public override List<GenericNode> GetListSucc()
+        public override List<GenericNode> GetListSucc(int pavage)
         {
             List<GenericNode> newNodes = new List<GenericNode>();
+            double xDebut = 0;
+            double xFin = 0;
+            double yDebut = 0;
+            double yFin = 0;
 
-            // distNoeud est la distance en km entre les noeuds. On utilise une variable ici pour 
-            // tester si il y a des modifications de performances en la changeant
-            double xDebut = X - distNoeud;
-            double xFin = X + distNoeud;
-            double yDebut = Y - distNoeud;
-            double yFin = Y + distNoeud;
+            switch (pavage)
+            {
+                
+                // pavage carré de 8
+                case 1:
+                    distNoeud = 1;
 
-            // on doit gérer les cas particuliers avec la bordure pour la recherche des noeuds environnants
-            if (X == 0) 
-            {
-                xDebut = X;
-                xFin = X + distNoeud;
-            } 
-            else if(X == 300)
-            {
-                xDebut = X - distNoeud;
-                xFin = X;   
-            }
-            
-            if (Y == 0)
-            {
-                yDebut = Y;
-                yFin = Y + distNoeud;
-            }
-            else if (Y == 300)
-            {
-                yDebut = Y - distNoeud;
-                yFin = Y;
-            }
+                    // distNoeud est la distance en km entre les noeuds. On utilise une variable ici pour 
+                    // tester si il y a des modifications de performances en la changeant
+                    xDebut = X - distNoeud;
+                    xFin = X + distNoeud;
+                    yDebut = Y - distNoeud;
+                    yFin = Y + distNoeud;
 
-
-            // on prend les noeuds autour de P1
-            for (double x = xDebut; x <= xFin; x += distNoeud)
-            {
-                for (double  y = yDebut; y <= yFin; y += distNoeud)
-                {
-                    if(x != X || y != Y)
+                    // on doit gérer les cas particuliers avec la bordure pour la recherche des noeuds environnants
+                    if (X == 0)
                     {
-                        Point tempPoint = new Point(x, y);
-                        newNodes.Add(tempPoint);
+                        xDebut = X;
+                        xFin = X + distNoeud;
                     }
-                }
+                    else if (X == 300)
+                    {
+                        xDebut = X - distNoeud;
+                        xFin = X;
+                    }
+
+                    if (Y == 0)
+                    {
+                        yDebut = Y;
+                        yFin = Y + distNoeud;
+                    }
+                    else if (Y == 300)
+                    {
+                        yDebut = Y - distNoeud;
+                        yFin = Y;
+                    }
+
+                    // on prend les noeuds autour de P1
+                    for (double x = xDebut; x <= xFin; x += distNoeud)
+                    {
+                        for (double y = yDebut; y <= yFin; y += distNoeud)
+                        {
+                            if (x != X || y != Y)
+                            {
+                                Point tempPoint = new Point(x, y);
+                                newNodes.Add(tempPoint);
+                            }
+                        }
+                    }
+                    break;
+
+                // pavage croix de 1
+                case 2:
+                    distNoeud = 1;
+
+                    xDebut = X - distNoeud;
+                    xFin = X + distNoeud;
+                    yDebut = Y - distNoeud;
+                    yFin = Y + distNoeud;
+
+                    // on doit gérer les cas particuliers avec la bordure pour la recherche des noeuds environnants
+                    if (X == 0)
+                    {
+                        xDebut = X;
+                        xFin = X + distNoeud;
+                    }
+                    else if (X == 300)
+                    {
+                        xDebut = X - distNoeud;
+                        xFin = X;
+                    }
+
+                    if (Y == 0)
+                    {
+                        yDebut = Y;
+                        yFin = Y + distNoeud;
+                    }
+                    else if (Y == 300)
+                    {
+                        yDebut = Y - distNoeud;
+                        yFin = Y;
+                    }
+
+                    // on prend les noeuds autour de P1 en croix de 1
+                    for (double x = xDebut; x <= xFin; x += distNoeud)
+                    {
+                        for (double y = yDebut; y <= yFin; y += distNoeud)
+                        {
+                            if ((x==0 || y==0) && (x!=y))
+                            {
+                                Point tempPoint = new Point(x, y);
+                                newNodes.Add(tempPoint);
+                            }
+                        }
+                    }
+
+                    break;
             }
+                
+            
+
+
+            
 
             return newNodes;
         }

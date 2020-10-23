@@ -44,8 +44,9 @@ namespace JoliBateau
             }
             else cas = "a";
 
+            int methode = 2;
             Point P0 = new Point(Char.Parse(cas));
-            SearchTree tree = new SearchTree();
+            SearchTree tree = new SearchTree(methode);
             List<GenericNode> solution =  tree.RechercheSolutionAEtoile(P0);
 
             if (solution.Count == 0)
@@ -74,5 +75,9 @@ namespace JoliBateau
             w.Serialize(sw, tree);
         }
 
+        private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+
+        }
     }
 }
