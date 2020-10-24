@@ -5,6 +5,10 @@ VisualStudioVersion = 16.0.29519.181
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JoliBateau", "JoliBateau\JoliBateau.csproj", "{375A08DD-FF8A-4EAA-8A22-9CE90E191368}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestsJoliBateau", "TestsJoliBateau\TestsJoliBateau.csproj", "{E3830411-1248-4B6F-93E2-B5F1DF898F10}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JoliBateauTests", "JoliBateauTests\JoliBateauTests.csproj", "{FA89D1B2-9CFA-44E2-BF59-A33C03FE74E5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{375A08DD-FF8A-4EAA-8A22-9CE90E191368}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{375A08DD-FF8A-4EAA-8A22-9CE90E191368}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{375A08DD-FF8A-4EAA-8A22-9CE90E191368}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E3830411-1248-4B6F-93E2-B5F1DF898F10}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E3830411-1248-4B6F-93E2-B5F1DF898F10}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E3830411-1248-4B6F-93E2-B5F1DF898F10}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E3830411-1248-4B6F-93E2-B5F1DF898F10}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FA89D1B2-9CFA-44E2-BF59-A33C03FE74E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FA89D1B2-9CFA-44E2-BF59-A33C03FE74E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FA89D1B2-9CFA-44E2-BF59-A33C03FE74E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FA89D1B2-9CFA-44E2-BF59-A33C03FE74E5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

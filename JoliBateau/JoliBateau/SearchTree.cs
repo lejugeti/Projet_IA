@@ -11,7 +11,7 @@ namespace JoliBateau
     {
         public List<GenericNode> L_Ouverts;
         public List<GenericNode> L_Fermes;
-        public int MethodeVoisins;
+        public int Pavage;
 
         public int CountInOpenList()
         {
@@ -27,9 +27,9 @@ namespace JoliBateau
 
         }
 
-        public SearchTree(int methode)
+        public SearchTree(int pavage)
         {
-            MethodeVoisins = methode;
+            Pavage = pavage;
         }
         public GenericNode ChercheNodeDansFermes(GenericNode N2)
         {
@@ -111,7 +111,7 @@ namespace JoliBateau
         {
             // On fait appel à GetListSucc, méthode abstraite qu'on doit réécrire pour chaque
             // problème. Elle doit retourner la liste complète des noeuds successeurs de N.
-            List<GenericNode> listsucc = N.GetListSucc(MethodeVoisins);
+            List<GenericNode> listsucc = N.GetListSucc();
             foreach (GenericNode N2 in listsucc)
             {
                 // N2 est-il une copie d'un nœud déjà vu et placé dans la liste des fermés ?
