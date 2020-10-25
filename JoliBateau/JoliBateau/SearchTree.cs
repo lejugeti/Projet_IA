@@ -11,6 +11,7 @@ namespace JoliBateau
     {
         public List<GenericNode> L_Ouverts;
         public List<GenericNode> L_Fermes;
+        public int Pavage;
 
         public int CountInOpenList()
         {
@@ -24,6 +25,11 @@ namespace JoliBateau
         public SearchTree()
         {
 
+        }
+
+        public SearchTree(int pavage)
+        {
+            Pavage = pavage;
         }
         public GenericNode ChercheNodeDansFermes(GenericNode N2)
         {

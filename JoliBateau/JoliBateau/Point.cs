@@ -11,15 +11,16 @@ namespace JoliBateau
         public double X { get; set; }
         public double Y { get; set; }
         public static char cas;
-        public double distNoeud = 1; //constante définissant la distance en km entre les noeuds
-         
+        public static double DistNoeuds { get; set; } //constante définissant la distance en km entre les noeuds
+        public static double Pavage { get; set; } // indicateur du pavage à prendre 
+       
         public Point()
         {
 
         }
 
         //constructeur du point initial du graph en fonction du cas a, b ou c
-        public Point(char inputCas)
+        public Point(char inputCas, int pavage, double dist)
         {
             cas = inputCas;
             switch (inputCas)
@@ -39,7 +40,9 @@ namespace JoliBateau
                     Y = 100;
                     break;
             }
-            
+
+            DistNoeuds = dist;
+            Pavage = pavage;
             ParentNode = null;          
             Enfants = new List<GenericNode>();
         }
@@ -177,50 +180,84 @@ namespace JoliBateau
         public override List<GenericNode> GetListSucc()
         {
             List<GenericNode> newNodes = new List<GenericNode>();
-
-            // distNoeud est la distance en km entre les noeuds. On utilise une variable ici pour 
-            // tester si il y a des modifications de performances en la changeant
-            double xDebut = X - distNoeud;
-            double xFin = X + distNoeud;
-            double yDebut = Y - distNoeud;
-            double yFin = Y + distNoeud;
+            double xDebut = X - DistNoeuds;
+            double xFin = X + DistNoeuds;
+            double yDebut = Y - DistNoeuds;
+            double yFin = Y + DistNoeuds;
 
             // on doit gérer les cas particuliers avec la bordure pour la recherche des noeuds environnants
-            if (X == 0) 
+            if (X == 0)
             {
                 xDebut = X;
-                xFin = X + distNoeud;
-            } 
-            else if(X == 300)
-            {
-                xDebut = X - distNoeud;
-                xFin = X;   
+                xFin = X + DistNoeuds;
             }
-            
+            else if (X == 300)
+            {
+                xDebut = X - DistNoeuds;
+                xFin = X;
+            }
+
             if (Y == 0)
             {
                 yDebut = Y;
-                yFin = Y + distNoeud;
+                yFin = Y + DistNoeuds;
             }
             else if (Y == 300)
             {
-                yDebut = Y - distNoeud;
+                yDebut = Y - DistNoeuds;
                 yFin = Y;
             }
 
-
-            // on prend les noeuds autour de P1
-            for (double x = xDebut; x <= xFin; x += distNoeud)
+            if (Pavage == 0) // pavage carré de 8
             {
-                for (double  y = yDebut; y <= yFin; y += distNoeud)
+                // on prend les noeuds autour de P1
+                for (double x = xDebut; x <= xFin; x += DistNoeuds)
                 {
-                    if(x != X || y != Y)
+                    for (double y = yDebut; y <= yFin; y += DistNoeuds)
                     {
-                        Point tempPoint = new Point(x, y);
-                        newNodes.Add(tempPoint);
+                        if (x != X || y != Y)
+                        {
+                            Point tempPoint = new Point(x, y);
+                            newNodes.Add(tempPoint);
+                        }
                     }
                 }
             }
+            else if(Pavage == 1) // pavage croix de 1
+            {
+                // on prend les noeuds autour de P1 en croix de 1
+                for (double x = xDebut; x <= xFin; x += DistNoeuds)
+                {
+                    for (double y = yDebut; y <= yFin; y += DistNoeuds)
+                    {
+                        if ((x == X || y == Y) && (x != y))
+                        {
+                            Point tempPoint = new Point(x, y);
+                            newNodes.Add(tempPoint);
+                        }
+                    }
+                }
+            }
+
+            else if (Pavage == 2) // pavage diagonal
+            {
+                // on prend les noeuds autour de P1 en croix de 1
+                for (double x = xDebut; x <= xFin; x += DistNoeuds)
+                {
+                    for (double y = yDebut; y <= yFin; y += DistNoeuds)
+                    {
+                        if (x != X && y != Y)
+                        {
+                            Point tempPoint = new Point(x, y);
+                            newNodes.Add(tempPoint);
+                        }
+                    }
+                }
+            }
+            // on peut essayer de voir si le Pf est à portée pour l'ajouter aux noeux ouverts
+            Point Pf = Point.PointFinal();
+            double distance = Math.Sqrt((Pf.X - X) * (Pf.X - X) + (Pf.Y - Y) * (Pf.Y - Y));
+            if (distance <= 10) newNodes.Add(Pf);
 
             return newNodes;
         }
