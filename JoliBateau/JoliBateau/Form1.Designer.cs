@@ -202,9 +202,9 @@
             this.radioButtonPavage2.AutoSize = true;
             this.radioButtonPavage2.Location = new System.Drawing.Point(18, 84);
             this.radioButtonPavage2.Name = "radioButtonPavage2";
-            this.radioButtonPavage2.Size = new System.Drawing.Size(74, 17);
+            this.radioButtonPavage2.Size = new System.Drawing.Size(67, 17);
             this.radioButtonPavage2.TabIndex = 2;
-            this.radioButtonPavage2.Text = "Hexagone";
+            this.radioButtonPavage2.Text = "Diagonal";
             this.radioButtonPavage2.UseVisualStyleBackColor = true;
             // 
             // radioButtonPavage1

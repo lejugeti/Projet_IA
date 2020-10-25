@@ -184,32 +184,32 @@ namespace JoliBateau
             double xFin = X + DistNoeuds;
             double yDebut = Y - DistNoeuds;
             double yFin = Y + DistNoeuds;
-            
+
+            // on doit gérer les cas particuliers avec la bordure pour la recherche des noeuds environnants
+            if (X == 0)
+            {
+                xDebut = X;
+                xFin = X + DistNoeuds;
+            }
+            else if (X == 300)
+            {
+                xDebut = X - DistNoeuds;
+                xFin = X;
+            }
+
+            if (Y == 0)
+            {
+                yDebut = Y;
+                yFin = Y + DistNoeuds;
+            }
+            else if (Y == 300)
+            {
+                yDebut = Y - DistNoeuds;
+                yFin = Y;
+            }
+
             if (Pavage == 0) // pavage carré de 8
             {
-                // on doit gérer les cas particuliers avec la bordure pour la recherche des noeuds environnants
-                if (X == 0)
-                {
-                    xDebut = X;
-                    xFin = X + DistNoeuds;
-                }
-                else if (X == 300)
-                {
-                    xDebut = X - DistNoeuds;
-                    xFin = X;
-                }
-
-                if (Y == 0)
-                {
-                    yDebut = Y;
-                    yFin = Y + DistNoeuds;
-                }
-                else if (Y == 300)
-                {
-                    yDebut = Y - DistNoeuds;
-                    yFin = Y;
-                }
-
                 // on prend les noeuds autour de P1
                 for (double x = xDebut; x <= xFin; x += DistNoeuds)
                 {
@@ -225,29 +225,6 @@ namespace JoliBateau
             }
             else if(Pavage == 1) // pavage croix de 1
             {
-                // on doit gérer les cas particuliers avec la bordure pour la recherche des noeuds environnants
-                if (X == 0)
-                {
-                    xDebut = X;
-                    xFin = X + DistNoeuds;
-                }
-                else if (X == 300)
-                {
-                    xDebut = X - DistNoeuds;
-                    xFin = X;
-                }
-
-                if (Y == 0)
-                {
-                    yDebut = Y;
-                    yFin = Y + DistNoeuds;
-                }
-                else if (Y == 300)
-                {
-                    yDebut = Y - DistNoeuds;
-                    yFin = Y;
-                }
-                
                 // on prend les noeuds autour de P1 en croix de 1
                 for (double x = xDebut; x <= xFin; x += DistNoeuds)
                 {
@@ -262,6 +239,21 @@ namespace JoliBateau
                 }
             }
 
+            else if (Pavage == 2) // pavage diagonal
+            {
+                // on prend les noeuds autour de P1 en croix de 1
+                for (double x = xDebut; x <= xFin; x += DistNoeuds)
+                {
+                    for (double y = yDebut; y <= yFin; y += DistNoeuds)
+                    {
+                        if (x != X && y != Y)
+                        {
+                            Point tempPoint = new Point(x, y);
+                            newNodes.Add(tempPoint);
+                        }
+                    }
+                }
+            }
             // on peut essayer de voir si le Pf est à portée pour l'ajouter aux noeux ouverts
             Point Pf = Point.PointFinal();
             double distance = Math.Sqrt((Pf.X - X) * (Pf.X - X) + (Pf.Y - Y) * (Pf.Y - Y));
