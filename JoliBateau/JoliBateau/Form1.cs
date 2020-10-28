@@ -60,6 +60,10 @@ namespace JoliBateau
             {
                 pavage = radioButtonPavage2.TabIndex;
             }
+            else if (radioButtonPavage3.Checked)
+            {
+                pavage = radioButtonPavage3.TabIndex;
+            }
             else pavage = 0; // pavage en carré par défaut
 
 
@@ -74,6 +78,14 @@ namespace JoliBateau
                 distance = 0.1;
             }
             else if (radioButtonDist2.Checked)
+            {
+                distance = 2;
+            }
+            else if (radioButtonDist3.Checked)
+            {
+                distance = 5;
+            }
+            else if (radioButtonDist4.Checked)
             {
                 distance = 10;
             }
