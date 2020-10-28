@@ -254,6 +254,44 @@ namespace JoliBateau
                     }
                 }
             }
+            else if (Pavage == 3) // pavage cercle
+            {
+                // on va prendre des nouveaux noeuds en cercle autour du noeud actuel
+                // donc on a des angles multiple de pi d'où les coefficients suivants
+                double rayonCercle = DistNoeuds; 
+                double coef1 = rayonCercle * Math.Sqrt(3) / 2;
+                double coef2 = rayonCercle * (1 / 2);
+                double coef3 = rayonCercle * (-1) * Math.Sqrt(3) / 2;
+                double coef4 = rayonCercle * (- 1 / 2);
+                double coef5 = rayonCercle * Math.Sqrt(2) / 2; // pour avoir diagonales
+                List<GenericNode> tempNodes = new List<GenericNode>(); // liste utile pour vérification des coordonnées des points
+
+                tempNodes.Add(new Point(X + rayonCercle, Y)); // 0
+                tempNodes.Add(new Point(X + coef1, Y + rayonCercle + coef2)); // pi /6
+                tempNodes.Add(new Point(X + coef2, Y + coef1)); // pi / 3
+                tempNodes.Add(new Point(X + coef5, Y + coef5)); // pi / 4
+                tempNodes.Add(new Point(X, Y + rayonCercle)); // pi / 2
+                tempNodes.Add(new Point(X + coef4, Y + coef1)); // 2pi/3
+                tempNodes.Add(new Point(X - coef5, Y + coef5)); // 3pi/4
+                tempNodes.Add(new Point(X + coef3, Y + coef2)); // 5pi/6
+                tempNodes.Add(new Point(X - rayonCercle, Y)); // pi
+                tempNodes.Add(new Point(X + coef3, Y + coef4)); // -5pi/6
+                tempNodes.Add(new Point(X - coef5, Y - coef5)); // -3pi/4
+                tempNodes.Add(new Point(X + coef4, Y + coef3)); // -2pi/3
+                tempNodes.Add(new Point(X, Y - rayonCercle)); // -pi/2
+                tempNodes.Add(new Point(X + coef2, Y + coef3)); // - pi/3
+                tempNodes.Add(new Point(X + coef5, Y - coef5)); // -pi/4
+                tempNodes.Add(new Point(X + coef1, Y + coef4)); // -pi/6
+
+                foreach(GenericNode node in tempNodes)
+                {
+                    Point temp = (Point)node;
+                    if(temp.X >= 0 && temp.X <= 300 && temp.Y >= 0 && temp.Y <= 300)
+                    {
+                        newNodes.Add(node);
+                    }
+                }
+            }
             // on peut essayer de voir si le Pf est à portée pour l'ajouter aux noeux ouverts
             Point Pf = Point.PointFinal();
             double distance = Math.Sqrt((Pf.X - X) * (Pf.X - X) + (Pf.Y - Y) * (Pf.Y - Y));

@@ -47,9 +47,12 @@
             this.radioButtonPavage1 = new System.Windows.Forms.RadioButton();
             this.radioButtonPavage0 = new System.Windows.Forms.RadioButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.radioButtonDist2 = new System.Windows.Forms.RadioButton();
+            this.radioButtonDist4 = new System.Windows.Forms.RadioButton();
             this.radioButtonDist1 = new System.Windows.Forms.RadioButton();
             this.radioButtonDist0 = new System.Windows.Forms.RadioButton();
+            this.radioButtonPavage3 = new System.Windows.Forms.RadioButton();
+            this.radioButtonDist2 = new System.Windows.Forms.RadioButton();
+            this.radioButtonDist3 = new System.Windows.Forms.RadioButton();
             this.groupCas.SuspendLayout();
             this.groupBoxPavage.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -187,12 +190,13 @@
             // 
             // groupBoxPavage
             // 
+            this.groupBoxPavage.Controls.Add(this.radioButtonPavage3);
             this.groupBoxPavage.Controls.Add(this.radioButtonPavage2);
             this.groupBoxPavage.Controls.Add(this.radioButtonPavage1);
             this.groupBoxPavage.Controls.Add(this.radioButtonPavage0);
-            this.groupBoxPavage.Location = new System.Drawing.Point(243, 74);
+            this.groupBoxPavage.Location = new System.Drawing.Point(25, 197);
             this.groupBoxPavage.Name = "groupBoxPavage";
-            this.groupBoxPavage.Size = new System.Drawing.Size(200, 107);
+            this.groupBoxPavage.Size = new System.Drawing.Size(200, 151);
             this.groupBoxPavage.TabIndex = 16;
             this.groupBoxPavage.TabStop = false;
             this.groupBoxPavage.Text = "Pavage";
@@ -232,30 +236,32 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.radioButtonDist3);
             this.groupBox1.Controls.Add(this.radioButtonDist2);
+            this.groupBox1.Controls.Add(this.radioButtonDist4);
             this.groupBox1.Controls.Add(this.radioButtonDist1);
             this.groupBox1.Controls.Add(this.radioButtonDist0);
-            this.groupBox1.Location = new System.Drawing.Point(25, 213);
+            this.groupBox1.Location = new System.Drawing.Point(271, 74);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(200, 107);
+            this.groupBox1.Size = new System.Drawing.Size(200, 136);
             this.groupBox1.TabIndex = 17;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Distance entre noeuds";
             // 
-            // radioButtonDist2
+            // radioButtonDist4
             // 
-            this.radioButtonDist2.AutoSize = true;
-            this.radioButtonDist2.Location = new System.Drawing.Point(18, 84);
-            this.radioButtonDist2.Name = "radioButtonDist2";
-            this.radioButtonDist2.Size = new System.Drawing.Size(37, 17);
-            this.radioButtonDist2.TabIndex = 2;
-            this.radioButtonDist2.Text = "10";
-            this.radioButtonDist2.UseVisualStyleBackColor = true;
+            this.radioButtonDist4.AutoSize = true;
+            this.radioButtonDist4.Location = new System.Drawing.Point(18, 113);
+            this.radioButtonDist4.Name = "radioButtonDist4";
+            this.radioButtonDist4.Size = new System.Drawing.Size(37, 17);
+            this.radioButtonDist4.TabIndex = 2;
+            this.radioButtonDist4.Text = "10";
+            this.radioButtonDist4.UseVisualStyleBackColor = true;
             // 
             // radioButtonDist1
             // 
             this.radioButtonDist1.AutoSize = true;
-            this.radioButtonDist1.Location = new System.Drawing.Point(18, 51);
+            this.radioButtonDist1.Location = new System.Drawing.Point(18, 42);
             this.radioButtonDist1.Name = "radioButtonDist1";
             this.radioButtonDist1.Size = new System.Drawing.Size(40, 17);
             this.radioButtonDist1.TabIndex = 1;
@@ -273,6 +279,37 @@
             this.radioButtonDist0.TabStop = true;
             this.radioButtonDist0.Text = "1";
             this.radioButtonDist0.UseVisualStyleBackColor = true;
+            // 
+            // radioButtonPavage3
+            // 
+            this.radioButtonPavage3.AutoSize = true;
+            this.radioButtonPavage3.Location = new System.Drawing.Point(18, 112);
+            this.radioButtonPavage3.Name = "radioButtonPavage3";
+            this.radioButtonPavage3.Size = new System.Drawing.Size(55, 17);
+            this.radioButtonPavage3.TabIndex = 3;
+            this.radioButtonPavage3.TabStop = true;
+            this.radioButtonPavage3.Text = "Cercle";
+            this.radioButtonPavage3.UseVisualStyleBackColor = true;
+            // 
+            // radioButtonDist2
+            // 
+            this.radioButtonDist2.AutoSize = true;
+            this.radioButtonDist2.Location = new System.Drawing.Point(18, 65);
+            this.radioButtonDist2.Name = "radioButtonDist2";
+            this.radioButtonDist2.Size = new System.Drawing.Size(31, 17);
+            this.radioButtonDist2.TabIndex = 18;
+            this.radioButtonDist2.Text = "2";
+            this.radioButtonDist2.UseVisualStyleBackColor = true;
+            // 
+            // radioButtonDist3
+            // 
+            this.radioButtonDist3.AutoSize = true;
+            this.radioButtonDist3.Location = new System.Drawing.Point(18, 88);
+            this.radioButtonDist3.Name = "radioButtonDist3";
+            this.radioButtonDist3.Size = new System.Drawing.Size(31, 17);
+            this.radioButtonDist3.TabIndex = 19;
+            this.radioButtonDist3.Text = "5";
+            this.radioButtonDist3.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -327,9 +364,12 @@
         private System.Windows.Forms.RadioButton radioButtonPavage1;
         private System.Windows.Forms.RadioButton radioButtonPavage0;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.RadioButton radioButtonDist2;
+        private System.Windows.Forms.RadioButton radioButtonDist4;
         private System.Windows.Forms.RadioButton radioButtonDist1;
         private System.Windows.Forms.RadioButton radioButtonDist0;
+        private System.Windows.Forms.RadioButton radioButtonPavage3;
+        private System.Windows.Forms.RadioButton radioButtonDist2;
+        private System.Windows.Forms.RadioButton radioButtonDist3;
     }
 }
 
