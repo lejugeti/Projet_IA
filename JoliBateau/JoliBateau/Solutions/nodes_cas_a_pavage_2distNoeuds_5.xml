@@ -1,0 +1,428 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SearchTree xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <L_Ouverts>
+    <GenericNode xsi:type="Point">
+      <Cout_Total>3.6892527714080732</Cout_Total>
+      <X>200</X>
+      <Y>100</Y>
+    </GenericNode>
+    <GenericNode xsi:type="Point">
+      <Cout_Total>3.7042558283432028</Cout_Total>
+      <X>135</X>
+      <Y>185</Y>
+    </GenericNode>
+    <GenericNode xsi:type="Point">
+      <Cout_Total>3.7111559214368013</Cout_Total>
+      <X>170</X>
+      <Y>140</Y>
+    </GenericNode>
+    <GenericNode xsi:type="Point">
+      <Cout_Total>3.733059071465529</Cout_Total>
+      <X>140</X>
+      <Y>180</Y>
+    </GenericNode>
+    <GenericNode xsi:type="Point">
+      <Cout_Total>3.740321367456386</Cout_Total>
+      <X>175</X>
+      <Y>135</Y>
+    </GenericNode>
+    <GenericNode xsi:type="Point">
+      <Cout_Total>3.7620856253401858</Cout_Total>
+      <X>145</X>
+      <Y>175</Y>
+    </GenericNode>
+    <GenericNode xsi:type="Point">
+      <Cout_Total>3.7702037042362733</Cout_Total>
+      <X>180</X>
+      <Y>130</Y>
+    </GenericNode>
+    <GenericNode xsi:type="Point">
+      <Cout_Total>3.7749753535284771</Cout_Total>
+      <X>100</X>
+      <Y>210</Y>
+    </GenericNode>
+    <GenericNode xsi:type="Point">
+      <Cout_Total>3.7839470036369018</Cout_Total>
+      <X>115</X>
+      <Y>215</Y>
+    </GenericNode>
+    <GenericNode xsi:type="Point">
+      <Cout_Total>3.7913899635046979</Cout_Total>
+      <X>150</X>
+      <Y>170</Y>
+    </GenericNode>
+    <GenericNode xsi:type="Point">
+      <Cout_Total>3.8013162699086012</Cout_Total>
+      <X>185</X>
+      <Y>125</Y>
+    </GenericNode>
+    <GenericNode xsi:type="Point">
+      <Cout_Total>3.81310316724294</Cout_Total>
+      <X>120</X>
+      <Y>210</Y>
+    </GenericNode>
+    <GenericNode xsi:type="Point">
+      <Cout_Total>3.821045687270284</Cout_Total>
+      <X>155</X>
+      <Y>165</Y>
+    </GenericNode>
+    <GenericNode xsi:type="Point">
+      <Cout_Total>3.834799359607258</Cout_Total>
+      <X>190</X>
+      <Y>120</Y>
+    </GenericNode>
+    <GenericNode xsi:type="Point">
+      <Cout_Total>3.8424585595530094</Cout_Total>
+      <X>125</X>
+      <Y>205</Y>
+    </GenericNode>
+    <GenericNode xsi:type="Point">
+      <Cout_Total>3.851154637064472</Cout_Total>
+      <X>160</X>
+      <Y>160</Y>
+    </GenericNode>
+    <GenericNode xsi:type="Point">
+      <Cout_Total>3.8720473570500271</Cout_Total>
+      <X>130</X>
+      <Y>200</Y>
+    </GenericNode>
+    <GenericNode xsi:type="Point">
+      <Cout_Total>3.8737221876408618</Cout_Total>
+      <X>195</X>
+      <Y>115</Y>
+    </GenericNode>
+    <GenericNode xsi:type="Point">
+      <Cout_Total>3.8818616876959133</Cout_Total>
+      <X>165</X>
+      <Y>155</Y>
+    </GenericNode>
+    <GenericNode xsi:type="Point">
+      <Cout_Total>3.9019119550621273</Cout_Total>
+      <X>135</X>
+      <Y>195</Y>
+    </GenericNode>
+    <GenericNode xsi:type="Point">
+      <Cout_Total>3.9133797684091283</Cout_Total>
+      <X>170</X>
+      <Y>150</Y>
+    </GenericNode>
+    <GenericNode xsi:type="Point">
+      <Cout_Total>3.9290428639703343</Cout_Total>
+      <X>200</X>
+      <Y>110</Y>
+    </GenericNode>
+    <GenericNode xsi:type="Point">
+      <Cout_Total>3.9881981164073181</Cout_Total>
+      <X>105</X>
+      <Y>215</Y>
+    </GenericNode>
+    <GenericNode xsi:type="Point">
+      <Cout_Total>3.9957145095620783</Cout_Total>
+      <X>90</X>
+      <Y>210</Y>
+    </GenericNode>
+    <GenericNode xsi:type="Point">
+      <Cout_Total>1000003.1466227241</Cout_Total>
+      <X>95</X>
+      <Y>195</Y>
+    </GenericNode>
+    <GenericNode xsi:type="Point">
+      <Cout_Total>1000003.1741568713</Cout_Total>
+      <X>100</X>
+      <Y>190</Y>
+    </GenericNode>
+    <GenericNode xsi:type="Point">
+      <Cout_Total>1000003.2017138958</Cout_Total>
+      <X>105</X>
+      <Y>185</Y>
+    </GenericNode>
+    <GenericNode xsi:type="Point">
+      <Cout_Total>1000003.2292978221</Cout_Total>
+      <X>110</X>
+      <Y>180</Y>
+    </GenericNode>
+    <GenericNode xsi:type="Point">
+      <Cout_Total>1000003.2569136763</Cout_Total>
+      <X>115</X>
+      <Y>175</Y>
+    </GenericNode>
+    <GenericNode xsi:type="Point">
+      <Cout_Total>1000003.2845678179</Cout_Total>
+      <X>120</X>
+      <Y>170</Y>
+    </GenericNode>
+    <GenericNode xsi:type="Point">
+      <Cout_Total>1000003.3122684138</Cout_Total>
+      <X>125</X>
+      <Y>165</Y>
+    </GenericNode>
+    <GenericNode xsi:type="Point">
+      <Cout_Total>1000003.3400261272</Cout_Total>
+      <X>130</X>
+      <Y>160</Y>
+    </GenericNode>
+    <GenericNode xsi:type="Point">
+      <Cout_Total>1000003.3678551492</Cout_Total>
+      <X>135</X>
+      <Y>155</Y>
+    </GenericNode>
+    <GenericNode xsi:type="Point">
+      <Cout_Total>1000003.3957747862</Cout_Total>
+      <X>140</X>
+      <Y>150</Y>
+    </GenericNode>
+    <GenericNode xsi:type="Point">
+      <Cout_Total>1000003.4238119861</Cout_Total>
+      <X>145</X>
+      <Y>145</Y>
+    </GenericNode>
+    <GenericNode xsi:type="Point">
+      <Cout_Total>1000003.4520055215</Cout_Total>
+      <X>150</X>
+      <Y>140</Y>
+    </GenericNode>
+    <GenericNode xsi:type="Point">
+      <Cout_Total>1000003.4804132463</Cout_Total>
+      <X>155</X>
+      <Y>135</Y>
+    </GenericNode>
+    <GenericNode xsi:type="Point">
+      <Cout_Total>1000003.5091254126</Cout_Total>
+      <X>160</X>
+      <Y>130</Y>
+    </GenericNode>
+    <GenericNode xsi:type="Point">
+      <Cout_Total>1000003.5382908586</Cout_Total>
+      <X>165</X>
+      <Y>125</Y>
+    </GenericNode>
+    <GenericNode xsi:type="Point">
+      <Cout_Total>1000003.5681731954</Cout_Total>
+      <X>170</X>
+      <Y>120</Y>
+    </GenericNode>
+    <GenericNode xsi:type="Point">
+      <Cout_Total>1000003.5729448446</Cout_Total>
+      <X>90</X>
+      <Y>200</Y>
+    </GenericNode>
+    <GenericNode xsi:type="Point">
+      <Cout_Total>1000003.599285761</Cout_Total>
+      <X>175</X>
+      <Y>115</Y>
+    </GenericNode>
+    <GenericNode xsi:type="Point">
+      <Cout_Total>1000003.6327688508</Cout_Total>
+      <X>180</X>
+      <Y>110</Y>
+    </GenericNode>
+    <GenericNode xsi:type="Point">
+      <Cout_Total>1000003.6716916788</Cout_Total>
+      <X>185</X>
+      <Y>105</Y>
+    </GenericNode>
+    <GenericNode xsi:type="Point">
+      <Cout_Total>1000003.7270123551</Cout_Total>
+      <X>190</X>
+      <Y>100</Y>
+    </GenericNode>
+  </L_Ouverts>
+  <L_Fermes>
+    <GenericNode xsi:type="Point">
+      <Cout_Total>0</Cout_Total>
+      <X>100</X>
+      <Y>200</Y>
+    </GenericNode>
+    <GenericNode xsi:type="Point">
+      <Cout_Total>3.1700246035802708</Cout_Total>
+      <X>105</X>
+      <Y>195</Y>
+    </GenericNode>
+    <GenericNode xsi:type="Point">
+      <Cout_Total>3.1973524018869979</Cout_Total>
+      <X>110</X>
+      <Y>190</Y>
+    </GenericNode>
+    <GenericNode xsi:type="Point">
+      <Cout_Total>3.224680200193724</Cout_Total>
+      <X>115</X>
+      <Y>185</Y>
+    </GenericNode>
+    <GenericNode xsi:type="Point">
+      <Cout_Total>3.2520079985004506</Cout_Total>
+      <X>120</X>
+      <Y>180</Y>
+    </GenericNode>
+    <GenericNode xsi:type="Point">
+      <Cout_Total>3.2793357968071772</Cout_Total>
+      <X>125</X>
+      <Y>175</Y>
+    </GenericNode>
+    <GenericNode xsi:type="Point">
+      <Cout_Total>3.3066635951139034</Cout_Total>
+      <X>130</X>
+      <Y>170</Y>
+    </GenericNode>
+    <GenericNode xsi:type="Point">
+      <Cout_Total>3.3339913934206304</Cout_Total>
+      <X>135</X>
+      <Y>165</Y>
+    </GenericNode>
+    <GenericNode xsi:type="Point">
+      <Cout_Total>3.3486532330229526</Cout_Total>
+      <X>105</X>
+      <Y>205</Y>
+    </GenericNode>
+    <GenericNode xsi:type="Point">
+      <Cout_Total>3.3613191917273566</Cout_Total>
+      <X>140</X>
+      <Y>160</Y>
+    </GenericNode>
+    <GenericNode xsi:type="Point">
+      <Cout_Total>3.3761873801638931</Cout_Total>
+      <X>110</X>
+      <Y>200</Y>
+    </GenericNode>
+    <GenericNode xsi:type="Point">
+      <Cout_Total>3.3886469900340832</Cout_Total>
+      <X>145</X>
+      <Y>155</Y>
+    </GenericNode>
+    <GenericNode xsi:type="Point">
+      <Cout_Total>3.4037444047139078</Cout_Total>
+      <X>115</X>
+      <Y>195</Y>
+    </GenericNode>
+    <GenericNode xsi:type="Point">
+      <Cout_Total>3.41597478834081</Cout_Total>
+      <X>150</X>
+      <Y>150</Y>
+    </GenericNode>
+    <GenericNode xsi:type="Point">
+      <Cout_Total>3.4313283310199409</Cout_Total>
+      <X>120</X>
+      <Y>190</Y>
+    </GenericNode>
+    <GenericNode xsi:type="Point">
+      <Cout_Total>3.443302586647536</Cout_Total>
+      <X>155</X>
+      <Y>145</Y>
+    </GenericNode>
+    <GenericNode xsi:type="Point">
+      <Cout_Total>3.4589441851375309</Cout_Total>
+      <X>125</X>
+      <Y>185</Y>
+    </GenericNode>
+    <GenericNode xsi:type="Point">
+      <Cout_Total>3.4706303849542626</Cout_Total>
+      <X>160</X>
+      <Y>140</Y>
+    </GenericNode>
+    <GenericNode xsi:type="Point">
+      <Cout_Total>3.486598326814605</Cout_Total>
+      <X>130</X>
+      <Y>180</Y>
+    </GenericNode>
+    <GenericNode xsi:type="Point">
+      <Cout_Total>3.4979581832609887</Cout_Total>
+      <X>165</X>
+      <Y>135</Y>
+    </GenericNode>
+    <GenericNode xsi:type="Point">
+      <Cout_Total>3.514298922697221</Cout_Total>
+      <X>135</X>
+      <Y>175</Y>
+    </GenericNode>
+    <GenericNode xsi:type="Point">
+      <Cout_Total>3.5252859815677153</Cout_Total>
+      <X>170</X>
+      <Y>130</Y>
+    </GenericNode>
+    <GenericNode xsi:type="Point">
+      <Cout_Total>3.5420566360794656</Cout_Total>
+      <X>140</X>
+      <Y>170</Y>
+    </GenericNode>
+    <GenericNode xsi:type="Point">
+      <Cout_Total>3.5526137798744415</Cout_Total>
+      <X>175</X>
+      <Y>125</Y>
+    </GenericNode>
+    <GenericNode xsi:type="Point">
+      <Cout_Total>3.5624322186101942</Cout_Total>
+      <X>110</X>
+      <Y>210</Y>
+    </GenericNode>
+    <GenericNode xsi:type="Point">
+      <Cout_Total>3.5692056574178115</Cout_Total>
+      <X>95</X>
+      <Y>205</Y>
+    </GenericNode>
+    <GenericNode xsi:type="Point">
+      <Cout_Total>3.5698856581321614</Cout_Total>
+      <X>145</X>
+      <Y>165</Y>
+    </GenericNode>
+    <GenericNode xsi:type="Point">
+      <Cout_Total>3.5799415781811676</Cout_Total>
+      <X>180</X>
+      <Y>120</Y>
+    </GenericNode>
+    <GenericNode xsi:type="Point">
+      <Cout_Total>3.5905805644149091</Cout_Total>
+      <X>115</X>
+      <Y>205</Y>
+    </GenericNode>
+    <GenericNode xsi:type="Point">
+      <Cout_Total>3.5978052951344432</Cout_Total>
+      <X>150</X>
+      <Y>160</Y>
+    </GenericNode>
+    <GenericNode xsi:type="Point">
+      <Cout_Total>3.6072693764878943</Cout_Total>
+      <X>185</X>
+      <Y>115</Y>
+    </GenericNode>
+    <GenericNode xsi:type="Point">
+      <Cout_Total>3.6188192893762912</Cout_Total>
+      <X>120</X>
+      <Y>200</Y>
+    </GenericNode>
+    <GenericNode xsi:type="Point">
+      <Cout_Total>3.6258424950091346</Cout_Total>
+      <X>155</X>
+      <Y>155</Y>
+    </GenericNode>
+    <GenericNode xsi:type="Point">
+      <Cout_Total>3.6345971747946204</Cout_Total>
+      <X>190</X>
+      <Y>110</Y>
+    </GenericNode>
+    <GenericNode xsi:type="Point">
+      <Cout_Total>3.6471641417343634</Cout_Total>
+      <X>125</X>
+      <Y>195</Y>
+    </GenericNode>
+    <GenericNode xsi:type="Point">
+      <Cout_Total>3.6540360303921826</Cout_Total>
+      <X>160</X>
+      <Y>150</Y>
+    </GenericNode>
+    <GenericNode xsi:type="Point">
+      <Cout_Total>3.661924973101347</Cout_Total>
+      <X>195</X>
+      <Y>105</Y>
+    </GenericNode>
+    <GenericNode xsi:type="Point">
+      <Cout_Total>3.6756347389894724</Cout_Total>
+      <X>130</X>
+      <Y>190</Y>
+    </GenericNode>
+    <GenericNode xsi:type="Point">
+      <Cout_Total>3.682443755198773</Cout_Total>
+      <X>165</X>
+      <Y>145</Y>
+    </GenericNode>
+  </L_Fermes>
+  <Pavage>2</Pavage>
+</SearchTree>

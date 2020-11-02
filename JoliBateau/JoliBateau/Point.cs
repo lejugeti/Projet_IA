@@ -223,14 +223,38 @@ namespace JoliBateau
                     }
                 }
             }
-            else if(Pavage == 1) // pavage croix de 1
+            else if(Pavage == 1) // pavage tout dans 10km
             {
-                // on prend les noeuds autour de P1 en croix de 1
-                for (double x = xDebut; x <= xFin; x += DistNoeuds)
+                DistNoeuds = 10;
+                xDebut = X - DistNoeuds;
+                xFin = X + DistNoeuds;
+                yDebut = Y - DistNoeuds;
+                yFin = Y + DistNoeuds; 
+                
+                // ensemble de conditions pour assurer un pavage cohérent même aux bordures
+                if(X <= 10)
                 {
-                    for (double y = yDebut; y <= yFin; y += DistNoeuds)
+                    xDebut = 0;
+                }
+                else if(X >= 290)
+                {
+                    xFin = 300;
+                }
+
+                if (Y <= 10)
+                {
+                    xDebut = 0;
+                }
+                else if (Y >= 290)
+                {
+                    xFin = 300;
+                }
+
+                for (double x = xDebut; x <= xFin; x += 1)
+                {
+                    for (double y = yDebut; y <= yFin; y += 1)
                     {
-                        if ((x == X || y == Y) && (x != y))
+                        if (x != X && y != Y)
                         {
                             Point tempPoint = new Point(x, y);
                             newNodes.Add(tempPoint);
@@ -266,22 +290,14 @@ namespace JoliBateau
                 double coef5 = rayonCercle * Math.Sqrt(2) / 2; // pour avoir diagonales
                 List<GenericNode> tempNodes = new List<GenericNode>(); // liste utile pour vérification des coordonnées des points
 
-                tempNodes.Add(new Point(X + rayonCercle, Y)); // 0
-                tempNodes.Add(new Point(X + coef1, Y + rayonCercle + coef2)); // pi /6
-                tempNodes.Add(new Point(X + coef2, Y + coef1)); // pi / 3
+                //tempNodes.Add(new Point(X + rayonCercle, Y)); // 0
                 tempNodes.Add(new Point(X + coef5, Y + coef5)); // pi / 4
-                tempNodes.Add(new Point(X, Y + rayonCercle)); // pi / 2
-                tempNodes.Add(new Point(X + coef4, Y + coef1)); // 2pi/3
+               // tempNodes.Add(new Point(X, Y + rayonCercle)); // pi / 2
                 tempNodes.Add(new Point(X - coef5, Y + coef5)); // 3pi/4
-                tempNodes.Add(new Point(X + coef3, Y + coef2)); // 5pi/6
-                tempNodes.Add(new Point(X - rayonCercle, Y)); // pi
-                tempNodes.Add(new Point(X + coef3, Y + coef4)); // -5pi/6
+                //tempNodes.Add(new Point(X - rayonCercle, Y)); // pi
                 tempNodes.Add(new Point(X - coef5, Y - coef5)); // -3pi/4
-                tempNodes.Add(new Point(X + coef4, Y + coef3)); // -2pi/3
-                tempNodes.Add(new Point(X, Y - rayonCercle)); // -pi/2
-                tempNodes.Add(new Point(X + coef2, Y + coef3)); // - pi/3
+                //tempNodes.Add(new Point(X, Y - rayonCercle)); // -pi/2
                 tempNodes.Add(new Point(X + coef5, Y - coef5)); // -pi/4
-                tempNodes.Add(new Point(X + coef1, Y + coef4)); // -pi/6
 
                 foreach(GenericNode node in tempNodes)
                 {
@@ -292,10 +308,11 @@ namespace JoliBateau
                     }
                 }
             }
-            // on peut essayer de voir si le Pf est à portée pour l'ajouter aux noeux ouverts
+            
+            /*// on peut essayer de voir si le Pf est à portée pour l'ajouter aux noeux ouverts
             Point Pf = Point.PointFinal();
             double distance = Math.Sqrt((Pf.X - X) * (Pf.X - X) + (Pf.Y - Y) * (Pf.Y - Y));
-            if (distance <= 10) newNodes.Add(Pf);
+            if (distance <= 10) newNodes.Add(Pf);*/
 
             return newNodes;
         }
@@ -313,12 +330,44 @@ namespace JoliBateau
             double x2 = Pf.X;
             double y2 = Pf.Y;
 
-            double distance = Math.Sqrt((x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2));
+            /*double distance = Math.Sqrt((x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2));
             double windspeed = 50;
             double alpha = 45;
             double boatspeed = (0.9 - 0.2 * (alpha - 45) / 45) * windspeed;
            
+            return (distance / boatspeed);*/
+
+            double distance = Math.Sqrt((x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2));
+            double windspeed = Vent.GetWindSpeed((x1 + x2) / 2.0, (y1 + y2) / 2.0);
+            double winddirection = Vent.GetWindDirection((x1 + x2) / 2.0, (y1 + y2) / 2.0);
+            double boatspeed;
+            double boatdirection = Math.Atan2(y2 - y1, x2 - x1) * 180 / Math.PI;
+            // On ramène entre 0 et 360
+            if (boatdirection < 0) boatdirection = boatdirection + 360;
+            // calcul de la différence angulaire
+            double alpha = Math.Abs(boatdirection - winddirection);
+            // On se ramène à une différence entre 0 et 180 :
+            if (alpha > 180) alpha = 360 - alpha;
+            if (alpha <= 45)
+            {
+                /* (0.6 + 0.3α / 45) v_v */
+                boatspeed = (0.6 + 0.3 * alpha / 45) * windspeed;
+            }
+            else if (alpha <= 90)
+            {
+                /*v_b=(0.9-0.2(α-45)/45) v_v */
+                boatspeed = (0.9 - 0.2 * (alpha - 45) / 45) * windspeed;
+            }
+            else if (alpha < 150)
+            {
+                /* v_b=0.7(1-(α-90)/60) v_v */
+                boatspeed = 0.7 * (1 - (alpha - 90) / 60) * windspeed;
+            }
+            else
+                return 1000000;
+            // estimation du temps de navigation entre p1 et p2
             return (distance / boatspeed);
+
         }
         // On peut aussi penser à surcharger ToString() pour afficher correctement un état
         // c'est utile pour l'affichage du treenode

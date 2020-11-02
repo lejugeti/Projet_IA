@@ -43,16 +43,16 @@
             this.labelStopwatch = new System.Windows.Forms.Label();
             this.groupCas = new System.Windows.Forms.GroupBox();
             this.groupBoxPavage = new System.Windows.Forms.GroupBox();
+            this.radioButtonPavage3 = new System.Windows.Forms.RadioButton();
             this.radioButtonPavage2 = new System.Windows.Forms.RadioButton();
             this.radioButtonPavage1 = new System.Windows.Forms.RadioButton();
             this.radioButtonPavage0 = new System.Windows.Forms.RadioButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.radioButtonDist3 = new System.Windows.Forms.RadioButton();
+            this.radioButtonDist2 = new System.Windows.Forms.RadioButton();
             this.radioButtonDist4 = new System.Windows.Forms.RadioButton();
             this.radioButtonDist1 = new System.Windows.Forms.RadioButton();
             this.radioButtonDist0 = new System.Windows.Forms.RadioButton();
-            this.radioButtonPavage3 = new System.Windows.Forms.RadioButton();
-            this.radioButtonDist2 = new System.Windows.Forms.RadioButton();
-            this.radioButtonDist3 = new System.Windows.Forms.RadioButton();
             this.groupCas.SuspendLayout();
             this.groupBoxPavage.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -201,6 +201,17 @@
             this.groupBoxPavage.TabStop = false;
             this.groupBoxPavage.Text = "Pavage";
             // 
+            // radioButtonPavage3
+            // 
+            this.radioButtonPavage3.AutoSize = true;
+            this.radioButtonPavage3.Location = new System.Drawing.Point(18, 112);
+            this.radioButtonPavage3.Name = "radioButtonPavage3";
+            this.radioButtonPavage3.Size = new System.Drawing.Size(55, 17);
+            this.radioButtonPavage3.TabIndex = 3;
+            this.radioButtonPavage3.TabStop = true;
+            this.radioButtonPavage3.Text = "Cercle";
+            this.radioButtonPavage3.UseVisualStyleBackColor = true;
+            // 
             // radioButtonPavage2
             // 
             this.radioButtonPavage2.AutoSize = true;
@@ -216,9 +227,9 @@
             this.radioButtonPavage1.AutoSize = true;
             this.radioButtonPavage1.Location = new System.Drawing.Point(18, 51);
             this.radioButtonPavage1.Name = "radioButtonPavage1";
-            this.radioButtonPavage1.Size = new System.Drawing.Size(72, 17);
+            this.radioButtonPavage1.Size = new System.Drawing.Size(80, 17);
             this.radioButtonPavage1.TabIndex = 1;
-            this.radioButtonPavage1.Text = "Croix de 1";
+            this.radioButtonPavage1.Text = "Carré de 10";
             this.radioButtonPavage1.UseVisualStyleBackColor = true;
             this.radioButtonPavage1.CheckedChanged += new System.EventHandler(this.radioButton5_CheckedChanged);
             // 
@@ -228,10 +239,10 @@
             this.radioButtonPavage0.Checked = true;
             this.radioButtonPavage0.Location = new System.Drawing.Point(18, 19);
             this.radioButtonPavage0.Name = "radioButtonPavage0";
-            this.radioButtonPavage0.Size = new System.Drawing.Size(50, 17);
+            this.radioButtonPavage0.Size = new System.Drawing.Size(74, 17);
             this.radioButtonPavage0.TabIndex = 0;
             this.radioButtonPavage0.TabStop = true;
-            this.radioButtonPavage0.Text = "Carré";
+            this.radioButtonPavage0.Text = "Carré de 1";
             this.radioButtonPavage0.UseVisualStyleBackColor = true;
             // 
             // groupBox1
@@ -247,6 +258,26 @@
             this.groupBox1.TabIndex = 17;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Distance entre noeuds";
+            // 
+            // radioButtonDist3
+            // 
+            this.radioButtonDist3.AutoSize = true;
+            this.radioButtonDist3.Location = new System.Drawing.Point(18, 88);
+            this.radioButtonDist3.Name = "radioButtonDist3";
+            this.radioButtonDist3.Size = new System.Drawing.Size(31, 17);
+            this.radioButtonDist3.TabIndex = 19;
+            this.radioButtonDist3.Text = "5";
+            this.radioButtonDist3.UseVisualStyleBackColor = true;
+            // 
+            // radioButtonDist2
+            // 
+            this.radioButtonDist2.AutoSize = true;
+            this.radioButtonDist2.Location = new System.Drawing.Point(18, 65);
+            this.radioButtonDist2.Name = "radioButtonDist2";
+            this.radioButtonDist2.Size = new System.Drawing.Size(31, 17);
+            this.radioButtonDist2.TabIndex = 18;
+            this.radioButtonDist2.Text = "2";
+            this.radioButtonDist2.UseVisualStyleBackColor = true;
             // 
             // radioButtonDist4
             // 
@@ -279,37 +310,6 @@
             this.radioButtonDist0.TabStop = true;
             this.radioButtonDist0.Text = "1";
             this.radioButtonDist0.UseVisualStyleBackColor = true;
-            // 
-            // radioButtonPavage3
-            // 
-            this.radioButtonPavage3.AutoSize = true;
-            this.radioButtonPavage3.Location = new System.Drawing.Point(18, 112);
-            this.radioButtonPavage3.Name = "radioButtonPavage3";
-            this.radioButtonPavage3.Size = new System.Drawing.Size(55, 17);
-            this.radioButtonPavage3.TabIndex = 3;
-            this.radioButtonPavage3.TabStop = true;
-            this.radioButtonPavage3.Text = "Cercle";
-            this.radioButtonPavage3.UseVisualStyleBackColor = true;
-            // 
-            // radioButtonDist2
-            // 
-            this.radioButtonDist2.AutoSize = true;
-            this.radioButtonDist2.Location = new System.Drawing.Point(18, 65);
-            this.radioButtonDist2.Name = "radioButtonDist2";
-            this.radioButtonDist2.Size = new System.Drawing.Size(31, 17);
-            this.radioButtonDist2.TabIndex = 18;
-            this.radioButtonDist2.Text = "2";
-            this.radioButtonDist2.UseVisualStyleBackColor = true;
-            // 
-            // radioButtonDist3
-            // 
-            this.radioButtonDist3.AutoSize = true;
-            this.radioButtonDist3.Location = new System.Drawing.Point(18, 88);
-            this.radioButtonDist3.Name = "radioButtonDist3";
-            this.radioButtonDist3.Size = new System.Drawing.Size(31, 17);
-            this.radioButtonDist3.TabIndex = 19;
-            this.radioButtonDist3.Text = "5";
-            this.radioButtonDist3.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
