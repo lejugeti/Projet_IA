@@ -2,7 +2,7 @@
 <SearchTree xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <L_Ouverts>
     <GenericNode xsi:type="Point">
-      <Cout_Total>6.1787189725089453</Cout_Total>
+      <Cout_Total>6.178718972508948</Cout_Total>
       <X>100</X>
       <Y>200</Y>
     </GenericNode>

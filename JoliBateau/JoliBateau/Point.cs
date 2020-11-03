@@ -43,7 +43,7 @@ namespace JoliBateau
 
             DistNoeuds = dist;
             Pavage = pavage;
-            ParentNode = null;          
+            ParentNode = null;
             Enfants = new List<GenericNode>();
         }
 
