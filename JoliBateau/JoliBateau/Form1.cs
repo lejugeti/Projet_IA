@@ -90,8 +90,10 @@ namespace JoliBateau
                 distance = 10;
             }
 
-            Point P0 = new Point(Char.Parse(cas), pavage, distance);
-            SearchTree tree = new SearchTree(pavage);
+            Point P0 = new Point(Int32.Parse(textBoxP1X.Text), Int32.Parse(textBoxP1Y.Text), Char.Parse(cas), pavage, distance);
+            Point.Pf = new Point(Int32.Parse(textBoxPfX.Text), Int32.Parse(textBoxPfX.Text));
+
+            SearchTree tree = new SearchTree();
             Stopwatch stopwatch = new Stopwatch();
             
             stopwatch.Start();
@@ -111,7 +113,7 @@ namespace JoliBateau
                 }
                 labelCountOpen.Text = "Nb noeuds des ouverts : " + tree.CountInOpenList().ToString();
                 labelCountClosed.Text = "Nb noeuds des fermés : " + tree.CountInClosedList().ToString();
-                tree.GetSearchTree(treeView1);
+                //tree.GetSearchTree(treeView1);
 
                 //Différents affichages pour les stats de la recherche
                 GenericNode Pf = solution.Last();
@@ -120,10 +122,10 @@ namespace JoliBateau
                 nbNoeudsSolution.Text = $"Nb de noeuds dans la solution : {solution.Count().ToString()}";
                 labelStopwatch.Text = $"{stopwatch.Elapsed.Minutes} min {stopwatch.Elapsed.Seconds} seconds";
 
-                // on sauvegarde les données au cas où
+                /*// on sauvegarde les données au cas où
                 StreamWriter sw = new StreamWriter($"../../Solutions/nodes_cas_{cas}_pavage_{pavage}distNoeuds_{distance}.xml");
                 XmlSerializer w = new XmlSerializer(typeof(SearchTree));
-                w.Serialize(sw, tree);
+                w.Serialize(sw, tree);*/
             }
 
             
@@ -145,6 +147,16 @@ namespace JoliBateau
         }
 
         private void radioButton5_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void trackBar1_Scroll(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void label2_Click_1(object sender, EventArgs e)
         {
 
         }

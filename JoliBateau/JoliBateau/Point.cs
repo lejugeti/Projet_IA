@@ -13,34 +13,25 @@ namespace JoliBateau
         public static char cas;
         public static double DistNoeuds { get; set; } //constante définissant la distance en km entre les noeuds
         public static double Pavage { get; set; } // indicateur du pavage à prendre 
-       
+        public static Point Pf { get; set; }
+
         public Point()
         {
 
         }
 
         //constructeur du point initial du graph en fonction du cas a, b ou c
-        public Point(char inputCas, int pavage, double dist)
+        public Point(double x, double y, char inputCas, int pavage, double dist)
         {
-            cas = inputCas;
-            switch (inputCas)
-            {
-                case 'a':
-                    X = 100;
-                    Y = 200;
-                    break;
-                
-                case 'b':
-                    X = 100;
-                    Y = 200;
-                    break;
-                
-                case 'c':
-                    X = 200;
-                    Y = 100;
-                    break;
-            }
+            X = x;
+            Y = y;
 
+            if (X < 0) X = 0;
+            else if (X > 300) X = 300;
+            if (Y < 0) Y = 0;
+            if (Y > 300) Y = 0;
+
+            cas = inputCas;            
             DistNoeuds = dist;
             Pavage = pavage;
             ParentNode = null;
@@ -60,35 +51,6 @@ namespace JoliBateau
             else if (Y > 300) Y = 300;
             
             Enfants = new List<GenericNode>();
-        }
-
-        // méthode qui crée le point final à atteindre Pf
-        public static Point PointFinal()
-        {
-            int Xf = 0;
-            int Yf = 0;
-            switch (cas)
-            {
-                case 'a':
-                    Xf = 200;
-                    Yf = 100;
-                    break;
-
-                case 'b':
-                    Xf = 200;
-                    Yf = 100;
-                    break;
-
-                case 'c':
-                    Xf = 100;
-                    Yf = 200;
-                    break;
-
-            }
-
-            Point pointFinal = new Point(Xf, Yf);
-            
-            return pointFinal;
         }
 
         //estime le temps que met le bateau pour aller de P1 à P2 en fonction du vent et de l'angle du bateau
@@ -151,28 +113,7 @@ namespace JoliBateau
         //renvoie si le Point p est l'état final à atteindre
         public override bool EndState()
         {
-            int Xf = 0; 
-            int Yf = 0;
-            switch (cas)
-            {
-                case 'a':
-                    Xf = 200;
-                    Yf = 100;
-                    break;
-
-                case 'b':
-                    Xf = 200;
-                    Yf = 100;
-                    break;
-
-                case 'c':
-                    Xf = 100;
-                    Yf = 200;
-                    break;
-
-            }
-
-            if (X == Xf && Y == Yf) return true;
+            if (X == Pf.X && Y == Pf.Y) return true;
             return false;
         }
 
@@ -208,111 +149,82 @@ namespace JoliBateau
                 yFin = Y;
             }
 
-            if (Pavage == 0) // pavage carré de 8
+            switch (Pavage)
             {
-                // on prend les noeuds autour de P1
-                for (double x = xDebut; x <= xFin; x += DistNoeuds)
-                {
-                    for (double y = yDebut; y <= yFin; y += DistNoeuds)
+                case 0: // pavage carré de 8
+                    // on prend les noeuds autour de P1
+                    for (double x = xDebut; x <= xFin; x += DistNoeuds)
                     {
-                        if (x != X || y != Y)
+                        for (double y = yDebut; y <= yFin; y += DistNoeuds)
                         {
-                            Point tempPoint = new Point(x, y);
-                            newNodes.Add(tempPoint);
+                            if (x != X || y != Y)
+                            {
+                                Point tempPoint = new Point(x, y);
+                                newNodes.Add(tempPoint);
+                            }
                         }
                     }
-                }
-            }
-            else if(Pavage == 1) // pavage tout dans 10km
-            {
-                DistNoeuds = 10;
-                xDebut = X - DistNoeuds;
-                xFin = X + DistNoeuds;
-                yDebut = Y - DistNoeuds;
-                yFin = Y + DistNoeuds; 
-                
-                // ensemble de conditions pour assurer un pavage cohérent même aux bordures
-                if(X <= 10)
-                {
-                    xDebut = 0;
-                }
-                else if(X >= 290)
-                {
-                    xFin = 300;
-                }
+                    break;
 
-                if (Y <= 10)
-                {
-                    xDebut = 0;
-                }
-                else if (Y >= 290)
-                {
-                    xFin = 300;
-                }
+                case 1:
+                    xDebut = X - 7;
+                    xFin = X + 7;
+                    yDebut = Y - 7;
+                    yFin = Y + 7;
 
-                for (double x = xDebut; x <= xFin; x += 1)
-                {
-                    for (double y = yDebut; y <= yFin; y += 1)
+                    // ensemble de conditions pour assurer un pavage cohérent même aux bordures
+                    if (X <= 7)
                     {
-                        if (x != X && y != Y)
+                        xDebut = 0;
+                    }
+                    else if (X >= 293)
+                    {
+                        xFin = 300;
+                    }
+
+                    if (Y <= 7)
+                    {
+                        xDebut = 0;
+                    }
+                    else if (Y >= 293)
+                    {
+                        xFin = 300;
+                    }
+
+                    for (double x = xDebut; x <= xFin; x += 1)
+                    {
+                        for (double y = yDebut; y <= yFin; y += 1)
                         {
-                            Point tempPoint = new Point(x, y);
-                            newNodes.Add(tempPoint);
+                            if (x != X && y != Y)
+                            {
+                                Point tempPoint = new Point(x, y);
+                                newNodes.Add(tempPoint);
+                            }
                         }
                     }
-                }
-            }
 
-            else if (Pavage == 2) // pavage diagonal
-            {
-                // on prend les noeuds autour de P1 en croix de 1
-                for (double x = xDebut; x <= xFin; x += DistNoeuds)
-                {
-                    for (double y = yDebut; y <= yFin; y += DistNoeuds)
+                    break;
+
+                case 2: //pavage diagonal
+                    
+                    // on prend les noeuds autour de P1 en croix de 1
+                    for (double x = xDebut; x <= xFin; x += DistNoeuds)
                     {
-                        if (x != X && y != Y)
+                        for (double y = yDebut; y <= yFin; y += DistNoeuds)
                         {
-                            Point tempPoint = new Point(x, y);
-                            newNodes.Add(tempPoint);
+                            if (x != X && y != Y)
+                            {
+                                Point tempPoint = new Point(x, y);
+                                newNodes.Add(tempPoint);
+                            }
                         }
                     }
-                }
+                    break;
             }
-            else if (Pavage == 3) // pavage cercle
-            {
-                // on va prendre des nouveaux noeuds en cercle autour du noeud actuel
-                // donc on a des angles multiple de pi d'où les coefficients suivants
-                double rayonCercle = DistNoeuds; 
-                double coef1 = rayonCercle * Math.Sqrt(3) / 2;
-                double coef2 = rayonCercle * (1 / 2);
-                double coef3 = rayonCercle * (-1) * Math.Sqrt(3) / 2;
-                double coef4 = rayonCercle * (- 1 / 2);
-                double coef5 = rayonCercle * Math.Sqrt(2) / 2; // pour avoir diagonales
-                List<GenericNode> tempNodes = new List<GenericNode>(); // liste utile pour vérification des coordonnées des points
 
-                //tempNodes.Add(new Point(X + rayonCercle, Y)); // 0
-                tempNodes.Add(new Point(X + coef5, Y + coef5)); // pi / 4
-               // tempNodes.Add(new Point(X, Y + rayonCercle)); // pi / 2
-                tempNodes.Add(new Point(X - coef5, Y + coef5)); // 3pi/4
-                //tempNodes.Add(new Point(X - rayonCercle, Y)); // pi
-                tempNodes.Add(new Point(X - coef5, Y - coef5)); // -3pi/4
-                //tempNodes.Add(new Point(X, Y - rayonCercle)); // -pi/2
-                tempNodes.Add(new Point(X + coef5, Y - coef5)); // -pi/4
-
-                foreach(GenericNode node in tempNodes)
-                {
-                    Point temp = (Point)node;
-                    if(temp.X >= 0 && temp.X <= 300 && temp.Y >= 0 && temp.Y <= 300)
-                    {
-                        newNodes.Add(node);
-                    }
-                }
-            }
-            
-            /*// on peut essayer de voir si le Pf est à portée pour l'ajouter aux noeux ouverts
-            Point Pf = Point.PointFinal();
-            double distance = Math.Sqrt((Pf.X - X) * (Pf.X - X) + (Pf.Y - Y) * (Pf.Y - Y));
-            if (distance <= 10) newNodes.Add(Pf);*/
+            // on peut essayer de voir si le Pf est à portée pour l'ajouter aux noeux ouverts
+            double distance = Math.Sqrt(Math.Pow((Pf.X - X), 2) + Math.Pow((Pf.Y - Y), 2));
+            if (distance <= 10) newNodes.Add(Pf);
 
             return newNodes;
         }
@@ -324,21 +236,12 @@ namespace JoliBateau
             // en plus on enlève la restriction des 10km ça rend le calcul plus facile plutôt que de calculer la trajectoire optimale avec 
             // les diagonales.
 
-            Point Pf = Point.PointFinal();
-            double x1 = X;
-            double y1 = Y;
-            double x2 = Pf.X;
-            double y2 = Pf.Y;
-
-            double distance = Math.Sqrt((x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2));
+            double distance = Math.Sqrt(Math.Pow((X - Pf.X), 2) + Math.Pow((Y - Pf.Y), 2));
             double windspeed = 50;
-            double alpha = 45;
-            double boatspeed = (0.9 - 0.2 * (alpha - 45) / 45) * windspeed;
+            double boatspeed = 0.9 * windspeed; // vitesse du bateau avec meilleur angle par rapport au vent
 
             return (distance / boatspeed);
         }
-        // On peut aussi penser à surcharger ToString() pour afficher correctement un état
-        // c'est utile pour l'affichage du treenode
 
         public override string ToString()
         {

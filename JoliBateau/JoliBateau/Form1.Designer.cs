@@ -53,6 +53,14 @@
             this.radioButtonDist4 = new System.Windows.Forms.RadioButton();
             this.radioButtonDist1 = new System.Windows.Forms.RadioButton();
             this.radioButtonDist0 = new System.Windows.Forms.RadioButton();
+            this.textBoxP1X = new System.Windows.Forms.TextBox();
+            this.textBoxP1Y = new System.Windows.Forms.TextBox();
+            this.textBoxPfX = new System.Windows.Forms.TextBox();
+            this.textBoxPfY = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.groupCas.SuspendLayout();
             this.groupBoxPavage.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -60,7 +68,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(566, 58);
+            this.button1.Location = new System.Drawing.Point(25, 28);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(109, 23);
             this.button1.TabIndex = 0;
@@ -70,7 +78,7 @@
             // 
             // treeView1
             // 
-            this.treeView1.Location = new System.Drawing.Point(714, 130);
+            this.treeView1.Location = new System.Drawing.Point(1094, 208);
             this.treeView1.Name = "treeView1";
             this.treeView1.Size = new System.Drawing.Size(166, 303);
             this.treeView1.TabIndex = 1;
@@ -111,7 +119,7 @@
             // labelTreeview
             // 
             this.labelTreeview.AutoSize = true;
-            this.labelTreeview.Location = new System.Drawing.Point(727, 97);
+            this.labelTreeview.Location = new System.Drawing.Point(1107, 175);
             this.labelTreeview.Name = "labelTreeview";
             this.labelTreeview.Size = new System.Drawing.Size(137, 13);
             this.labelTreeview.TabIndex = 7;
@@ -120,7 +128,7 @@
             // listeSolution
             // 
             this.listeSolution.FormattingEnabled = true;
-            this.listeSolution.Location = new System.Drawing.Point(566, 130);
+            this.listeSolution.Location = new System.Drawing.Point(946, 208);
             this.listeSolution.Name = "listeSolution";
             this.listeSolution.Size = new System.Drawing.Size(131, 303);
             this.listeSolution.TabIndex = 8;
@@ -128,7 +136,7 @@
             // labelSolution
             // 
             this.labelSolution.AutoSize = true;
-            this.labelSolution.Location = new System.Drawing.Point(83, 197);
+            this.labelSolution.Location = new System.Drawing.Point(83, 331);
             this.labelSolution.Name = "labelSolution";
             this.labelSolution.Size = new System.Drawing.Size(0, 13);
             this.labelSolution.TabIndex = 9;
@@ -137,7 +145,7 @@
             // 
             this.labelCountOpen.AutoSize = true;
             this.labelCountOpen.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
-            this.labelCountOpen.Location = new System.Drawing.Point(300, 284);
+            this.labelCountOpen.Location = new System.Drawing.Point(300, 418);
             this.labelCountOpen.Name = "labelCountOpen";
             this.labelCountOpen.Size = new System.Drawing.Size(0, 13);
             this.labelCountOpen.TabIndex = 10;
@@ -145,7 +153,7 @@
             // labelCountClosed
             // 
             this.labelCountClosed.AutoSize = true;
-            this.labelCountClosed.Location = new System.Drawing.Point(300, 313);
+            this.labelCountClosed.Location = new System.Drawing.Point(300, 447);
             this.labelCountClosed.Name = "labelCountClosed";
             this.labelCountClosed.Size = new System.Drawing.Size(0, 13);
             this.labelCountClosed.TabIndex = 11;
@@ -153,7 +161,7 @@
             // tempsSolution
             // 
             this.tempsSolution.AutoSize = true;
-            this.tempsSolution.Location = new System.Drawing.Point(300, 236);
+            this.tempsSolution.Location = new System.Drawing.Point(300, 370);
             this.tempsSolution.Name = "tempsSolution";
             this.tempsSolution.Size = new System.Drawing.Size(0, 13);
             this.tempsSolution.TabIndex = 12;
@@ -161,7 +169,7 @@
             // nbNoeudsSolution
             // 
             this.nbNoeudsSolution.AutoSize = true;
-            this.nbNoeudsSolution.Location = new System.Drawing.Point(300, 256);
+            this.nbNoeudsSolution.Location = new System.Drawing.Point(300, 390);
             this.nbNoeudsSolution.Name = "nbNoeudsSolution";
             this.nbNoeudsSolution.Size = new System.Drawing.Size(0, 13);
             this.nbNoeudsSolution.TabIndex = 13;
@@ -169,7 +177,7 @@
             // labelStopwatch
             // 
             this.labelStopwatch.AutoSize = true;
-            this.labelStopwatch.Location = new System.Drawing.Point(300, 363);
+            this.labelStopwatch.Location = new System.Drawing.Point(300, 497);
             this.labelStopwatch.Name = "labelStopwatch";
             this.labelStopwatch.Size = new System.Drawing.Size(0, 13);
             this.labelStopwatch.TabIndex = 14;
@@ -180,7 +188,7 @@
             this.groupCas.Controls.Add(this.radioButton1);
             this.groupCas.Controls.Add(this.radioButton2);
             this.groupCas.Controls.Add(this.radioButton3);
-            this.groupCas.Location = new System.Drawing.Point(25, 74);
+            this.groupCas.Location = new System.Drawing.Point(25, 208);
             this.groupCas.Name = "groupCas";
             this.groupCas.Size = new System.Drawing.Size(200, 107);
             this.groupCas.TabIndex = 15;
@@ -194,7 +202,7 @@
             this.groupBoxPavage.Controls.Add(this.radioButtonPavage2);
             this.groupBoxPavage.Controls.Add(this.radioButtonPavage1);
             this.groupBoxPavage.Controls.Add(this.radioButtonPavage0);
-            this.groupBoxPavage.Location = new System.Drawing.Point(25, 197);
+            this.groupBoxPavage.Location = new System.Drawing.Point(25, 331);
             this.groupBoxPavage.Name = "groupBoxPavage";
             this.groupBoxPavage.Size = new System.Drawing.Size(200, 151);
             this.groupBoxPavage.TabIndex = 16;
@@ -252,7 +260,7 @@
             this.groupBox1.Controls.Add(this.radioButtonDist4);
             this.groupBox1.Controls.Add(this.radioButtonDist1);
             this.groupBox1.Controls.Add(this.radioButtonDist0);
-            this.groupBox1.Location = new System.Drawing.Point(271, 74);
+            this.groupBox1.Location = new System.Drawing.Point(271, 208);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(200, 136);
             this.groupBox1.TabIndex = 17;
@@ -311,11 +319,84 @@
             this.radioButtonDist0.Text = "1";
             this.radioButtonDist0.UseVisualStyleBackColor = true;
             // 
+            // textBoxP1X
+            // 
+            this.textBoxP1X.Location = new System.Drawing.Point(43, 98);
+            this.textBoxP1X.Name = "textBoxP1X";
+            this.textBoxP1X.Size = new System.Drawing.Size(100, 20);
+            this.textBoxP1X.TabIndex = 18;
+            // 
+            // textBoxP1Y
+            // 
+            this.textBoxP1Y.Location = new System.Drawing.Point(43, 124);
+            this.textBoxP1Y.Name = "textBoxP1Y";
+            this.textBoxP1Y.Size = new System.Drawing.Size(100, 20);
+            this.textBoxP1Y.TabIndex = 19;
+            // 
+            // textBoxPfX
+            // 
+            this.textBoxPfX.Location = new System.Drawing.Point(168, 98);
+            this.textBoxPfX.Name = "textBoxPfX";
+            this.textBoxPfX.Size = new System.Drawing.Size(100, 20);
+            this.textBoxPfX.TabIndex = 20;
+            // 
+            // textBoxPfY
+            // 
+            this.textBoxPfY.Location = new System.Drawing.Point(168, 124);
+            this.textBoxPfY.Name = "textBoxPfY";
+            this.textBoxPfY.Size = new System.Drawing.Size(100, 20);
+            this.textBoxPfY.TabIndex = 21;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(43, 79);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(58, 13);
+            this.label1.TabIndex = 22;
+            this.label1.Text = "Point Initial";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(167, 79);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(56, 13);
+            this.label2.TabIndex = 23;
+            this.label2.Text = "Point Final";
+            this.label2.Click += new System.EventHandler(this.label2_Click_1);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(12, 101);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(14, 13);
+            this.label3.TabIndex = 24;
+            this.label3.Text = "X";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(12, 127);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(14, 13);
+            this.label4.TabIndex = 25;
+            this.label4.Text = "Y";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(892, 708);
+            this.ClientSize = new System.Drawing.Size(1396, 792);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.textBoxPfY);
+            this.Controls.Add(this.textBoxPfX);
+            this.Controls.Add(this.textBoxP1Y);
+            this.Controls.Add(this.textBoxP1X);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBoxPavage);
             this.Controls.Add(this.groupCas);
@@ -370,6 +451,14 @@
         private System.Windows.Forms.RadioButton radioButtonPavage3;
         private System.Windows.Forms.RadioButton radioButtonDist2;
         private System.Windows.Forms.RadioButton radioButtonDist3;
+        private System.Windows.Forms.TextBox textBoxP1X;
+        private System.Windows.Forms.TextBox textBoxP1Y;
+        private System.Windows.Forms.TextBox textBoxPfX;
+        private System.Windows.Forms.TextBox textBoxPfY;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
     }
 }
 
