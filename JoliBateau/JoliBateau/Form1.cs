@@ -8,7 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
-using System.Xml.Serialization;
 using System.Diagnostics;
 
 namespace JoliBateau
@@ -60,10 +59,6 @@ namespace JoliBateau
             {
                 pavage = radioButtonPavage2.TabIndex;
             }
-            else if (radioButtonPavage3.Checked)
-            {
-                pavage = radioButtonPavage3.TabIndex;
-            }
             else pavage = 0; // pavage en carré par défaut
 
 
@@ -76,14 +71,6 @@ namespace JoliBateau
             else if (radioButtonDist1.Checked)
             {
                 distance = 0.1;
-            }
-            else if (radioButtonDist2.Checked)
-            {
-                distance = 2;
-            }
-            else if (radioButtonDist3.Checked)
-            {
-                distance = 5;
             }
             else if (radioButtonDist4.Checked)
             {
@@ -113,22 +100,15 @@ namespace JoliBateau
                 }
                 labelCountOpen.Text = "Nb noeuds des ouverts : " + tree.CountInOpenList().ToString();
                 labelCountClosed.Text = "Nb noeuds des fermés : " + tree.CountInClosedList().ToString();
-                //tree.GetSearchTree(treeView1);
+                tree.GetSearchTree(treeView1);
 
                 //Différents affichages pour les stats de la recherche
                 GenericNode Pf = solution.Last();
                 string tempsPf = Math.Round(Pf.GetGCost(), 3).ToString();
                 tempsSolution.Text = $"Temps total du parcours : {tempsPf} heures";
-                nbNoeudsSolution.Text = $"Nb de noeuds dans la solution : {solution.Count().ToString()}";
-                labelStopwatch.Text = $"{stopwatch.Elapsed.Minutes} min {stopwatch.Elapsed.Seconds} seconds";
-
-                /*// on sauvegarde les données au cas où
-                StreamWriter sw = new StreamWriter($"../../Solutions/nodes_cas_{cas}_pavage_{pavage}distNoeuds_{distance}.xml");
-                XmlSerializer w = new XmlSerializer(typeof(SearchTree));
-                w.Serialize(sw, tree);*/
+                nbNoeudsSolution.Text = $"Nb de noeuds dans la solution : {solution.Count()}";
+                labelStopwatch.Text = $"Temps écoulé A* : {stopwatch.Elapsed.Minutes} min {stopwatch.Elapsed.Seconds} seconds";
             }
-
-            
         }
 
         private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
@@ -157,6 +137,11 @@ namespace JoliBateau
         }
 
         private void label2_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
