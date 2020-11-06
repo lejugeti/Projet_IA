@@ -191,7 +191,7 @@ namespace JoliBateau
                         xFin = 300;
                     }
 
-                    for (double x = xDebut; x <= xFin; x += 1)
+                    for (double x = xDebut; x <= xFin; x += 5)
                     {
                         for (double y = yDebut; y <= yFin; y += 1)
                         {
@@ -208,9 +208,9 @@ namespace JoliBateau
                 case 2: //pavage diagonal
                     
                     // on prend les noeuds autour de P1 en croix de 1
-                    for (double x = xDebut; x <= xFin; x += DistNoeuds)
+                    for (double x = xDebut; x <= xFin; x += 1)
                     {
-                        for (double y = yDebut; y <= yFin; y += DistNoeuds)
+                        for (double y = yDebut; y <= yFin; y += 1)
                         {
                             if (x != X && y != Y)
                             {
