@@ -191,7 +191,7 @@ namespace JoliBateau
                         xFin = 300;
                     }
 
-                    for (double x = xDebut; x <= xFin; x += DistNoeuds)
+                    for (double x = xDebut; x <= xFin; x += 1)
                     {
                         for (double y = yDebut; y <= yFin; y += 1)
                         {
@@ -242,9 +242,9 @@ namespace JoliBateau
             double y2 = Pf.Y;
 
             double distance = Math.Sqrt((x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2));
-            /*double windspeed = 50;
+            /*double windspeed = 100;
             double alpha = 45;
-            double boatspeed = (0.9 - 0.2 * (alpha - 45) / 45) * windspeed;*//*
+            double boatspeed = (0.9 - 0.2 * (alpha - 45) / 45) * windspeed;
 
             return (distance / boatspeed);*/
 

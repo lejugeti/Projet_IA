@@ -47,7 +47,7 @@
             this.radioButtonPavage1 = new System.Windows.Forms.RadioButton();
             this.radioButtonPavage0 = new System.Windows.Forms.RadioButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.radioButtonDist4 = new System.Windows.Forms.RadioButton();
+            this.radioButtonDist2 = new System.Windows.Forms.RadioButton();
             this.radioButtonDist1 = new System.Windows.Forms.RadioButton();
             this.radioButtonDist0 = new System.Windows.Forms.RadioButton();
             this.textBoxP1X = new System.Windows.Forms.TextBox();
@@ -240,7 +240,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.radioButtonDist4);
+            this.groupBox1.Controls.Add(this.radioButtonDist2);
             this.groupBox1.Controls.Add(this.radioButtonDist1);
             this.groupBox1.Controls.Add(this.radioButtonDist0);
             this.groupBox1.Location = new System.Drawing.Point(25, 287);
@@ -250,15 +250,15 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Distance entre noeuds";
             // 
-            // radioButtonDist4
+            // radioButtonDist2
             // 
-            this.radioButtonDist4.AutoSize = true;
-            this.radioButtonDist4.Location = new System.Drawing.Point(18, 65);
-            this.radioButtonDist4.Name = "radioButtonDist4";
-            this.radioButtonDist4.Size = new System.Drawing.Size(37, 17);
-            this.radioButtonDist4.TabIndex = 2;
-            this.radioButtonDist4.Text = "10";
-            this.radioButtonDist4.UseVisualStyleBackColor = true;
+            this.radioButtonDist2.AutoSize = true;
+            this.radioButtonDist2.Location = new System.Drawing.Point(18, 65);
+            this.radioButtonDist2.Name = "radioButtonDist2";
+            this.radioButtonDist2.Size = new System.Drawing.Size(37, 17);
+            this.radioButtonDist2.TabIndex = 2;
+            this.radioButtonDist2.Text = "10";
+            this.radioButtonDist2.UseVisualStyleBackColor = true;
             // 
             // radioButtonDist1
             // 
@@ -412,7 +412,7 @@
         private System.Windows.Forms.RadioButton radioButtonPavage1;
         private System.Windows.Forms.RadioButton radioButtonPavage0;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.RadioButton radioButtonDist4;
+        private System.Windows.Forms.RadioButton radioButtonDist2;
         private System.Windows.Forms.RadioButton radioButtonDist1;
         private System.Windows.Forms.RadioButton radioButtonDist0;
         private System.Windows.Forms.TextBox textBoxP1X;

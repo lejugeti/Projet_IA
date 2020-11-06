@@ -72,13 +72,13 @@ namespace JoliBateau
             {
                 distance = 0.1;
             }
-            else if (radioButtonDist4.Checked)
+            else if (radioButtonDist2.Checked)
             {
                 distance = 10;
             }
 
             Point P0 = new Point(Int32.Parse(textBoxP1X.Text), Int32.Parse(textBoxP1Y.Text), Char.Parse(cas), pavage, distance);
-            Point.Pf = new Point(Int32.Parse(textBoxPfX.Text), Int32.Parse(textBoxPfX.Text));
+            Point.Pf = new Point(Int32.Parse(textBoxPfX.Text), Int32.Parse(textBoxPfY.Text));
 
             SearchTree tree = new SearchTree();
             Stopwatch stopwatch = new Stopwatch();
