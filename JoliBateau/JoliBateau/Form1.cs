@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using System.Diagnostics;
+using System.Reflection;
+using Excel = Microsoft.Office.Interop.Excel;
 
 namespace JoliBateau
 {
@@ -109,6 +111,25 @@ namespace JoliBateau
                 nbNoeudsSolution.Text = $"Nb de noeuds dans la solution : {solution.Count()}";
                 labelStopwatch.Text = $"Temps écoulé A* : {stopwatch.Elapsed.Minutes} min {stopwatch.Elapsed.Seconds} seconds";
             }
+
+            // écriture dans un fichier excel
+            /*Excel.Application xlApp = new Excel.Application();
+            object misValue = System.Reflection.Missing.Value;
+
+            Excel.Workbook wb = xlApp.Workbooks.Add(misValue);
+            Excel.Sheets sheets = wb.Worksheets;
+            Excel._Worksheet ws = (Excel._Worksheet)sheets.Item[1];
+
+            Excel.Range range = ws.get_Range("A1", Missing.Value);
+
+            string[] label = new string[] { "cas", "temps", "ecartX", "ecartY", "nbNoeudsSolution", "nbOuverts", "nbFermes" };
+            range = range.get_Resize(1, label.Length);
+            range.set_Value(Missing.Value, label);
+
+            wb.SaveAs("E:Cours/ensc/Projet-IA/test_bateau.xlsx", Excel.XlFileFormat.xlWorkbookDefault, misValue, misValue, misValue, misValue, Excel.XlSaveAsAccessMode.xlExclusive, misValue, misValue, misValue, misValue, misValue);
+            wb.Close(true, misValue, misValue);
+            xlApp.Quit();*/
+
         }
 
         private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
