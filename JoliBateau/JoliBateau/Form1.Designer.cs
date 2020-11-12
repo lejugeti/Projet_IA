@@ -68,6 +68,10 @@
             this.comboTailleCarre = new System.Windows.Forms.ComboBox();
             this.radioButtonPavage3 = new System.Windows.Forms.RadioButton();
 
+
+            this.comboTailleCarre = new System.Windows.Forms.ComboBox();
+            this.radioButtonPavage3 = new System.Windows.Forms.RadioButton();
+
             this.groupCas.SuspendLayout();
             this.groupBoxPavage.SuspendLayout();
             this.SuspendLayout();
@@ -90,7 +94,6 @@
             this.treeView1.TabIndex = 1;
             this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
             // 
-
             // radioButtonCasA
             // 
             this.radioButtonCasA.AutoSize = true;
@@ -143,7 +146,6 @@
             // labelSolution
             // 
             this.labelSolution.AutoSize = true;
-<<<<<<< HEAD
             this.labelSolution.Location = new System.Drawing.Point(221, 789);
             this.labelSolution.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.labelSolution.Name = "labelSolution";
@@ -154,7 +156,6 @@
             // 
             this.labelCountOpen.AutoSize = true;
             this.labelCountOpen.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
-<<<<<<< HEAD
             this.labelCountOpen.Location = new System.Drawing.Point(800, 997);
             this.labelCountOpen.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.labelCountOpen.Name = "labelCountOpen";
@@ -182,10 +183,8 @@
             // nbNoeudsSolution
             // 
             this.nbNoeudsSolution.AutoSize = true;
-
             this.nbNoeudsSolution.Location = new System.Drawing.Point(800, 930);
             this.nbNoeudsSolution.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
-
             this.nbNoeudsSolution.Name = "nbNoeudsSolution";
             this.nbNoeudsSolution.Size = new System.Drawing.Size(0, 13);
             this.nbNoeudsSolution.TabIndex = 13;
@@ -394,6 +393,14 @@
             "1",
             "2",
             "3"});
+             
+            // comboTailleCarre
+            // 
+            this.comboTailleCarre.FormattingEnabled = true;
+            this.comboTailleCarre.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3"});
             this.comboTailleCarre.Location = new System.Drawing.Point(113, 94);
             this.comboTailleCarre.Name = "comboTailleCarre";
             this.comboTailleCarre.Size = new System.Drawing.Size(41, 21);
@@ -416,6 +423,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(3204, 1748);
             this.Controls.Add(this.pictureBox1);
+            this.ClientSize = new System.Drawing.Size(1396, 792);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -489,8 +497,6 @@
 
         private System.Windows.Forms.ComboBox comboTailleCarre;
         private System.Windows.Forms.RadioButton radioButtonPavage3;
-
-        private System.Windows.Forms.Label label5;
 
     }
 }

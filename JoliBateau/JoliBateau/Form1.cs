@@ -66,11 +66,9 @@ namespace JoliBateau
 
 
             // sélection du type de la distance entre les noeuds. 1km par défaut
-
             double distance;
             if (radioButtonPavage3.Checked) distance = Int32.Parse(comboTailleCarre.Text);
             else distance = 1;
-
 
             Point P0 = new Point(Int32.Parse(textBoxP1X.Text), Int32.Parse(textBoxP1Y.Text), Char.Parse(cas), pavage, distance);
             Point.Pf = new Point(Int32.Parse(textBoxPfX.Text), Int32.Parse(textBoxPfY.Text));
