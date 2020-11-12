@@ -9,13 +9,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using System.Diagnostics;
-<<<<<<< HEAD
 using System.Security.Cryptography.X509Certificates;
 using System.Drawing;
-=======
-using System.Reflection;
-using Excel = Microsoft.Office.Interop.Excel;
->>>>>>> parent of 3f26e97... Merge pull request #5 from lejugeti/Graphique-bateau
+
 
 namespace JoliBateau
 {
@@ -70,28 +66,11 @@ namespace JoliBateau
 
 
             // sélection du type de la distance entre les noeuds. 1km par défaut
-<<<<<<< HEAD
-<<<<<<< HEAD
-            double distance = 1;
-            if (radioButtonDist0.Checked)
-            {
-                distance = 1;
-            }
-            else if (radioButtonDist1.Checked)
-            {
-                distance = 0.1;
-            }
-            else if (radioButtonDist2.Checked)
-            {
-                distance = 10;
-            }
-=======
-=======
->>>>>>> parent of 3b25dbd... Pavage carré variable fonctionnel
+
             double distance;
             if (radioButtonPavage3.Checked) distance = Int32.Parse(comboTailleCarre.Text);
             else distance = 1;
->>>>>>> parent of 3b25dbd... Pavage carré variable fonctionnel
+
 
             Point P0 = new Point(Int32.Parse(textBoxP1X.Text), Int32.Parse(textBoxP1Y.Text), Char.Parse(cas), pavage, distance);
             Point.Pf = new Point(Int32.Parse(textBoxPfX.Text), Int32.Parse(textBoxPfY.Text));
@@ -127,21 +106,16 @@ namespace JoliBateau
             }
         }
 
-<<<<<<< HEAD
+
         private void AfficherLigne()
-=======
+
         private void radioButtonCas_Changed(object sender, EventArgs e)
->>>>>>> parent of 3f26e97... Merge pull request #5 from lejugeti/Graphique-bateau
+
         {
 
 
         }
 
-<<<<<<< HEAD
-
-
-=======
->>>>>>> parent of 3f26e97... Merge pull request #5 from lejugeti/Graphique-bateau
         private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
         {
 

@@ -58,27 +58,18 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
+
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupCas.SuspendLayout();
             this.groupBoxPavage.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-=======
-            this.label5 = new System.Windows.Forms.Label();
-=======
+
             this.comboTailleCarre = new System.Windows.Forms.ComboBox();
             this.radioButtonPavage3 = new System.Windows.Forms.RadioButton();
->>>>>>> parent of 3b25dbd... Pavage carré variable fonctionnel
-=======
-            this.comboTailleCarre = new System.Windows.Forms.ComboBox();
-            this.radioButtonPavage3 = new System.Windows.Forms.RadioButton();
->>>>>>> parent of 3b25dbd... Pavage carré variable fonctionnel
+
             this.groupCas.SuspendLayout();
             this.groupBoxPavage.SuspendLayout();
->>>>>>> parent of 3f26e97... Merge pull request #5 from lejugeti/Graphique-bateau
             this.SuspendLayout();
             // 
             // button1
@@ -99,42 +90,7 @@
             this.treeView1.TabIndex = 1;
             this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
             // 
-<<<<<<< HEAD
-            // radioButton1
-            // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Checked = true;
-            this.radioButton1.Location = new System.Drawing.Point(40, 45);
-            this.radioButton1.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(68, 36);
-            this.radioButton1.TabIndex = 4;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "a";
-            this.radioButton1.UseVisualStyleBackColor = true;
-            // 
-            // radioButton2
-            // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(40, 122);
-            this.radioButton2.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(68, 36);
-            this.radioButton2.TabIndex = 5;
-            this.radioButton2.Text = "b";
-            this.radioButton2.UseVisualStyleBackColor = true;
-            // 
-            // radioButton3
-            // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Location = new System.Drawing.Point(40, 200);
-            this.radioButton3.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(66, 36);
-            this.radioButton3.TabIndex = 6;
-            this.radioButton3.Text = "c";
-            this.radioButton3.UseVisualStyleBackColor = true;
-=======
+
             // radioButtonCasA
             // 
             this.radioButtonCasA.AutoSize = true;
@@ -166,7 +122,6 @@
             this.radioButtonCasC.TabIndex = 6;
             this.radioButtonCasC.Text = "c";
             this.radioButtonCasC.UseVisualStyleBackColor = true;
->>>>>>> parent of 3f26e97... Merge pull request #5 from lejugeti/Graphique-bateau
             // 
             // labelTreeview
             // 
@@ -191,9 +146,6 @@
 <<<<<<< HEAD
             this.labelSolution.Location = new System.Drawing.Point(221, 789);
             this.labelSolution.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
-=======
-            this.labelSolution.Location = new System.Drawing.Point(708, 160);
->>>>>>> parent of 3f26e97... Merge pull request #5 from lejugeti/Graphique-bateau
             this.labelSolution.Name = "labelSolution";
             this.labelSolution.Size = new System.Drawing.Size(0, 13);
             this.labelSolution.TabIndex = 9;
@@ -205,9 +157,6 @@
 <<<<<<< HEAD
             this.labelCountOpen.Location = new System.Drawing.Point(800, 997);
             this.labelCountOpen.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
-=======
-            this.labelCountOpen.Location = new System.Drawing.Point(354, 418);
->>>>>>> parent of 3f26e97... Merge pull request #5 from lejugeti/Graphique-bateau
             this.labelCountOpen.Name = "labelCountOpen";
             this.labelCountOpen.Size = new System.Drawing.Size(0, 13);
             this.labelCountOpen.TabIndex = 10;
@@ -215,12 +164,8 @@
             // labelCountClosed
             // 
             this.labelCountClosed.AutoSize = true;
-<<<<<<< HEAD
             this.labelCountClosed.Location = new System.Drawing.Point(800, 1066);
             this.labelCountClosed.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
-=======
-            this.labelCountClosed.Location = new System.Drawing.Point(354, 447);
->>>>>>> parent of 3f26e97... Merge pull request #5 from lejugeti/Graphique-bateau
             this.labelCountClosed.Name = "labelCountClosed";
             this.labelCountClosed.Size = new System.Drawing.Size(0, 13);
             this.labelCountClosed.TabIndex = 11;
@@ -228,12 +173,8 @@
             // tempsSolution
             // 
             this.tempsSolution.AutoSize = true;
-<<<<<<< HEAD
             this.tempsSolution.Location = new System.Drawing.Point(800, 882);
             this.tempsSolution.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
-=======
-            this.tempsSolution.Location = new System.Drawing.Point(354, 370);
->>>>>>> parent of 3f26e97... Merge pull request #5 from lejugeti/Graphique-bateau
             this.tempsSolution.Name = "tempsSolution";
             this.tempsSolution.Size = new System.Drawing.Size(0, 13);
             this.tempsSolution.TabIndex = 12;
@@ -241,12 +182,10 @@
             // nbNoeudsSolution
             // 
             this.nbNoeudsSolution.AutoSize = true;
-<<<<<<< HEAD
+
             this.nbNoeudsSolution.Location = new System.Drawing.Point(800, 930);
             this.nbNoeudsSolution.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
-=======
-            this.nbNoeudsSolution.Location = new System.Drawing.Point(354, 390);
->>>>>>> parent of 3f26e97... Merge pull request #5 from lejugeti/Graphique-bateau
+
             this.nbNoeudsSolution.Name = "nbNoeudsSolution";
             this.nbNoeudsSolution.Size = new System.Drawing.Size(0, 13);
             this.nbNoeudsSolution.TabIndex = 13;
@@ -262,23 +201,12 @@
             // 
             // groupCas
             // 
-<<<<<<< HEAD
-            this.groupCas.Controls.Add(this.radioButton1);
-            this.groupCas.Controls.Add(this.radioButton2);
-            this.groupCas.Controls.Add(this.radioButton3);
-            this.groupCas.Location = new System.Drawing.Point(67, 382);
-            this.groupCas.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
-            this.groupCas.Name = "groupCas";
-            this.groupCas.Padding = new System.Windows.Forms.Padding(8, 7, 8, 7);
-            this.groupCas.Size = new System.Drawing.Size(533, 255);
-=======
             this.groupCas.Controls.Add(this.radioButtonCasA);
             this.groupCas.Controls.Add(this.radioButtonCasB);
             this.groupCas.Controls.Add(this.radioButtonCasC);
             this.groupCas.Location = new System.Drawing.Point(25, 160);
             this.groupCas.Name = "groupCas";
             this.groupCas.Size = new System.Drawing.Size(228, 107);
->>>>>>> parent of 3f26e97... Merge pull request #5 from lejugeti/Graphique-bateau
             this.groupCas.TabIndex = 15;
             this.groupCas.TabStop = false;
             this.groupCas.Text = "Vent";
@@ -289,17 +217,11 @@
             this.groupBoxPavage.Controls.Add(this.radioButtonPavage2);
             this.groupBoxPavage.Controls.Add(this.radioButtonPavage1);
             this.groupBoxPavage.Controls.Add(this.radioButtonPavage0);
-<<<<<<< HEAD
             this.groupBoxPavage.Location = new System.Drawing.Point(67, 997);
             this.groupBoxPavage.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.groupBoxPavage.Name = "groupBoxPavage";
             this.groupBoxPavage.Padding = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.groupBoxPavage.Size = new System.Drawing.Size(533, 360);
-=======
-            this.groupBoxPavage.Location = new System.Drawing.Point(25, 296);
-            this.groupBoxPavage.Name = "groupBoxPavage";
-            this.groupBoxPavage.Size = new System.Drawing.Size(173, 135);
->>>>>>> parent of 3f26e97... Merge pull request #5 from lejugeti/Graphique-bateau
             this.groupBoxPavage.TabIndex = 16;
             this.groupBoxPavage.TabStop = false;
             this.groupBoxPavage.Text = "Pavage";
@@ -307,12 +229,8 @@
             // radioButtonPavage2
             // 
             this.radioButtonPavage2.AutoSize = true;
-<<<<<<< HEAD
             this.radioButtonPavage2.Location = new System.Drawing.Point(48, 200);
             this.radioButtonPavage2.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
-=======
-            this.radioButtonPavage2.Location = new System.Drawing.Point(18, 42);
->>>>>>> parent of 3f26e97... Merge pull request #5 from lejugeti/Graphique-bateau
             this.radioButtonPavage2.Name = "radioButtonPavage2";
             this.radioButtonPavage2.Size = new System.Drawing.Size(67, 17);
             this.radioButtonPavage2.TabIndex = 2;
@@ -322,16 +240,9 @@
             // radioButtonPavage1
             // 
             this.radioButtonPavage1.AutoSize = true;
-<<<<<<< HEAD
-            this.radioButtonPavage1.Location = new System.Drawing.Point(48, 122);
-            this.radioButtonPavage1.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
-            this.radioButtonPavage1.Name = "radioButtonPavage1";
-            this.radioButtonPavage1.Size = new System.Drawing.Size(200, 36);
-=======
             this.radioButtonPavage1.Location = new System.Drawing.Point(18, 69);
             this.radioButtonPavage1.Name = "radioButtonPavage1";
             this.radioButtonPavage1.Size = new System.Drawing.Size(74, 17);
->>>>>>> parent of 3f26e97... Merge pull request #5 from lejugeti/Graphique-bateau
             this.radioButtonPavage1.TabIndex = 1;
             this.radioButtonPavage1.Text = "Carré de 10";
             this.radioButtonPavage1.UseVisualStyleBackColor = true;
@@ -349,7 +260,6 @@
             this.radioButtonPavage0.Text = "Carré de 1";
             this.radioButtonPavage0.UseVisualStyleBackColor = true;
             // 
-<<<<<<< HEAD
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.radioButtonDist2);
@@ -399,8 +309,6 @@
             this.radioButtonDist0.Text = "1";
             this.radioButtonDist0.UseVisualStyleBackColor = true;
             // 
-=======
->>>>>>> parent of 3f26e97... Merge pull request #5 from lejugeti/Graphique-bateau
             // textBoxP1X
             // 
             this.textBoxP1X.Location = new System.Drawing.Point(43, 98);
@@ -470,9 +378,6 @@
             this.label4.TabIndex = 25;
             this.label4.Text = "Y";
             // 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
@@ -484,23 +389,6 @@
             this.pictureBox1.TabIndex = 26;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
-=======
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(400, 100);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(35, 13);
-            this.label5.TabIndex = 26;
-            this.label5.Text = "label5";
->>>>>>> parent of 3f26e97... Merge pull request #5 from lejugeti/Graphique-bateau
-=======
-            // comboTailleCarre
-            // 
-=======
-            // comboTailleCarre
-            // 
->>>>>>> parent of 3b25dbd... Pavage carré variable fonctionnel
             this.comboTailleCarre.FormattingEnabled = true;
             this.comboTailleCarre.Items.AddRange(new object[] {
             "1",
@@ -521,28 +409,13 @@
             this.radioButtonPavage3.TabIndex = 26;
             this.radioButtonPavage3.Text = "Carré de taille";
             this.radioButtonPavage3.UseVisualStyleBackColor = true;
-<<<<<<< HEAD
->>>>>>> parent of 3b25dbd... Pavage carré variable fonctionnel
-=======
->>>>>>> parent of 3b25dbd... Pavage carré variable fonctionnel
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-<<<<<<< HEAD
             this.ClientSize = new System.Drawing.Size(3204, 1748);
             this.Controls.Add(this.pictureBox1);
-=======
-            this.ClientSize = new System.Drawing.Size(1396, 792);
-<<<<<<< HEAD
-<<<<<<< HEAD
-            this.Controls.Add(this.label5);
->>>>>>> parent of 3f26e97... Merge pull request #5 from lejugeti/Graphique-bateau
-=======
->>>>>>> parent of 3b25dbd... Pavage carré variable fonctionnel
-=======
->>>>>>> parent of 3b25dbd... Pavage carré variable fonctionnel
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -571,12 +444,9 @@
             this.groupCas.PerformLayout();
             this.groupBoxPavage.ResumeLayout(false);
             this.groupBoxPavage.PerformLayout();
-<<<<<<< HEAD
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-=======
->>>>>>> parent of 3f26e97... Merge pull request #5 from lejugeti/Graphique-bateau
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -614,19 +484,14 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-<<<<<<< HEAD
+
         private System.Windows.Forms.PictureBox pictureBox1;
-=======
+
         private System.Windows.Forms.ComboBox comboTailleCarre;
         private System.Windows.Forms.RadioButton radioButtonPavage3;
-<<<<<<< HEAD
-<<<<<<< HEAD
+
         private System.Windows.Forms.Label label5;
->>>>>>> parent of 3f26e97... Merge pull request #5 from lejugeti/Graphique-bateau
-=======
->>>>>>> parent of 3b25dbd... Pavage carré variable fonctionnel
-=======
->>>>>>> parent of 3b25dbd... Pavage carré variable fonctionnel
+
     }
 }
 
