@@ -11,7 +11,7 @@ namespace JoliBateau
         public double X { get; set; }
         public double Y { get; set; }
         public static char cas;
-        public static double TailleCarre { get; set; } //constante définissant la distance en km entre les noeuds
+        public static double TailleCarre { get; set; } //constante définissant la taille du carré pour le pavage carré
         public static double Pavage { get; set; } // indicateur du pavage à prendre 
         public static Point Pf { get; set; }
 
@@ -117,7 +117,7 @@ namespace JoliBateau
             return false;
         }
 
-        // renvoie la liste des 8 noeuds autour du point P1. Un pavage différent pourra être essayé après
+        // renvoie la liste des successeurs de P1 en fonction de ce qui a été choisi dans le form
         public override List<GenericNode> GetListSucc()
         {
             List<GenericNode> newNodes = new List<GenericNode>();

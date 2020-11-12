@@ -43,6 +43,8 @@
             this.labelStopwatch = new System.Windows.Forms.Label();
             this.groupCas = new System.Windows.Forms.GroupBox();
             this.groupBoxPavage = new System.Windows.Forms.GroupBox();
+            this.radioButtonPavage3 = new System.Windows.Forms.RadioButton();
+            this.comboTailleCarre = new System.Windows.Forms.ComboBox();
             this.radioButtonPavage2 = new System.Windows.Forms.RadioButton();
             this.radioButtonPavage1 = new System.Windows.Forms.RadioButton();
             this.radioButtonPavage0 = new System.Windows.Forms.RadioButton();
@@ -54,8 +56,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.comboTailleCarre = new System.Windows.Forms.ComboBox();
-            this.radioButtonPavage3 = new System.Windows.Forms.RadioButton();
+            this.label5 = new System.Windows.Forms.Label();
             this.groupCas.SuspendLayout();
             this.groupBoxPavage.SuspendLayout();
             this.SuspendLayout();
@@ -204,6 +205,29 @@
             this.groupBoxPavage.TabStop = false;
             this.groupBoxPavage.Text = "Pavage";
             // 
+            // radioButtonPavage3
+            // 
+            this.radioButtonPavage3.AutoSize = true;
+            this.radioButtonPavage3.Location = new System.Drawing.Point(18, 94);
+            this.radioButtonPavage3.Name = "radioButtonPavage3";
+            this.radioButtonPavage3.Size = new System.Drawing.Size(89, 17);
+            this.radioButtonPavage3.TabIndex = 3;
+            this.radioButtonPavage3.Text = "Carré de taille";
+            this.radioButtonPavage3.UseVisualStyleBackColor = true;
+            // 
+            // comboTailleCarre
+            // 
+            this.comboTailleCarre.FormattingEnabled = true;
+            this.comboTailleCarre.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3"});
+            this.comboTailleCarre.Location = new System.Drawing.Point(113, 94);
+            this.comboTailleCarre.Name = "comboTailleCarre";
+            this.comboTailleCarre.Size = new System.Drawing.Size(41, 21);
+            this.comboTailleCarre.TabIndex = 26;
+            this.comboTailleCarre.Text = "1";
+            // 
             // radioButtonPavage2
             // 
             this.radioButtonPavage2.AutoSize = true;
@@ -306,34 +330,21 @@
             this.label4.TabIndex = 25;
             this.label4.Text = "Y";
             // 
-            // comboTailleCarre
+            // label5
             // 
-            this.comboTailleCarre.FormattingEnabled = true;
-            this.comboTailleCarre.Items.AddRange(new object[] {
-            "1",
-            "2",
-            "3"});
-            this.comboTailleCarre.Location = new System.Drawing.Point(113, 94);
-            this.comboTailleCarre.Name = "comboTailleCarre";
-            this.comboTailleCarre.Size = new System.Drawing.Size(41, 21);
-            this.comboTailleCarre.TabIndex = 26;
-            this.comboTailleCarre.Text = "1";
-            // 
-            // radioButtonPavage3
-            // 
-            this.radioButtonPavage3.AutoSize = true;
-            this.radioButtonPavage3.Location = new System.Drawing.Point(18, 94);
-            this.radioButtonPavage3.Name = "radioButtonPavage3";
-            this.radioButtonPavage3.Size = new System.Drawing.Size(89, 17);
-            this.radioButtonPavage3.TabIndex = 26;
-            this.radioButtonPavage3.Text = "Carré de taille";
-            this.radioButtonPavage3.UseVisualStyleBackColor = true;
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(400, 100);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(35, 13);
+            this.label5.TabIndex = 26;
+            this.label5.Text = "label5";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1396, 792);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -396,6 +407,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox comboTailleCarre;
         private System.Windows.Forms.RadioButton radioButtonPavage3;
+        private System.Windows.Forms.Label label5;
     }
 }
 
