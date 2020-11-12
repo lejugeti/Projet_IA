@@ -9,9 +9,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using System.Diagnostics;
-using System.Security.Cryptography.X509Certificates;
-using System.Drawing;
-
 
 namespace JoliBateau
 {
@@ -104,8 +101,6 @@ namespace JoliBateau
             }
         }
 
-
-        private void AfficherLigne()
 
         private void radioButtonCas_Changed(object sender, EventArgs e)
 

@@ -89,12 +89,10 @@
     <Folder Include="Solutions\" />
   </ItemGroup>
   <ItemGroup>
-<<<<<<< HEAD
     <None Include="Resources\ocean.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Ocean %282%29.png" />
-=======
     <COMReference Include="Microsoft.Office.Core">
       <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
       <VersionMajor>2</VersionMajor>
@@ -122,7 +120,6 @@
       <Isolated>False</Isolated>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
->>>>>>> parent of 3f26e97... Merge pull request #5 from lejugeti/Graphique-bateau
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
