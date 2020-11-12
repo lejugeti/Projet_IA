@@ -30,9 +30,9 @@
         {
             this.button1 = new System.Windows.Forms.Button();
             this.treeView1 = new System.Windows.Forms.TreeView();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
+            this.radioButtonCasA = new System.Windows.Forms.RadioButton();
+            this.radioButtonCasB = new System.Windows.Forms.RadioButton();
+            this.radioButtonCasC = new System.Windows.Forms.RadioButton();
             this.labelTreeview = new System.Windows.Forms.Label();
             this.listeSolution = new System.Windows.Forms.ListBox();
             this.labelSolution = new System.Windows.Forms.Label();
@@ -81,37 +81,37 @@
             this.treeView1.TabIndex = 1;
             this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
             // 
-            // radioButton1
+            // radioButtonCasA
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Checked = true;
-            this.radioButton1.Location = new System.Drawing.Point(15, 19);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(31, 17);
-            this.radioButton1.TabIndex = 4;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "a";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.radioButtonCasA.AutoSize = true;
+            this.radioButtonCasA.Checked = true;
+            this.radioButtonCasA.Location = new System.Drawing.Point(15, 19);
+            this.radioButtonCasA.Name = "radioButtonCasA";
+            this.radioButtonCasA.Size = new System.Drawing.Size(31, 17);
+            this.radioButtonCasA.TabIndex = 4;
+            this.radioButtonCasA.TabStop = true;
+            this.radioButtonCasA.Text = "a";
+            this.radioButtonCasA.UseVisualStyleBackColor = true;
             // 
-            // radioButton2
+            // radioButtonCasB
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(15, 51);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(31, 17);
-            this.radioButton2.TabIndex = 5;
-            this.radioButton2.Text = "b";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.radioButtonCasB.AutoSize = true;
+            this.radioButtonCasB.Location = new System.Drawing.Point(15, 51);
+            this.radioButtonCasB.Name = "radioButtonCasB";
+            this.radioButtonCasB.Size = new System.Drawing.Size(31, 17);
+            this.radioButtonCasB.TabIndex = 5;
+            this.radioButtonCasB.Text = "b";
+            this.radioButtonCasB.UseVisualStyleBackColor = true;
             // 
-            // radioButton3
+            // radioButtonCasC
             // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Location = new System.Drawing.Point(15, 84);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(31, 17);
-            this.radioButton3.TabIndex = 6;
-            this.radioButton3.Text = "c";
-            this.radioButton3.UseVisualStyleBackColor = true;
+            this.radioButtonCasC.AutoSize = true;
+            this.radioButtonCasC.Location = new System.Drawing.Point(15, 84);
+            this.radioButtonCasC.Name = "radioButtonCasC";
+            this.radioButtonCasC.Size = new System.Drawing.Size(31, 17);
+            this.radioButtonCasC.TabIndex = 6;
+            this.radioButtonCasC.Text = "c";
+            this.radioButtonCasC.UseVisualStyleBackColor = true;
             // 
             // labelTreeview
             // 
@@ -182,9 +182,9 @@
             // 
             // groupCas
             // 
-            this.groupCas.Controls.Add(this.radioButton1);
-            this.groupCas.Controls.Add(this.radioButton2);
-            this.groupCas.Controls.Add(this.radioButton3);
+            this.groupCas.Controls.Add(this.radioButtonCasA);
+            this.groupCas.Controls.Add(this.radioButtonCasB);
+            this.groupCas.Controls.Add(this.radioButtonCasC);
             this.groupCas.Location = new System.Drawing.Point(25, 160);
             this.groupCas.Name = "groupCas";
             this.groupCas.Size = new System.Drawing.Size(200, 107);
@@ -395,9 +395,9 @@
 
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TreeView treeView1;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton3;
+        private System.Windows.Forms.RadioButton radioButtonCasA;
+        private System.Windows.Forms.RadioButton radioButtonCasB;
+        private System.Windows.Forms.RadioButton radioButtonCasC;
         private System.Windows.Forms.Label labelTreeview;
         private System.Windows.Forms.ListBox listeSolution;
         private System.Windows.Forms.Label labelSolution;

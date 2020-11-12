@@ -151,7 +151,7 @@ namespace JoliBateau
 
             switch (Pavage)
             {
-                case 0: // pavage carré de 8
+                case 0: // pavage carré de 1
                     // on prend les noeuds autour de P1
                     for (double x = xDebut; x <= xFin; x += DistNoeuds)
                     {
@@ -166,7 +166,7 @@ namespace JoliBateau
                     }
                     break;
 
-                case 1:
+                case 1: // pavage carré de 7
                     xDebut = X - 7;
                     xFin = X + 7;
                     yDebut = Y - 7;
@@ -191,7 +191,7 @@ namespace JoliBateau
                         xFin = 300;
                     }
 
-                    for (double x = xDebut; x <= xFin; x += 5)
+                    for (double x = xDebut; x <= xFin; x += 1)
                     {
                         for (double y = yDebut; y <= yFin; y += 1)
                         {
@@ -207,6 +207,11 @@ namespace JoliBateau
 
                 case 2: //pavage diagonal
                     
+                    double val = 2;
+                    xDebut = X - val;
+                    xFin = X + val;
+                    yDebut = Y- val;
+                    yFin = Y + val;
                     // on prend les noeuds autour de P1 en croix de 1
                     for (double x = xDebut; x <= xFin; x += 1)
                     {
@@ -231,24 +236,18 @@ namespace JoliBateau
 
         public override double CalculeHCost()
         {
-            // on pourrait prendre comme heuristique le temps qu'on mettrait pour voyager entre P1 et Pf sans les contraites de vent
-            // càd qu'on met toujours le vent dans la meilleure direction par rapport à notre bateau, c'est à dire à 45°.
-            // en plus on enlève la restriction des 10km ça rend le calcul plus facile plutôt que de calculer la trajectoire optimale avec 
-            // les diagonales.
-
             double x1 = X;
             double y1 = Y;
             double x2 = Pf.X;
             double y2 = Pf.Y;
 
             double distance = Math.Sqrt((x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2));
-            /*double windspeed = 100;
+            double windspeed = 30;
             double alpha = 45;
             double boatspeed = (0.9 - 0.2 * (alpha - 45) / 45) * windspeed;
 
-            return (distance / boatspeed);*/
+            return (distance / boatspeed);
 
-            return distance;
         }
 
         public override string ToString()

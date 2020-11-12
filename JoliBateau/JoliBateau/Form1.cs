@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using System.Diagnostics;
+using System.Reflection;
+using Excel = Microsoft.Office.Interop.Excel;
 
 namespace JoliBateau
 {
@@ -17,6 +19,10 @@ namespace JoliBateau
         public Form1()
         {
             InitializeComponent();
+
+            radioButtonCasA.CheckedChanged += new EventHandler(radioButtonCas_Changed);
+            radioButtonCasB.CheckedChanged += new EventHandler(radioButtonCas_Changed);
+            radioButtonCasC.CheckedChanged += new EventHandler(radioButtonCas_Changed);
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -31,17 +37,17 @@ namespace JoliBateau
 
             // sélection du cas à traiter
             string cas;
-            if (radioButton1.Checked)
+            if (radioButtonCasA.Checked)
             {
-                cas = radioButton1.Text;
+                cas = radioButtonCasA.Text;
             }
-            else if (radioButton2.Checked)
+            else if (radioButtonCasB.Checked)
             {
-                cas = radioButton2.Text;
+                cas = radioButtonCasB.Text;
             }
-            else if (radioButton3.Checked)
+            else if (radioButtonCasC.Checked)
             {
-                cas = radioButton3.Text;
+                cas = radioButtonCasC.Text;
             }
             else cas = "a";
 
@@ -58,6 +64,7 @@ namespace JoliBateau
             else if (radioButtonPavage2.Checked)
             {
                 pavage = radioButtonPavage2.TabIndex;
+                
             }
             else pavage = 0; // pavage en carré par défaut
 
@@ -109,6 +116,51 @@ namespace JoliBateau
                 nbNoeudsSolution.Text = $"Nb de noeuds dans la solution : {solution.Count()}";
                 labelStopwatch.Text = $"Temps écoulé A* : {stopwatch.Elapsed.Minutes} min {stopwatch.Elapsed.Seconds} seconds";
             }
+
+            // écriture dans un fichier excel
+            /*Excel.Application xlApp = new Excel.Application();
+            object misValue = System.Reflection.Missing.Value;
+
+            Excel.Workbook wb = xlApp.Workbooks.Add(misValue);
+            Excel.Sheets sheets = wb.Worksheets;
+            Excel._Worksheet ws = (Excel._Worksheet)sheets.Item[1];
+
+            Excel.Range range = ws.get_Range("A1", Missing.Value);
+
+            string[] label = new string[] { "cas", "temps", "ecartX", "ecartY", "nbNoeudsSolution", "nbOuverts", "nbFermes" };
+            range = range.get_Resize(1, label.Length);
+            range.set_Value(Missing.Value, label);
+
+            wb.SaveAs("E:Cours/ensc/Projet-IA/test_bateau.xlsx", Excel.XlFileFormat.xlWorkbookDefault, misValue, misValue, misValue, misValue, Excel.XlSaveAsAccessMode.xlExclusive, misValue, misValue, misValue, misValue, misValue);
+            wb.Close(true, misValue, misValue);
+            xlApp.Quit();*/
+
+        }
+
+        private void radioButtonCas_Changed(object sender, EventArgs e)
+        {
+            var radio = groupCas.Controls.OfType<RadioButton>().FirstOrDefault(r => r.Checked);
+            if (radio.Text == "a")
+            {
+                textBoxP1X.Text = "100";
+                textBoxP1Y.Text = "200";
+                textBoxPfX.Text = "200";
+                textBoxPfY.Text = "100";
+            }
+            else if (radio.Text == "b")
+            {
+                textBoxP1X.Text = "100";
+                textBoxP1Y.Text = "200";
+                textBoxPfX.Text = "200";
+                textBoxPfY.Text = "100";
+            }
+            else if (radio.Text == "c")
+            {
+                textBoxP1X.Text = "200";
+                textBoxP1Y.Text = "100";
+                textBoxPfX.Text = "100";
+                textBoxPfY.Text = "200";
+            }
         }
 
         private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
@@ -143,7 +195,9 @@ namespace JoliBateau
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            
         }
+
+        
     }
 }
