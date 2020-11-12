@@ -66,23 +66,18 @@ namespace JoliBateau
                 pavage = radioButtonPavage2.TabIndex;
                 
             }
+            else if (radioButtonPavage3.Checked)
+            {
+                pavage = radioButtonPavage3.TabIndex;
+
+            }
             else pavage = 0; // pavage en carré par défaut
 
 
             // sélection du type de la distance entre les noeuds. 1km par défaut
-            double distance = 1;
-            if (radioButtonDist0.Checked)
-            {
-                distance = 1;
-            }
-            else if (radioButtonDist1.Checked)
-            {
-                distance = 0.1;
-            }
-            else if (radioButtonDist2.Checked)
-            {
-                distance = 10;
-            }
+            double distance;
+            if (radioButtonPavage3.Checked) distance = Int32.Parse(comboTailleCarre.Text);
+            else distance = 1;
 
             Point P0 = new Point(Int32.Parse(textBoxP1X.Text), Int32.Parse(textBoxP1Y.Text), Char.Parse(cas), pavage, distance);
             Point.Pf = new Point(Int32.Parse(textBoxPfX.Text), Int32.Parse(textBoxPfY.Text));
@@ -116,25 +111,6 @@ namespace JoliBateau
                 nbNoeudsSolution.Text = $"Nb de noeuds dans la solution : {solution.Count()}";
                 labelStopwatch.Text = $"Temps écoulé A* : {stopwatch.Elapsed.Minutes} min {stopwatch.Elapsed.Seconds} seconds";
             }
-
-            // écriture dans un fichier excel
-            /*Excel.Application xlApp = new Excel.Application();
-            object misValue = System.Reflection.Missing.Value;
-
-            Excel.Workbook wb = xlApp.Workbooks.Add(misValue);
-            Excel.Sheets sheets = wb.Worksheets;
-            Excel._Worksheet ws = (Excel._Worksheet)sheets.Item[1];
-
-            Excel.Range range = ws.get_Range("A1", Missing.Value);
-
-            string[] label = new string[] { "cas", "temps", "ecartX", "ecartY", "nbNoeudsSolution", "nbOuverts", "nbFermes" };
-            range = range.get_Resize(1, label.Length);
-            range.set_Value(Missing.Value, label);
-
-            wb.SaveAs("E:Cours/ensc/Projet-IA/test_bateau.xlsx", Excel.XlFileFormat.xlWorkbookDefault, misValue, misValue, misValue, misValue, Excel.XlSaveAsAccessMode.xlExclusive, misValue, misValue, misValue, misValue, misValue);
-            wb.Close(true, misValue, misValue);
-            xlApp.Quit();*/
-
         }
 
         private void radioButtonCas_Changed(object sender, EventArgs e)
@@ -198,6 +174,5 @@ namespace JoliBateau
             
         }
 
-        
     }
 }

@@ -11,7 +11,7 @@ namespace JoliBateau
         public double X { get; set; }
         public double Y { get; set; }
         public static char cas;
-        public static double DistNoeuds { get; set; } //constante définissant la distance en km entre les noeuds
+        public static double TailleCarre { get; set; } //constante définissant la distance en km entre les noeuds
         public static double Pavage { get; set; } // indicateur du pavage à prendre 
         public static Point Pf { get; set; }
 
@@ -31,8 +31,8 @@ namespace JoliBateau
             if (Y < 0) Y = 0;
             if (Y > 300) Y = 0;
 
-            cas = inputCas;            
-            DistNoeuds = dist;
+            cas = inputCas;
+            TailleCarre = dist;
             Pavage = pavage;
             ParentNode = null;          
             Enfants = new List<GenericNode>();
@@ -121,31 +121,27 @@ namespace JoliBateau
         public override List<GenericNode> GetListSucc()
         {
             List<GenericNode> newNodes = new List<GenericNode>();
-            double xDebut = X - DistNoeuds;
-            double xFin = X + DistNoeuds;
-            double yDebut = Y - DistNoeuds;
-            double yFin = Y + DistNoeuds;
+            double xDebut = X - 1;
+            double xFin = X + 1;
+            double yDebut = Y - 1;
+            double yFin = Y + 1;
 
             // on doit gérer les cas particuliers avec la bordure pour la recherche des noeuds environnants
             if (X == 0)
             {
                 xDebut = X;
-                xFin = X + DistNoeuds;
             }
             else if (X == 300)
             {
-                xDebut = X - DistNoeuds;
                 xFin = X;
             }
 
             if (Y == 0)
             {
                 yDebut = Y;
-                yFin = Y + DistNoeuds;
             }
             else if (Y == 300)
             {
-                yDebut = Y - DistNoeuds;
                 yFin = Y;
             }
 
@@ -153,9 +149,9 @@ namespace JoliBateau
             {
                 case 0: // pavage carré de 1
                     // on prend les noeuds autour de P1
-                    for (double x = xDebut; x <= xFin; x += DistNoeuds)
+                    for (double x = xDebut; x <= xFin; x += 1)
                     {
-                        for (double y = yDebut; y <= yFin; y += DistNoeuds)
+                        for (double y = yDebut; y <= yFin; y += 1)
                         {
                             if (x != X || y != Y)
                             {
@@ -166,7 +162,22 @@ namespace JoliBateau
                     }
                     break;
 
-                case 1: // pavage carré de 7
+                case 1: //pavage diagonal
+
+                    for (double x = xDebut; x <= xFin; x += 1)
+                    {
+                        for (double y = yDebut; y <= yFin; y += 1)
+                        {
+                            if (x != X && y != Y)
+                            {
+                                Point tempPoint = new Point(x, y);
+                                newNodes.Add(tempPoint);
+                            }
+                        }
+                    }
+                    break;
+
+                case 2: // pavage carré de 7
                     xDebut = X - 7;
                     xFin = X + 7;
                     yDebut = Y - 7;
@@ -205,14 +216,32 @@ namespace JoliBateau
 
                     break;
 
-                case 2: //pavage diagonal
-                    
-                    double val = 2;
-                    xDebut = X - val;
-                    xFin = X + val;
-                    yDebut = Y- val;
-                    yFin = Y + val;
-                    // on prend les noeuds autour de P1 en croix de 1
+                case 3: //pavage carré variable
+
+                    xDebut = X - TailleCarre;
+                    xFin = X + TailleCarre;
+                    yDebut = Y - TailleCarre;
+                    yFin = Y + TailleCarre;
+
+                    // ensemble de conditions pour assurer un pavage cohérent même aux bordures
+                    if (X <= TailleCarre)
+                    {
+                        xDebut = 0;
+                    }
+                    else if (X >= 300 - TailleCarre)
+                    {
+                        xFin = 300;
+                    }
+
+                    if (Y <= TailleCarre)
+                    {
+                        xDebut = 0;
+                    }
+                    else if (Y >= 300 - TailleCarre)
+                    {
+                        xFin = 300;
+                    }
+
                     for (double x = xDebut; x <= xFin; x += 1)
                     {
                         for (double y = yDebut; y <= yFin; y += 1)
