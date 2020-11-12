@@ -60,6 +60,7 @@
             this.label4 = new System.Windows.Forms.Label();
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupCas.SuspendLayout();
             this.groupBoxPavage.SuspendLayout();
@@ -67,6 +68,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
 =======
             this.label5 = new System.Windows.Forms.Label();
+=======
+            this.comboTailleCarre = new System.Windows.Forms.ComboBox();
+            this.radioButtonPavage3 = new System.Windows.Forms.RadioButton();
+>>>>>>> parent of 3b25dbd... Pavage carré variable fonctionnel
 =======
             this.comboTailleCarre = new System.Windows.Forms.ComboBox();
             this.radioButtonPavage3 = new System.Windows.Forms.RadioButton();
@@ -467,6 +472,7 @@
             // 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
@@ -491,6 +497,10 @@
 =======
             // comboTailleCarre
             // 
+=======
+            // comboTailleCarre
+            // 
+>>>>>>> parent of 3b25dbd... Pavage carré variable fonctionnel
             this.comboTailleCarre.FormattingEnabled = true;
             this.comboTailleCarre.Items.AddRange(new object[] {
             "1",
@@ -511,6 +521,9 @@
             this.radioButtonPavage3.TabIndex = 26;
             this.radioButtonPavage3.Text = "Carré de taille";
             this.radioButtonPavage3.UseVisualStyleBackColor = true;
+<<<<<<< HEAD
+>>>>>>> parent of 3b25dbd... Pavage carré variable fonctionnel
+=======
 >>>>>>> parent of 3b25dbd... Pavage carré variable fonctionnel
             // 
             // Form1
@@ -523,8 +536,11 @@
 =======
             this.ClientSize = new System.Drawing.Size(1396, 792);
 <<<<<<< HEAD
+<<<<<<< HEAD
             this.Controls.Add(this.label5);
 >>>>>>> parent of 3f26e97... Merge pull request #5 from lejugeti/Graphique-bateau
+=======
+>>>>>>> parent of 3b25dbd... Pavage carré variable fonctionnel
 =======
 >>>>>>> parent of 3b25dbd... Pavage carré variable fonctionnel
             this.Controls.Add(this.label4);
@@ -604,8 +620,11 @@
         private System.Windows.Forms.ComboBox comboTailleCarre;
         private System.Windows.Forms.RadioButton radioButtonPavage3;
 <<<<<<< HEAD
+<<<<<<< HEAD
         private System.Windows.Forms.Label label5;
 >>>>>>> parent of 3f26e97... Merge pull request #5 from lejugeti/Graphique-bateau
+=======
+>>>>>>> parent of 3b25dbd... Pavage carré variable fonctionnel
 =======
 >>>>>>> parent of 3b25dbd... Pavage carré variable fonctionnel
     }

@@ -71,6 +71,7 @@ namespace JoliBateau
 
             // sélection du type de la distance entre les noeuds. 1km par défaut
 <<<<<<< HEAD
+<<<<<<< HEAD
             double distance = 1;
             if (radioButtonDist0.Checked)
             {
@@ -85,6 +86,8 @@ namespace JoliBateau
                 distance = 10;
             }
 =======
+=======
+>>>>>>> parent of 3b25dbd... Pavage carré variable fonctionnel
             double distance;
             if (radioButtonPavage3.Checked) distance = Int32.Parse(comboTailleCarre.Text);
             else distance = 1;
