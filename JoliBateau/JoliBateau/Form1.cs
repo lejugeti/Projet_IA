@@ -19,6 +19,10 @@ namespace JoliBateau
         public Form1()
         {
             InitializeComponent();
+
+            radioButtonCasA.CheckedChanged += new EventHandler(radioButtonCas_Changed);
+            radioButtonCasB.CheckedChanged += new EventHandler(radioButtonCas_Changed);
+            radioButtonCasC.CheckedChanged += new EventHandler(radioButtonCas_Changed);
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -33,17 +37,17 @@ namespace JoliBateau
 
             // sélection du cas à traiter
             string cas;
-            if (radioButton1.Checked)
+            if (radioButtonCasA.Checked)
             {
-                cas = radioButton1.Text;
+                cas = radioButtonCasA.Text;
             }
-            else if (radioButton2.Checked)
+            else if (radioButtonCasB.Checked)
             {
-                cas = radioButton2.Text;
+                cas = radioButtonCasB.Text;
             }
-            else if (radioButton3.Checked)
+            else if (radioButtonCasC.Checked)
             {
-                cas = radioButton3.Text;
+                cas = radioButtonCasC.Text;
             }
             else cas = "a";
 
@@ -60,6 +64,7 @@ namespace JoliBateau
             else if (radioButtonPavage2.Checked)
             {
                 pavage = radioButtonPavage2.TabIndex;
+                
             }
             else pavage = 0; // pavage en carré par défaut
 
@@ -132,6 +137,32 @@ namespace JoliBateau
 
         }
 
+        private void radioButtonCas_Changed(object sender, EventArgs e)
+        {
+            var radio = groupCas.Controls.OfType<RadioButton>().FirstOrDefault(r => r.Checked);
+            if (radio.Text == "a")
+            {
+                textBoxP1X.Text = "100";
+                textBoxP1Y.Text = "200";
+                textBoxPfX.Text = "200";
+                textBoxPfY.Text = "100";
+            }
+            else if (radio.Text == "b")
+            {
+                textBoxP1X.Text = "100";
+                textBoxP1Y.Text = "200";
+                textBoxPfX.Text = "200";
+                textBoxPfY.Text = "100";
+            }
+            else if (radio.Text == "c")
+            {
+                textBoxP1X.Text = "200";
+                textBoxP1Y.Text = "100";
+                textBoxPfX.Text = "100";
+                textBoxPfY.Text = "200";
+            }
+        }
+
         private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
         {
 
@@ -164,7 +195,9 @@ namespace JoliBateau
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            
         }
+
+        
     }
 }
