@@ -89,12 +89,10 @@
     <Folder Include="Solutions\" />
   </ItemGroup>
   <ItemGroup>
-
     <None Include="Resources\ocean.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Ocean %282%29.png" />
-
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

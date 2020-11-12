@@ -11,7 +11,7 @@ namespace JoliBateau
         public double X { get; set; }
         public double Y { get; set; }
         public static char cas;
-        public static double TailleCarre { get; set; } //constante définissant la taille du carré pour le pavage carré
+        public static double DistNoeuds { get; set; } //constante définissant la distance en km entre les noeuds
         public static double Pavage { get; set; } // indicateur du pavage à prendre 
         public static Point Pf { get; set; }
 
@@ -31,8 +31,8 @@ namespace JoliBateau
             if (Y < 0) Y = 0;
             if (Y > 300) Y = 0;
 
-            cas = inputCas;
-            TailleCarre = dist;
+            cas = inputCas;            
+            DistNoeuds = dist;
             Pavage = pavage;
             ParentNode = null;          
             Enfants = new List<GenericNode>();
@@ -117,41 +117,45 @@ namespace JoliBateau
             return false;
         }
 
-        // renvoie la liste des successeurs de P1 en fonction de ce qui a été choisi dans le form
+        // renvoie la liste des 8 noeuds autour du point P1. Un pavage différent pourra être essayé après
         public override List<GenericNode> GetListSucc()
         {
             List<GenericNode> newNodes = new List<GenericNode>();
-            double xDebut = X - 1;
-            double xFin = X + 1;
-            double yDebut = Y - 1;
-            double yFin = Y + 1;
+            double xDebut = X - DistNoeuds;
+            double xFin = X + DistNoeuds;
+            double yDebut = Y - DistNoeuds;
+            double yFin = Y + DistNoeuds;
 
             // on doit gérer les cas particuliers avec la bordure pour la recherche des noeuds environnants
             if (X == 0)
             {
                 xDebut = X;
+                xFin = X + DistNoeuds;
             }
             else if (X == 300)
             {
+                xDebut = X - DistNoeuds;
                 xFin = X;
             }
 
             if (Y == 0)
             {
                 yDebut = Y;
+                yFin = Y + DistNoeuds;
             }
             else if (Y == 300)
             {
+                yDebut = Y - DistNoeuds;
                 yFin = Y;
             }
 
             switch (Pavage)
             {
-                case 0: // pavage carré de 1
+                case 0: // pavage carré de 8
                     // on prend les noeuds autour de P1
-                    for (double x = xDebut; x <= xFin; x += 1)
+                    for (double x = xDebut; x <= xFin; x += DistNoeuds)
                     {
-                        for (double y = yDebut; y <= yFin; y += 1)
+                        for (double y = yDebut; y <= yFin; y += DistNoeuds)
                         {
                             if (x != X || y != Y)
                             {
@@ -162,22 +166,7 @@ namespace JoliBateau
                     }
                     break;
 
-                case 1: //pavage diagonal
-
-                    for (double x = xDebut; x <= xFin; x += 1)
-                    {
-                        for (double y = yDebut; y <= yFin; y += 1)
-                        {
-                            if (x != X && y != Y)
-                            {
-                                Point tempPoint = new Point(x, y);
-                                newNodes.Add(tempPoint);
-                            }
-                        }
-                    }
-                    break;
-
-                case 2: // pavage carré de 7
+                case 1:
                     xDebut = X - 7;
                     xFin = X + 7;
                     yDebut = Y - 7;
@@ -202,7 +191,7 @@ namespace JoliBateau
                         xFin = 300;
                     }
 
-                    for (double x = xDebut; x <= xFin; x += 1)
+                    for (double x = xDebut; x <= xFin; x += 5)
                     {
                         for (double y = yDebut; y <= yFin; y += 1)
                         {
@@ -216,32 +205,9 @@ namespace JoliBateau
 
                     break;
 
-                case 3: //pavage carré variable
-
-                    xDebut = X - TailleCarre;
-                    xFin = X + TailleCarre;
-                    yDebut = Y - TailleCarre;
-                    yFin = Y + TailleCarre;
-
-                    // ensemble de conditions pour assurer un pavage cohérent même aux bordures
-                    if (X <= TailleCarre)
-                    {
-                        xDebut = 0;
-                    }
-                    else if (X >= 300 - TailleCarre)
-                    {
-                        xFin = 300;
-                    }
-
-                    if (Y <= TailleCarre)
-                    {
-                        xDebut = 0;
-                    }
-                    else if (Y >= 300 - TailleCarre)
-                    {
-                        xFin = 300;
-                    }
-
+                case 2: //pavage diagonal
+                    
+                    // on prend les noeuds autour de P1 en croix de 1
                     for (double x = xDebut; x <= xFin; x += 1)
                     {
                         for (double y = yDebut; y <= yFin; y += 1)
@@ -265,18 +231,24 @@ namespace JoliBateau
 
         public override double CalculeHCost()
         {
+            // on pourrait prendre comme heuristique le temps qu'on mettrait pour voyager entre P1 et Pf sans les contraites de vent
+            // càd qu'on met toujours le vent dans la meilleure direction par rapport à notre bateau, c'est à dire à 45°.
+            // en plus on enlève la restriction des 10km ça rend le calcul plus facile plutôt que de calculer la trajectoire optimale avec 
+            // les diagonales.
+
             double x1 = X;
             double y1 = Y;
             double x2 = Pf.X;
             double y2 = Pf.Y;
 
             double distance = Math.Sqrt((x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2));
-            double windspeed = 30;
+            /*double windspeed = 100;
             double alpha = 45;
             double boatspeed = (0.9 - 0.2 * (alpha - 45) / 45) * windspeed;
 
-            return (distance / boatspeed);
+            return (distance / boatspeed);*/
 
+            return distance;
         }
 
         public override string ToString()

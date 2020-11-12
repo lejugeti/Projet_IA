@@ -9,10 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using System.Diagnostics;
-
 using System.Security.Cryptography.X509Certificates;
 using System.Drawing;
-
 
 namespace JoliBateau
 {
@@ -21,10 +19,6 @@ namespace JoliBateau
         public Form1()
         {
             InitializeComponent();
-
-            radioButtonCasA.CheckedChanged += new EventHandler(radioButtonCas_Changed);
-            radioButtonCasB.CheckedChanged += new EventHandler(radioButtonCas_Changed);
-            radioButtonCasC.CheckedChanged += new EventHandler(radioButtonCas_Changed);
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -41,17 +35,17 @@ namespace JoliBateau
 
             // sélection du cas à traiter
             string cas;
-            if (radioButtonCasA.Checked)
+            if (radioButton1.Checked)
             {
-                cas = radioButtonCasA.Text;
+                cas = radioButton1.Text;
             }
-            else if (radioButtonCasB.Checked)
+            else if (radioButton2.Checked)
             {
-                cas = radioButtonCasB.Text;
+                cas = radioButton2.Text;
             }
-            else if (radioButtonCasC.Checked)
+            else if (radioButton3.Checked)
             {
-                cas = radioButtonCasC.Text;
+                cas = radioButton3.Text;
             }
             else cas = "a";
 
@@ -68,25 +62,28 @@ namespace JoliBateau
             else if (radioButtonPavage2.Checked)
             {
                 pavage = radioButtonPavage2.TabIndex;
-                
-            }
-            else if (radioButtonPavage3.Checked)
-            {
-                pavage = radioButtonPavage3.TabIndex;
-
             }
             else pavage = 0; // pavage en carré par défaut
 
 
             // sélection du type de la distance entre les noeuds. 1km par défaut
-            int distance;
-            if (radioButtonPavage3.Checked) distance = Int32.Parse(comboTailleCarre.SelectedItem.ToString());
-            else distance = 1;
+            double distance = 1;
+            if (radioButtonDist0.Checked)
+            {
+                distance = 1;
+            }
+            else if (radioButtonDist1.Checked)
+            {
+                distance = 0.1;
+            }
+            else if (radioButtonDist2.Checked)
+            {
+                distance = 10;
+            }
 
-            
             Point P0 = new Point(Int32.Parse(textBoxP1X.Text), Int32.Parse(textBoxP1Y.Text), Char.Parse(cas), pavage, distance);
             Point.Pf = new Point(Int32.Parse(textBoxPfX.Text), Int32.Parse(textBoxPfY.Text));
-            label5.Text = Point.TailleCarre.ToString();
+
             SearchTree tree = new SearchTree();
             Stopwatch stopwatch = new Stopwatch();
             
@@ -129,32 +126,12 @@ namespace JoliBateau
             }
         }
 
-
-        private void radioButtonCas_Changed(object sender, EventArgs e)
+        private void AfficherLigne()
         {
-            var radio = groupCas.Controls.OfType<RadioButton>().FirstOrDefault(r => r.Checked);
-            if (radio.Text == "a")
-            {
-                textBoxP1X.Text = "100";
-                textBoxP1Y.Text = "200";
-                textBoxPfX.Text = "200";
-                textBoxPfY.Text = "100";
-            }
-            else if (radio.Text == "b")
-            {
-                textBoxP1X.Text = "100";
-                textBoxP1Y.Text = "200";
-                textBoxPfX.Text = "200";
-                textBoxPfY.Text = "100";
-            }
-            else if (radio.Text == "c")
-            {
-                textBoxP1X.Text = "200";
-                textBoxP1Y.Text = "100";
-                textBoxPfX.Text = "100";
-                textBoxPfY.Text = "200";
-            }
+
+
         }
+
 
 
         private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
@@ -189,7 +166,12 @@ namespace JoliBateau
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
         }
 
 

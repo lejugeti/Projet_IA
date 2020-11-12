@@ -13,9 +13,16 @@ namespace TestsJoliBateau
         
         static void Main(string[] args)
         {
-            string a = System.Reflection.Assembly.GetExecutingAssembly().Location;
-            
-            Console.WriteLine(System.IO.Path.GetDirectoryName(a));
+            Point p = new Point(100, 100);
+            Point.DistNoeuds = 1;
+            Point.Pavage = 1;
+
+            List<GenericNode> l = p.GetListSucc();
+            l.Cast<Point>();
+            foreach(Point n in l)
+            {
+                Console.WriteLine($"({n.X}, {n.Y})");
+            }
             Console.ReadKey();
         }
     }
