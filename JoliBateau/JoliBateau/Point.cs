@@ -11,7 +11,11 @@ namespace JoliBateau
         public double X { get; set; }
         public double Y { get; set; }
         public static char cas;
+<<<<<<< HEAD
         public static double DistNoeuds { get; set; } //constante définissant la distance en km entre les noeuds
+=======
+        public static double TailleCarre { get; set; } //constante définissant la distance en km entre les noeuds
+>>>>>>> parent of 3b25dbd... Pavage carré variable fonctionnel
         public static double Pavage { get; set; } // indicateur du pavage à prendre 
         public static Point Pf { get; set; }
 

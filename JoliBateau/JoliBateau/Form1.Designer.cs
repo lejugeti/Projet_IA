@@ -59,6 +59,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
 <<<<<<< HEAD
+<<<<<<< HEAD
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupCas.SuspendLayout();
             this.groupBoxPavage.SuspendLayout();
@@ -66,6 +67,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
 =======
             this.label5 = new System.Windows.Forms.Label();
+=======
+            this.comboTailleCarre = new System.Windows.Forms.ComboBox();
+            this.radioButtonPavage3 = new System.Windows.Forms.RadioButton();
+>>>>>>> parent of 3b25dbd... Pavage carré variable fonctionnel
             this.groupCas.SuspendLayout();
             this.groupBoxPavage.SuspendLayout();
 >>>>>>> parent of 3f26e97... Merge pull request #5 from lejugeti/Graphique-bateau
@@ -461,6 +466,7 @@
             this.label4.Text = "Y";
             // 
 <<<<<<< HEAD
+<<<<<<< HEAD
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
@@ -482,6 +488,30 @@
             this.label5.TabIndex = 26;
             this.label5.Text = "label5";
 >>>>>>> parent of 3f26e97... Merge pull request #5 from lejugeti/Graphique-bateau
+=======
+            // comboTailleCarre
+            // 
+            this.comboTailleCarre.FormattingEnabled = true;
+            this.comboTailleCarre.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3"});
+            this.comboTailleCarre.Location = new System.Drawing.Point(113, 94);
+            this.comboTailleCarre.Name = "comboTailleCarre";
+            this.comboTailleCarre.Size = new System.Drawing.Size(41, 21);
+            this.comboTailleCarre.TabIndex = 26;
+            this.comboTailleCarre.Text = "1";
+            // 
+            // radioButtonPavage3
+            // 
+            this.radioButtonPavage3.AutoSize = true;
+            this.radioButtonPavage3.Location = new System.Drawing.Point(18, 94);
+            this.radioButtonPavage3.Name = "radioButtonPavage3";
+            this.radioButtonPavage3.Size = new System.Drawing.Size(89, 17);
+            this.radioButtonPavage3.TabIndex = 26;
+            this.radioButtonPavage3.Text = "Carré de taille";
+            this.radioButtonPavage3.UseVisualStyleBackColor = true;
+>>>>>>> parent of 3b25dbd... Pavage carré variable fonctionnel
             // 
             // Form1
             // 
@@ -492,8 +522,11 @@
             this.Controls.Add(this.pictureBox1);
 =======
             this.ClientSize = new System.Drawing.Size(1396, 792);
+<<<<<<< HEAD
             this.Controls.Add(this.label5);
 >>>>>>> parent of 3f26e97... Merge pull request #5 from lejugeti/Graphique-bateau
+=======
+>>>>>>> parent of 3b25dbd... Pavage carré variable fonctionnel
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -570,8 +603,11 @@
 =======
         private System.Windows.Forms.ComboBox comboTailleCarre;
         private System.Windows.Forms.RadioButton radioButtonPavage3;
+<<<<<<< HEAD
         private System.Windows.Forms.Label label5;
 >>>>>>> parent of 3f26e97... Merge pull request #5 from lejugeti/Graphique-bateau
+=======
+>>>>>>> parent of 3b25dbd... Pavage carré variable fonctionnel
     }
 }
 
