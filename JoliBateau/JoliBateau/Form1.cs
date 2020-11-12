@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using System.Diagnostics;
+using System.Security.Cryptography.X509Certificates;
+using System.Drawing;
 
 namespace JoliBateau
 {
@@ -28,6 +30,8 @@ namespace JoliBateau
         {
             // on clear les solution si jamais on a lancé auparavant
             listeSolution.Items.Clear();
+            pictureBox1.Refresh();
+
 
             // sélection du cas à traiter
             string cas;
@@ -87,6 +91,8 @@ namespace JoliBateau
             List<GenericNode> solution =  tree.RechercheSolutionAEtoile(P0); //recherche des solution d'A*
             stopwatch.Stop();
 
+            List<Point> ListePoints = solution.Cast<Point>().ToList();
+
             if (solution.Count == 0)
             {
                 labelSolution.Text = "Pas de solution";
@@ -98,6 +104,8 @@ namespace JoliBateau
                 {
                     listeSolution.Items.Add(N);
                 }
+
+
                 labelCountOpen.Text = "Nb noeuds des ouverts : " + tree.CountInOpenList().ToString();
                 labelCountClosed.Text = "Nb noeuds des fermés : " + tree.CountInClosedList().ToString();
                 tree.GetSearchTree(treeView1);
@@ -108,8 +116,23 @@ namespace JoliBateau
                 tempsSolution.Text = $"Temps total du parcours : {tempsPf} heures";
                 nbNoeudsSolution.Text = $"Nb de noeuds dans la solution : {solution.Count()}";
                 labelStopwatch.Text = $"Temps écoulé A* : {stopwatch.Elapsed.Minutes} min {stopwatch.Elapsed.Seconds} seconds";
+
+                
+                for (int i = 1; i < ListePoints.Count; i++)
+                {
+                 AfficherSegment(ListePoints[i-1].X, ListePoints[i-1].Y, ListePoints[i].X, ListePoints[i].Y);;
+                }
+
             }
         }
+
+        private void AfficherLigne()
+        {
+
+
+        }
+
+
 
         private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
         {
@@ -144,6 +167,21 @@ namespace JoliBateau
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
+        private void AfficherSegment(double x1, double y1, double x2, double y2)
+        {
+            System.Drawing.Pen penred = new Pen(Color.Red); // d’autres couleurs sont disponibles
+            penred.Width = 3;
+            Graphics g = pictureBox1.CreateGraphics();
+            g.DrawLine(penred, new System.Drawing.PointF((int)x1, pictureBox1.Height - (int)y1),
+            new System.Drawing.PointF((int)x2, pictureBox1.Height - (int)y2));
         }
     }
 }
