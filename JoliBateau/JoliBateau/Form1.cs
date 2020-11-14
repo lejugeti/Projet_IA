@@ -17,6 +17,10 @@ namespace JoliBateau
         public Form1()
         {
             InitializeComponent();
+            
+            radioButtonCasA.CheckedChanged += new EventHandler(radioButtonCas_Changed);
+            radioButtonCasB.CheckedChanged += new EventHandler(radioButtonCas_Changed);
+            radioButtonCasC.CheckedChanged += new EventHandler(radioButtonCas_Changed);
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -28,20 +32,21 @@ namespace JoliBateau
         {
             // on clear les solution si jamais on a lancé auparavant
             listeSolution.Items.Clear();
+            pictureBox1.InitialImage = null;
 
             // sélection du cas à traiter
             string cas;
-            if (radioButton1.Checked)
+            if (radioButtonCasA.Checked)
             {
-                cas = radioButton1.Text;
+                cas = radioButtonCasA.Text;
             }
-            else if (radioButton2.Checked)
+            else if (radioButtonCasB.Checked)
             {
-                cas = radioButton2.Text;
+                cas = radioButtonCasB.Text;
             }
-            else if (radioButton3.Checked)
+            else if (radioButtonCasC.Checked)
             {
-                cas = radioButton3.Text;
+                cas = radioButtonCasC.Text;
             }
             else cas = "a";
 
@@ -59,6 +64,14 @@ namespace JoliBateau
             {
                 pavage = radioButtonPavage2.TabIndex;
             }
+            else if (radioButtonPavage3.Checked)
+            {
+                pavage = radioButtonPavage3.TabIndex;
+            }
+            else if (radioButtonPavage4.Checked)
+            {
+                pavage = radioButtonPavage4.TabIndex;
+            }
             else pavage = 0; // pavage en carré par défaut
 
 
@@ -69,7 +82,7 @@ namespace JoliBateau
 
             Point P0 = new Point(Int32.Parse(textBoxP1X.Text), Int32.Parse(textBoxP1Y.Text), Char.Parse(cas), pavage, distance);
             Point.Pf = new Point(Int32.Parse(textBoxPfX.Text), Int32.Parse(textBoxPfY.Text));
-
+            label5.Text = Point.TailleCarre.ToString();
             SearchTree tree = new SearchTree();
             Stopwatch stopwatch = new Stopwatch();
             
@@ -98,16 +111,50 @@ namespace JoliBateau
                 tempsSolution.Text = $"Temps total du parcours : {tempsPf} heures";
                 nbNoeudsSolution.Text = $"Nb de noeuds dans la solution : {solution.Count()}";
                 labelStopwatch.Text = $"Temps écoulé A* : {stopwatch.Elapsed.Minutes} min {stopwatch.Elapsed.Seconds} seconds";
+                
+                List<Point> ListePoints = solution.Cast<Point>().ToList();
+                for (int i = 1; i < ListePoints.Count; i++)
+                {
+                    AfficherSegment(ListePoints[i - 1].X, ListePoints[i - 1].Y, ListePoints[i].X, ListePoints[i].Y); ;
+                }
             }
         }
 
+        private void AfficherSegment(double x1, double y1, double x2, double y2)
+        {
+            Pen penred = new Pen(Color.Red); // d’autres couleurs sont disponibles
+            penred.Width = 2;
+            Graphics g = pictureBox1.CreateGraphics();
+            g.DrawLine(penred, new PointF((int)x1, pictureBox1.Height - (int)y1),
+            new PointF((int)x2, pictureBox1.Height - (int)y2));
+        }
 
         private void radioButtonCas_Changed(object sender, EventArgs e)
-
         {
-
-
+            var radio = groupCas.Controls.OfType<RadioButton>().FirstOrDefault(r => r.Checked);
+            if (radio.Text == "a")
+            {
+                textBoxP1X.Text = "100";
+                textBoxP1Y.Text = "200";
+                textBoxPfX.Text = "200";
+                textBoxPfY.Text = "100";
+            }
+            else if (radio.Text == "b")
+            {
+                textBoxP1X.Text = "100";
+                textBoxP1Y.Text = "200";
+                textBoxPfX.Text = "200";
+                textBoxPfY.Text = "100";
+            }
+            else if (radio.Text == "c")
+            {
+                textBoxP1X.Text = "200";
+                textBoxP1Y.Text = "100";
+                textBoxPfX.Text = "100";
+                textBoxPfY.Text = "200";
+            }
         }
+
 
         private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
         {
