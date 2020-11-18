@@ -43,6 +43,7 @@
             this.labelStopwatch = new System.Windows.Forms.Label();
             this.groupCas = new System.Windows.Forms.GroupBox();
             this.groupBoxPavage = new System.Windows.Forms.GroupBox();
+            this.radioButtonPavage4 = new System.Windows.Forms.RadioButton();
             this.radioButtonPavage3 = new System.Windows.Forms.RadioButton();
             this.comboTailleCarre = new System.Windows.Forms.ComboBox();
             this.radioButtonPavage1 = new System.Windows.Forms.RadioButton();
@@ -58,7 +59,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.radioButtonPavage4 = new System.Windows.Forms.RadioButton();
             this.groupCas.SuspendLayout();
             this.groupBoxPavage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -80,7 +80,6 @@
             this.treeView1.Name = "treeView1";
             this.treeView1.Size = new System.Drawing.Size(166, 303);
             this.treeView1.TabIndex = 1;
-            this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
             // 
             // radioButtonCasA
             // 
@@ -184,7 +183,6 @@
             this.labelStopwatch.Name = "labelStopwatch";
             this.labelStopwatch.Size = new System.Drawing.Size(0, 13);
             this.labelStopwatch.TabIndex = 14;
-            this.labelStopwatch.Click += new System.EventHandler(this.label2_Click);
             // 
             // groupCas
             // 
@@ -197,7 +195,6 @@
             this.groupCas.TabIndex = 15;
             this.groupCas.TabStop = false;
             this.groupCas.Text = "Vent";
-            this.groupCas.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // groupBoxPavage
             // 
@@ -215,6 +212,16 @@
             this.groupBoxPavage.TabIndex = 16;
             this.groupBoxPavage.TabStop = false;
             this.groupBoxPavage.Text = "Pavage";
+            // 
+            // radioButtonPavage4
+            // 
+            this.radioButtonPavage4.AutoSize = true;
+            this.radioButtonPavage4.Location = new System.Drawing.Point(18, 129);
+            this.radioButtonPavage4.Name = "radioButtonPavage4";
+            this.radioButtonPavage4.Size = new System.Drawing.Size(74, 17);
+            this.radioButtonPavage4.TabIndex = 4;
+            this.radioButtonPavage4.Text = "Hexagone";
+            this.radioButtonPavage4.UseVisualStyleBackColor = true;
             // 
             // radioButtonPavage3
             // 
@@ -260,7 +267,6 @@
             this.radioButtonPavage2.TabIndex = 2;
             this.radioButtonPavage2.Text = "Carré de 7";
             this.radioButtonPavage2.UseVisualStyleBackColor = true;
-            this.radioButtonPavage2.CheckedChanged += new System.EventHandler(this.radioButton5_CheckedChanged);
             // 
             // radioButtonPavage0
             // 
@@ -323,7 +329,6 @@
             this.label2.Size = new System.Drawing.Size(56, 13);
             this.label2.TabIndex = 23;
             this.label2.Text = "Point Final";
-            this.label2.Click += new System.EventHandler(this.label2_Click_1);
             // 
             // label3
             // 
@@ -345,7 +350,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::JoliBateau.Properties.Resources.ibasho_mika_horie_sea_air_2019;
+            this.pictureBox1.BackColor = System.Drawing.SystemColors.Highlight;
             this.pictureBox1.Location = new System.Drawing.Point(336, 12);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(300, 300);
@@ -361,16 +366,6 @@
             this.label5.Size = new System.Drawing.Size(35, 13);
             this.label5.TabIndex = 27;
             this.label5.Text = "label5";
-            // 
-            // radioButtonPavage4
-            // 
-            this.radioButtonPavage4.AutoSize = true;
-            this.radioButtonPavage4.Location = new System.Drawing.Point(18, 129);
-            this.radioButtonPavage4.Name = "radioButtonPavage4";
-            this.radioButtonPavage4.Size = new System.Drawing.Size(74, 17);
-            this.radioButtonPavage4.TabIndex = 4;
-            this.radioButtonPavage4.Text = "Hexagone";
-            this.radioButtonPavage4.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 

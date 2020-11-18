@@ -21,6 +21,8 @@ namespace JoliBateau
             radioButtonCasA.CheckedChanged += new EventHandler(radioButtonCas_Changed);
             radioButtonCasB.CheckedChanged += new EventHandler(radioButtonCas_Changed);
             radioButtonCasC.CheckedChanged += new EventHandler(radioButtonCas_Changed);
+
+            pictureBox1.BackColor = Color.LightBlue;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -32,8 +34,7 @@ namespace JoliBateau
         {
             // on clear les solution si jamais on a lancé auparavant
             listeSolution.Items.Clear();
-            pictureBox1.InitialImage = null;
-
+            
             // sélection du cas à traiter
             string cas;
             if (radioButtonCasA.Checked)
@@ -111,20 +112,24 @@ namespace JoliBateau
                 tempsSolution.Text = $"Temps total du parcours : {tempsPf} heures";
                 nbNoeudsSolution.Text = $"Nb de noeuds dans la solution : {solution.Count()}";
                 labelStopwatch.Text = $"Temps écoulé A* : {stopwatch.Elapsed.Minutes} min {stopwatch.Elapsed.Seconds} seconds";
-                
+
+                //
+                // Dessiner les chemins
+                //
+                Graphics g = pictureBox1.CreateGraphics();
+                g.Clear(Color.LightBlue);
                 List<Point> ListePoints = solution.Cast<Point>().ToList();
                 for (int i = 1; i < ListePoints.Count; i++)
                 {
-                    AfficherSegment(ListePoints[i - 1].X, ListePoints[i - 1].Y, ListePoints[i].X, ListePoints[i].Y); ;
+                    AfficherSegment(g, ListePoints[i - 1].X, ListePoints[i - 1].Y, ListePoints[i].X, ListePoints[i].Y); ;
                 }
             }
         }
 
-        private void AfficherSegment(double x1, double y1, double x2, double y2)
+        private void AfficherSegment(Graphics g, double x1, double y1, double x2, double y2)
         {
             Pen penred = new Pen(Color.Red); // d’autres couleurs sont disponibles
             penred.Width = 2;
-            Graphics g = pictureBox1.CreateGraphics();
             g.DrawLine(penred, new PointF((int)x1, pictureBox1.Height - (int)y1),
             new PointF((int)x2, pictureBox1.Height - (int)y2));
         }
@@ -153,47 +158,6 @@ namespace JoliBateau
                 textBoxPfX.Text = "100";
                 textBoxPfY.Text = "200";
             }
-        }
-
-
-        private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void radioButton5_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void trackBar1_Scroll(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void label2_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
         }
 
     }
