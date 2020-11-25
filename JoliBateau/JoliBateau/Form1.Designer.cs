@@ -43,11 +43,9 @@
             this.labelStopwatch = new System.Windows.Forms.Label();
             this.groupCas = new System.Windows.Forms.GroupBox();
             this.groupBoxPavage = new System.Windows.Forms.GroupBox();
-            this.radioButtonPavage4 = new System.Windows.Forms.RadioButton();
             this.radioButtonPavage3 = new System.Windows.Forms.RadioButton();
             this.comboTailleCarre = new System.Windows.Forms.ComboBox();
             this.radioButtonPavage1 = new System.Windows.Forms.RadioButton();
-            this.radioButtonPavage2 = new System.Windows.Forms.RadioButton();
             this.radioButtonPavage0 = new System.Windows.Forms.RadioButton();
             this.textBoxP1X = new System.Windows.Forms.TextBox();
             this.textBoxP1Y = new System.Windows.Forms.TextBox();
@@ -58,10 +56,15 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label5 = new System.Windows.Forms.Label();
+            this.groupBoxHeuristique = new System.Windows.Forms.GroupBox();
+            this.radioBtnH0 = new System.Windows.Forms.RadioButton();
+            this.radioBtnH1 = new System.Windows.Forms.RadioButton();
+            this.radioBtnH2 = new System.Windows.Forms.RadioButton();
+            this.radioBtnH3 = new System.Windows.Forms.RadioButton();
             this.groupCas.SuspendLayout();
             this.groupBoxPavage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.groupBoxHeuristique.SuspendLayout();
             this.SuspendLayout();
             // 
             // button1
@@ -88,7 +91,7 @@
             this.radioButtonCasA.Location = new System.Drawing.Point(15, 19);
             this.radioButtonCasA.Name = "radioButtonCasA";
             this.radioButtonCasA.Size = new System.Drawing.Size(31, 17);
-            this.radioButtonCasA.TabIndex = 4;
+            this.radioButtonCasA.TabIndex = 0;
             this.radioButtonCasA.TabStop = true;
             this.radioButtonCasA.Text = "a";
             this.radioButtonCasA.UseVisualStyleBackColor = true;
@@ -99,7 +102,7 @@
             this.radioButtonCasB.Location = new System.Drawing.Point(15, 51);
             this.radioButtonCasB.Name = "radioButtonCasB";
             this.radioButtonCasB.Size = new System.Drawing.Size(31, 17);
-            this.radioButtonCasB.TabIndex = 5;
+            this.radioButtonCasB.TabIndex = 1;
             this.radioButtonCasB.Text = "b";
             this.radioButtonCasB.UseVisualStyleBackColor = true;
             // 
@@ -109,7 +112,7 @@
             this.radioButtonCasC.Location = new System.Drawing.Point(15, 84);
             this.radioButtonCasC.Name = "radioButtonCasC";
             this.radioButtonCasC.Size = new System.Drawing.Size(31, 17);
-            this.radioButtonCasC.TabIndex = 6;
+            this.radioButtonCasC.TabIndex = 2;
             this.radioButtonCasC.Text = "c";
             this.radioButtonCasC.UseVisualStyleBackColor = true;
             // 
@@ -146,8 +149,9 @@
             this.labelCountOpen.Location = new System.Drawing.Point(345, 386);
             this.labelCountOpen.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.labelCountOpen.Name = "labelCountOpen";
-            this.labelCountOpen.Size = new System.Drawing.Size(0, 13);
+            this.labelCountOpen.Size = new System.Drawing.Size(83, 13);
             this.labelCountOpen.TabIndex = 10;
+            this.labelCountOpen.Text = "labelCountOpen";
             // 
             // labelCountClosed
             // 
@@ -155,8 +159,9 @@
             this.labelCountClosed.Location = new System.Drawing.Point(345, 409);
             this.labelCountClosed.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.labelCountClosed.Name = "labelCountClosed";
-            this.labelCountClosed.Size = new System.Drawing.Size(0, 13);
+            this.labelCountClosed.Size = new System.Drawing.Size(89, 13);
             this.labelCountClosed.TabIndex = 11;
+            this.labelCountClosed.Text = "labelCountClosed";
             // 
             // tempsSolution
             // 
@@ -164,8 +169,9 @@
             this.tempsSolution.Location = new System.Drawing.Point(345, 340);
             this.tempsSolution.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.tempsSolution.Name = "tempsSolution";
-            this.tempsSolution.Size = new System.Drawing.Size(0, 13);
+            this.tempsSolution.Size = new System.Drawing.Size(67, 13);
             this.tempsSolution.TabIndex = 12;
+            this.tempsSolution.Text = "labelSolution";
             // 
             // nbNoeudsSolution
             // 
@@ -173,16 +179,18 @@
             this.nbNoeudsSolution.Location = new System.Drawing.Point(345, 363);
             this.nbNoeudsSolution.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.nbNoeudsSolution.Name = "nbNoeudsSolution";
-            this.nbNoeudsSolution.Size = new System.Drawing.Size(0, 13);
+            this.nbNoeudsSolution.Size = new System.Drawing.Size(118, 13);
             this.nbNoeudsSolution.TabIndex = 13;
+            this.nbNoeudsSolution.Text = "labelNbNoeudsSolution";
             // 
             // labelStopwatch
             // 
             this.labelStopwatch.AutoSize = true;
             this.labelStopwatch.Location = new System.Drawing.Point(345, 436);
             this.labelStopwatch.Name = "labelStopwatch";
-            this.labelStopwatch.Size = new System.Drawing.Size(0, 13);
+            this.labelStopwatch.Size = new System.Drawing.Size(83, 13);
             this.labelStopwatch.TabIndex = 14;
+            this.labelStopwatch.Text = "labelStopWatch";
             // 
             // groupCas
             // 
@@ -198,38 +206,28 @@
             // 
             // groupBoxPavage
             // 
-            this.groupBoxPavage.Controls.Add(this.radioButtonPavage4);
             this.groupBoxPavage.Controls.Add(this.radioButtonPavage3);
             this.groupBoxPavage.Controls.Add(this.comboTailleCarre);
             this.groupBoxPavage.Controls.Add(this.radioButtonPavage1);
-            this.groupBoxPavage.Controls.Add(this.radioButtonPavage2);
             this.groupBoxPavage.Controls.Add(this.radioButtonPavage0);
             this.groupBoxPavage.Location = new System.Drawing.Point(25, 290);
             this.groupBoxPavage.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.groupBoxPavage.Name = "groupBoxPavage";
             this.groupBoxPavage.Padding = new System.Windows.Forms.Padding(8, 7, 8, 7);
-            this.groupBoxPavage.Size = new System.Drawing.Size(181, 159);
+            this.groupBoxPavage.Size = new System.Drawing.Size(181, 109);
             this.groupBoxPavage.TabIndex = 16;
             this.groupBoxPavage.TabStop = false;
             this.groupBoxPavage.Text = "Pavage";
             // 
-            // radioButtonPavage4
-            // 
-            this.radioButtonPavage4.AutoSize = true;
-            this.radioButtonPavage4.Location = new System.Drawing.Point(18, 129);
-            this.radioButtonPavage4.Name = "radioButtonPavage4";
-            this.radioButtonPavage4.Size = new System.Drawing.Size(74, 17);
-            this.radioButtonPavage4.TabIndex = 4;
-            this.radioButtonPavage4.Text = "Hexagone";
-            this.radioButtonPavage4.UseVisualStyleBackColor = true;
-            // 
             // radioButtonPavage3
             // 
             this.radioButtonPavage3.AutoSize = true;
-            this.radioButtonPavage3.Location = new System.Drawing.Point(18, 102);
+            this.radioButtonPavage3.Checked = true;
+            this.radioButtonPavage3.Location = new System.Drawing.Point(18, 73);
             this.radioButtonPavage3.Name = "radioButtonPavage3";
             this.radioButtonPavage3.Size = new System.Drawing.Size(89, 17);
-            this.radioButtonPavage3.TabIndex = 3;
+            this.radioButtonPavage3.TabIndex = 2;
+            this.radioButtonPavage3.TabStop = true;
             this.radioButtonPavage3.Text = "Carré de taille";
             this.radioButtonPavage3.UseVisualStyleBackColor = true;
             // 
@@ -239,8 +237,13 @@
             this.comboTailleCarre.Items.AddRange(new object[] {
             "1",
             "2",
-            "3"});
-            this.comboTailleCarre.Location = new System.Drawing.Point(104, 102);
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8"});
+            this.comboTailleCarre.Location = new System.Drawing.Point(104, 73);
             this.comboTailleCarre.MaxDropDownItems = 3;
             this.comboTailleCarre.Name = "comboTailleCarre";
             this.comboTailleCarre.Size = new System.Drawing.Size(39, 21);
@@ -258,25 +261,13 @@
             this.radioButtonPavage1.Text = "Diagonal de 1";
             this.radioButtonPavage1.UseVisualStyleBackColor = true;
             // 
-            // radioButtonPavage2
-            // 
-            this.radioButtonPavage2.AutoSize = true;
-            this.radioButtonPavage2.Location = new System.Drawing.Point(18, 73);
-            this.radioButtonPavage2.Name = "radioButtonPavage2";
-            this.radioButtonPavage2.Size = new System.Drawing.Size(74, 17);
-            this.radioButtonPavage2.TabIndex = 2;
-            this.radioButtonPavage2.Text = "Carré de 7";
-            this.radioButtonPavage2.UseVisualStyleBackColor = true;
-            // 
             // radioButtonPavage0
             // 
             this.radioButtonPavage0.AutoSize = true;
-            this.radioButtonPavage0.Checked = true;
             this.radioButtonPavage0.Location = new System.Drawing.Point(18, 19);
             this.radioButtonPavage0.Name = "radioButtonPavage0";
             this.radioButtonPavage0.Size = new System.Drawing.Size(74, 17);
             this.radioButtonPavage0.TabIndex = 0;
-            this.radioButtonPavage0.TabStop = true;
             this.radioButtonPavage0.Text = "Carré de 1";
             this.radioButtonPavage0.UseVisualStyleBackColor = true;
             // 
@@ -358,21 +349,67 @@
             this.pictureBox1.TabIndex = 26;
             this.pictureBox1.TabStop = false;
             // 
-            // label5
+            // groupBoxHeuristique
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(300, 481);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(35, 13);
-            this.label5.TabIndex = 27;
-            this.label5.Text = "label5";
+            this.groupBoxHeuristique.Controls.Add(this.radioBtnH3);
+            this.groupBoxHeuristique.Controls.Add(this.radioBtnH2);
+            this.groupBoxHeuristique.Controls.Add(this.radioBtnH1);
+            this.groupBoxHeuristique.Controls.Add(this.radioBtnH0);
+            this.groupBoxHeuristique.Location = new System.Drawing.Point(25, 413);
+            this.groupBoxHeuristique.Name = "groupBoxHeuristique";
+            this.groupBoxHeuristique.Size = new System.Drawing.Size(212, 121);
+            this.groupBoxHeuristique.TabIndex = 27;
+            this.groupBoxHeuristique.TabStop = false;
+            this.groupBoxHeuristique.Text = "groupBox1";
+            // 
+            // radioBtnH0
+            // 
+            this.radioBtnH0.AutoSize = true;
+            this.radioBtnH0.Checked = true;
+            this.radioBtnH0.Location = new System.Drawing.Point(15, 23);
+            this.radioBtnH0.Name = "radioBtnH0";
+            this.radioBtnH0.Size = new System.Drawing.Size(124, 17);
+            this.radioBtnH0.TabIndex = 0;
+            this.radioBtnH0.TabStop = true;
+            this.radioBtnH0.Text = "Distance euclidienne";
+            this.radioBtnH0.UseVisualStyleBackColor = true;
+            // 
+            // radioBtnH1
+            // 
+            this.radioBtnH1.AutoSize = true;
+            this.radioBtnH1.Location = new System.Drawing.Point(15, 46);
+            this.radioBtnH1.Name = "radioBtnH1";
+            this.radioBtnH1.Size = new System.Drawing.Size(155, 17);
+            this.radioBtnH1.TabIndex = 1;
+            this.radioBtnH1.Text = "Manhattan sans diagonales";
+            this.radioBtnH1.UseVisualStyleBackColor = true;
+            // 
+            // radioBtnH2
+            // 
+            this.radioBtnH2.AutoSize = true;
+            this.radioBtnH2.Location = new System.Drawing.Point(15, 69);
+            this.radioBtnH2.Name = "radioBtnH2";
+            this.radioBtnH2.Size = new System.Drawing.Size(157, 17);
+            this.radioBtnH2.TabIndex = 2;
+            this.radioBtnH2.Text = "Manhattan avec diagonales";
+            this.radioBtnH2.UseVisualStyleBackColor = true;
+            // 
+            // radioBtnH3
+            // 
+            this.radioBtnH3.AutoSize = true;
+            this.radioBtnH3.Location = new System.Drawing.Point(15, 92);
+            this.radioBtnH3.Name = "radioBtnH3";
+            this.radioBtnH3.Size = new System.Drawing.Size(140, 17);
+            this.radioBtnH3.TabIndex = 3;
+            this.radioBtnH3.Text = "Heuristique par tronçons";
+            this.radioBtnH3.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1064, 525);
-            this.Controls.Add(this.label5);
+            this.ClientSize = new System.Drawing.Size(1064, 561);
+            this.Controls.Add(this.groupBoxHeuristique);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -402,6 +439,8 @@
             this.groupBoxPavage.ResumeLayout(false);
             this.groupBoxPavage.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.groupBoxHeuristique.ResumeLayout(false);
+            this.groupBoxHeuristique.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -425,7 +464,6 @@
         private System.Windows.Forms.GroupBox groupCas;
         private System.Windows.Forms.GroupBox groupBoxPavage;
         private System.Windows.Forms.RadioButton radioButtonPavage1;
-        private System.Windows.Forms.RadioButton radioButtonPavage2;
         private System.Windows.Forms.RadioButton radioButtonPavage0;
         private System.Windows.Forms.TextBox textBoxP1X;
         private System.Windows.Forms.TextBox textBoxP1Y;
@@ -438,8 +476,11 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.RadioButton radioButtonPavage3;
         private System.Windows.Forms.ComboBox comboTailleCarre;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.RadioButton radioButtonPavage4;
+        private System.Windows.Forms.GroupBox groupBoxHeuristique;
+        private System.Windows.Forms.RadioButton radioBtnH1;
+        private System.Windows.Forms.RadioButton radioBtnH0;
+        private System.Windows.Forms.RadioButton radioBtnH3;
+        private System.Windows.Forms.RadioButton radioBtnH2;
     }
 }
 

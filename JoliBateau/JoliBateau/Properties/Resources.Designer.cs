@@ -59,25 +59,5 @@ namespace JoliBateau.Properties {
                 resourceCulture = value;
             }
         }
-        
-        /// <summary>
-        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap ibasho_mika_horie_sea_air_2019 {
-            get {
-                object obj = ResourceManager.GetObject("ibasho-mika-horie-sea-air-2019", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap ocean {
-            get {
-                object obj = ResourceManager.GetObject("ocean", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
     }
 }

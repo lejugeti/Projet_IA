@@ -22,7 +22,10 @@ namespace JoliBateau
             radioButtonCasB.CheckedChanged += new EventHandler(radioButtonCas_Changed);
             radioButtonCasC.CheckedChanged += new EventHandler(radioButtonCas_Changed);
 
+            comboTailleCarre.SelectedIndex = 7;
             pictureBox1.BackColor = Color.LightBlue;
+
+            ResetAffichage();
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -33,8 +36,9 @@ namespace JoliBateau
         private void button1_Click(object sender, EventArgs e)
         {
             // on clear les solution si jamais on a lancé auparavant
-            listeSolution.Items.Clear();
-            
+            /*listeSolution.Items.Clear();*/
+            ResetAffichage();
+
             // sélection du cas à traiter
             string cas;
             if (radioButtonCasA.Checked)
@@ -61,29 +65,22 @@ namespace JoliBateau
             {
                 pavage = radioButtonPavage1.TabIndex;
             }
-            else if (radioButtonPavage2.Checked)
-            {
-                pavage = radioButtonPavage2.TabIndex;
-            }
             else if (radioButtonPavage3.Checked)
             {
                 pavage = radioButtonPavage3.TabIndex;
             }
-            else if (radioButtonPavage4.Checked)
-            {
-                pavage = radioButtonPavage4.TabIndex;
-            }
             else pavage = 0; // pavage en carré par défaut
 
+            int typeHeuristique = 0;
+            groupBoxHeuristique.Controls.OfType<RadioButton>().ToList().ForEach(btn => { if (btn.Checked) typeHeuristique = btn.TabIndex; });
 
             // sélection du type de la distance entre les noeuds. 1km par défaut
             double distance;
             if (radioButtonPavage3.Checked) distance = Int32.Parse(comboTailleCarre.Text);
             else distance = 1;
 
-            Point P0 = new Point(Int32.Parse(textBoxP1X.Text), Int32.Parse(textBoxP1Y.Text), Char.Parse(cas), pavage, distance);
+            Point P0 = new Point(Int32.Parse(textBoxP1X.Text), Int32.Parse(textBoxP1Y.Text), Char.Parse(cas), pavage, distance, typeHeuristique);
             Point.Pf = new Point(Int32.Parse(textBoxPfX.Text), Int32.Parse(textBoxPfY.Text));
-            label5.Text = Point.TailleCarre.ToString();
             SearchTree tree = new SearchTree();
             Stopwatch stopwatch = new Stopwatch();
             
@@ -132,6 +129,20 @@ namespace JoliBateau
             penred.Width = 2;
             g.DrawLine(penred, new PointF((int)x1, pictureBox1.Height - (int)y1),
             new PointF((int)x2, pictureBox1.Height - (int)y2));
+        }
+
+        private void ResetAffichage()
+        {
+            labelCountClosed.Text = "";
+            labelCountOpen.Text = "";
+            labelSolution.Text = "";
+            labelStopwatch.Text = "";
+            labelTreeview.Text = "";
+            tempsSolution.Text = "";
+            nbNoeudsSolution.Text = "";
+
+            listeSolution.Items.Clear();
+            treeView1.ResetText();
         }
 
         private void radioButtonCas_Changed(object sender, EventArgs e)
