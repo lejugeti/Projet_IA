@@ -1,14 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.IO;
-using System.Diagnostics;
 
 namespace JoliBateau
 {
@@ -17,7 +13,7 @@ namespace JoliBateau
         public Form1()
         {
             InitializeComponent();
-            
+
             radioButtonCasA.CheckedChanged += new EventHandler(radioButtonCas_Changed);
             radioButtonCasB.CheckedChanged += new EventHandler(radioButtonCas_Changed);
             radioButtonCasC.CheckedChanged += new EventHandler(radioButtonCas_Changed);
@@ -36,56 +32,28 @@ namespace JoliBateau
         private void button1_Click(object sender, EventArgs e)
         {
             // on clear les solution si jamais on a lancé auparavant
-            /*listeSolution.Items.Clear();*/
             ResetAffichage();
 
             // sélection du cas à traiter
-            string cas;
-            if (radioButtonCasA.Checked)
-            {
-                cas = radioButtonCasA.Text;
-            }
-            else if (radioButtonCasB.Checked)
-            {
-                cas = radioButtonCasB.Text;
-            }
-            else if (radioButtonCasC.Checked)
-            {
-                cas = radioButtonCasC.Text;
-            }
-            else cas = "a";
+            char cas = 'a';
+            groupBoxCas.Controls.OfType<RadioButton>().ToList().ForEach(btn => { if (btn.Checked) cas = Char.Parse(btn.Text); });
 
             // sélection du type de pavage
-            int pavage;
-            if (radioButtonPavage0.Checked)
-            {
-                pavage = radioButtonPavage0.TabIndex;
-            }
-            else if (radioButtonPavage1.Checked)
-            {
-                pavage = radioButtonPavage1.TabIndex;
-            }
-            else if (radioButtonPavage3.Checked)
-            {
-                pavage = radioButtonPavage3.TabIndex;
-            }
-            else pavage = 0; // pavage en carré par défaut
-
-            int typeHeuristique = 0;
-            groupBoxHeuristique.Controls.OfType<RadioButton>().ToList().ForEach(btn => { if (btn.Checked) typeHeuristique = btn.TabIndex; });
+            int pavage = 0;
+            groupBoxPavage.Controls.OfType<RadioButton>().ToList().ForEach(btn => { if (btn.Checked) pavage = btn.TabIndex; });
 
             // sélection du type de la distance entre les noeuds. 1km par défaut
             double distance;
             if (radioButtonPavage3.Checked) distance = Int32.Parse(comboTailleCarre.Text);
             else distance = 1;
 
-            Point P0 = new Point(Int32.Parse(textBoxP1X.Text), Int32.Parse(textBoxP1Y.Text), Char.Parse(cas), pavage, distance, typeHeuristique);
+            Point P0 = new Point(Int32.Parse(textBoxP1X.Text), Int32.Parse(textBoxP1Y.Text), cas, pavage, distance);
             Point.Pf = new Point(Int32.Parse(textBoxPfX.Text), Int32.Parse(textBoxPfY.Text));
             SearchTree tree = new SearchTree();
             Stopwatch stopwatch = new Stopwatch();
-            
+
             stopwatch.Start();
-            List<GenericNode> solution =  tree.RechercheSolutionAEtoile(P0); //recherche des solution d'A*
+            List<GenericNode> solution = tree.RechercheSolutionAEtoile(P0); //recherche des solution d'A*
             stopwatch.Stop();
 
             if (solution.Count == 0)
@@ -99,9 +67,6 @@ namespace JoliBateau
                 {
                     listeSolution.Items.Add(N);
                 }
-                labelCountOpen.Text = "Nb noeuds des ouverts : " + tree.CountInOpenList().ToString();
-                labelCountClosed.Text = "Nb noeuds des fermés : " + tree.CountInClosedList().ToString();
-                tree.GetSearchTree(treeView1);
 
                 //Différents affichages pour les stats de la recherche
                 GenericNode Pf = solution.Last();
@@ -109,6 +74,10 @@ namespace JoliBateau
                 tempsSolution.Text = $"Temps total du parcours : {tempsPf} heures";
                 nbNoeudsSolution.Text = $"Nb de noeuds dans la solution : {solution.Count()}";
                 labelStopwatch.Text = $"Temps écoulé A* : {stopwatch.Elapsed.Minutes} min {stopwatch.Elapsed.Seconds} seconds";
+                labelCountOpen.Text = "Nb noeuds des ouverts : " + tree.CountInOpenList().ToString();
+                labelCountClosed.Text = "Nb noeuds des fermés : " + tree.CountInClosedList().ToString();
+                labelCountAndClosed.Text = $"Nb ouverts + fermés : {tree.CountInOpenList() + tree.CountInClosedList()}";
+                tree.GetSearchTree(treeView1);
 
                 //
                 // Dessiner les chemins
@@ -118,23 +87,40 @@ namespace JoliBateau
                 List<Point> ListePoints = solution.Cast<Point>().ToList();
                 for (int i = 1; i < ListePoints.Count; i++)
                 {
+                    // affiche le segment entre le point i-1 et le point i
                     AfficherSegment(g, ListePoints[i - 1].X, ListePoints[i - 1].Y, ListePoints[i].X, ListePoints[i].Y); ;
+
+                    // affichage de u point final sous forme d'une croix verte
+                    if (i == ListePoints.Count - 1)
+                    {
+                        AfficherFin(g, ListePoints[i].X, ListePoints[i].Y);
+                    }
                 }
             }
         }
 
         private void AfficherSegment(Graphics g, double x1, double y1, double x2, double y2)
         {
-            Pen penred = new Pen(Color.Red); // d’autres couleurs sont disponibles
-            penred.Width = 2;
-            g.DrawLine(penred, new PointF((int)x1, pictureBox1.Height - (int)y1),
-            new PointF((int)x2, pictureBox1.Height - (int)y2));
+            Pen pen = new Pen(Color.Red);
+            pen.Width = 2;
+            g.DrawLine(pen, new PointF((int)x1, pictureBox1.Height - (int)y1), new PointF((int)x2, pictureBox1.Height - (int)y2));
+        }
+
+        private void AfficherFin(Graphics g, double x1, double y1)
+        {
+            Pen pen = new Pen(Color.Green);
+            pen.Width = 2;
+
+            g.DrawLine(pen, new PointF((int)x1 - 10, pictureBox1.Height - (int)(y1 - 10)), new PointF((int)x1 + 10, pictureBox1.Height - (int)(y1 + 10)));
+            g.DrawLine(pen, new PointF((int)x1 + 10, pictureBox1.Height - (int)(y1 - 10)), new PointF((int)x1 - 10, pictureBox1.Height - (int)(y1 + 10)));
+
         }
 
         private void ResetAffichage()
         {
             labelCountClosed.Text = "";
             labelCountOpen.Text = "";
+            labelCountAndClosed.Text = "";
             labelSolution.Text = "";
             labelStopwatch.Text = "";
             labelTreeview.Text = "";
@@ -147,7 +133,7 @@ namespace JoliBateau
 
         private void radioButtonCas_Changed(object sender, EventArgs e)
         {
-            var radio = groupCas.Controls.OfType<RadioButton>().FirstOrDefault(r => r.Checked);
+            var radio = groupBoxCas.Controls.OfType<RadioButton>().FirstOrDefault(r => r.Checked);
             if (radio.Text == "a")
             {
                 textBoxP1X.Text = "100";

@@ -7,8 +7,7 @@ namespace JoliBateau
     {
         public double X { get; set; }
         public double Y { get; set; }
-        public static char cas;
-        public static int TypeHeuristique { get; set; }
+        public static char Cas { get; set; }
         public static double TailleCarre { get; set; } //constante définissant la distance en km entre les noeuds
         public static double Pavage { get; set; } // indicateur du pavage à prendre 
         public static Point Pf { get; set; }
@@ -19,7 +18,7 @@ namespace JoliBateau
         }
 
         //constructeur du point initial du graph en fonction du cas a, b ou c
-        public Point(double x, double y, char inputCas, int pavage, double dist, int typeHeuristique)
+        public Point(double x, double y, char inputCas, int pavage, double dist)
         {
             X = x;
             Y = y;
@@ -29,8 +28,7 @@ namespace JoliBateau
             if (Y < 0) Y = 0;
             if (Y > 300) Y = 0;
 
-            cas = inputCas;
-            TypeHeuristique = typeHeuristique;
+            Cas = inputCas;
             TailleCarre = dist;
             Pavage = pavage;
             ParentNode = null;
@@ -236,67 +234,56 @@ namespace JoliBateau
             double x2 = Pf.X;
             double y2 = Pf.Y;
 
-            switch (TypeHeuristique)
+            //
+            // distance euclidienne directe
+            //
+            double distance = Math.Sqrt(Math.Pow((x1 - x2), 2) + Math.Pow((y1 - y2), 2));
+            return distance / 45;
+            //
+            // distance de manhattan sans diagonale
+            //
+            /*double distance = Math.Abs(x1 - x2) + Math.Abs(y1 - y2);
+            double manhattan = (1 / 45) * distance;
+            return manhattan;*/
+            //
+            // distance de manhattan avec diagonale
+            //
+            /*double dx = Math.Abs(X - Pf.X);
+            double dy = Math.Abs(Y - Pf.Y);
+            double D = 1;
+            double D2 = 1;
+            return D * (dx + dy) + (D2 - 2 * D) * Math.Min(dx, dy);*/
+            //
+            // calcul par tronçons de 10km
+            //
+            /*double dTotale = Math.Sqrt(Math.Pow(Pf.X - X, 2) + Math.Pow(Pf.Y - Y, 2));
+            double nbTroncon = Math.Floor(dTotale / 10);
+            double angle = Math.Atan2(Pf.Y - Y, Pf.X - X);
+            double pasX = Math.Cos(angle) * 10;
+            double pasY = Math.Sin(angle) * 10;
+            double coutTotal = 0;
+
+            if (nbTroncon == 0)
             {
-                
-                //
-                // distance euclidienne directe
-                //
-                case 0:
-                    double distance = Math.Sqrt(Math.Pow((x1 - x2), 2) + Math.Pow((y1 - y2), 2));
-                    double windspeed = 50;
-                    double boatspeed = 0.9 * windspeed;
-                    return distance / 30;
-                    
-                //
-                // distance de manhattan sans diagonale
-                //
-                case 1:
-                    distance = Math.Abs(x1 - x2) + Math.Abs(y1 - y2);
-                    double manhattan = (1 / 45) * distance;
-                    return manhattan;
-                //
-                // distance de manhattan avec diagonale
-                //
-                case 2:
-                    double dx = Math.Abs(X - Pf.X);
-                    double dy = Math.Abs(Y - Pf.Y);
-                    double D = 1;
-                    double D2 = 1;
-                    return D * (dx + dy) + (D2 - 2 * D) * Math.Min(dx, dy);
-                //
-                // calcul par tronçons de 10km
-                //
-                case 3:
-                    double dTotale = Math.Sqrt(Math.Pow(Pf.X - X, 2) + Math.Pow(Pf.Y - Y, 2));
-                    double nbTroncon = Math.Floor(dTotale / 10);
-                    double angle = Math.Atan2(Pf.Y - Y, Pf.X - X);
-                    double pasX = Math.Cos(angle) * 10;
-                    double pasY = Math.Sin(angle) * 10;
-                    double coutTotal = 0;
+                coutTotal = EstimationTemps(X, Y, Pf.X, Pf.Y);
+            }
+            else
+            {
+                double tempX = X;
+                double tempY = Y;
+                for (int i = 0; i < nbTroncon; i++) // calcul de la somme des coûts pour tous les tronçons
+                {
+                    coutTotal += EstimationTemps(tempX, tempY, tempX + pasX, tempY + pasY);
 
-                    if (nbTroncon == 0)
-                    {
-                        coutTotal = EstimationTemps(X, Y, Pf.X, Pf.Y);
-                    }
-                    else
-                    {
-                        double tempX = X;
-                        double tempY = Y;
-                        for (int i = 0; i < nbTroncon; i++) // calcul de la somme des coûts pour tous les tronçons
-                        {
-                            coutTotal += EstimationTemps(tempX, tempY, tempX + pasX, tempY + pasY);
+                }
 
-                        }
-
-                        // calcul du coût pour dernier tronçons vu qu'on a arrondi en bas leur nombre
-                        coutTotal += EstimationTemps(tempX, tempY, Pf.X, Pf.Y);
-                    }
-
-                    return coutTotal;
+                // calcul du coût pour dernier tronçons vu qu'on a arrondi en bas leur nombre
+                coutTotal += EstimationTemps(tempX, tempY, Pf.X, Pf.Y);
             }
 
-            return 1;
+            return coutTotal;
+            }*/
+
         }
 
         public override string ToString()

@@ -41,7 +41,7 @@
             this.tempsSolution = new System.Windows.Forms.Label();
             this.nbNoeudsSolution = new System.Windows.Forms.Label();
             this.labelStopwatch = new System.Windows.Forms.Label();
-            this.groupCas = new System.Windows.Forms.GroupBox();
+            this.groupBoxCas = new System.Windows.Forms.GroupBox();
             this.groupBoxPavage = new System.Windows.Forms.GroupBox();
             this.radioButtonPavage3 = new System.Windows.Forms.RadioButton();
             this.comboTailleCarre = new System.Windows.Forms.ComboBox();
@@ -56,15 +56,10 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.groupBoxHeuristique = new System.Windows.Forms.GroupBox();
-            this.radioBtnH0 = new System.Windows.Forms.RadioButton();
-            this.radioBtnH1 = new System.Windows.Forms.RadioButton();
-            this.radioBtnH2 = new System.Windows.Forms.RadioButton();
-            this.radioBtnH3 = new System.Windows.Forms.RadioButton();
-            this.groupCas.SuspendLayout();
+            this.labelCountAndClosed = new System.Windows.Forms.Label();
+            this.groupBoxCas.SuspendLayout();
             this.groupBoxPavage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.groupBoxHeuristique.SuspendLayout();
             this.SuspendLayout();
             // 
             // button1
@@ -186,23 +181,23 @@
             // labelStopwatch
             // 
             this.labelStopwatch.AutoSize = true;
-            this.labelStopwatch.Location = new System.Drawing.Point(345, 436);
+            this.labelStopwatch.Location = new System.Drawing.Point(345, 459);
             this.labelStopwatch.Name = "labelStopwatch";
             this.labelStopwatch.Size = new System.Drawing.Size(83, 13);
             this.labelStopwatch.TabIndex = 14;
             this.labelStopwatch.Text = "labelStopWatch";
             // 
-            // groupCas
+            // groupBoxCas
             // 
-            this.groupCas.Controls.Add(this.radioButtonCasA);
-            this.groupCas.Controls.Add(this.radioButtonCasB);
-            this.groupCas.Controls.Add(this.radioButtonCasC);
-            this.groupCas.Location = new System.Drawing.Point(25, 160);
-            this.groupCas.Name = "groupCas";
-            this.groupCas.Size = new System.Drawing.Size(118, 107);
-            this.groupCas.TabIndex = 15;
-            this.groupCas.TabStop = false;
-            this.groupCas.Text = "Vent";
+            this.groupBoxCas.Controls.Add(this.radioButtonCasA);
+            this.groupBoxCas.Controls.Add(this.radioButtonCasB);
+            this.groupBoxCas.Controls.Add(this.radioButtonCasC);
+            this.groupBoxCas.Location = new System.Drawing.Point(25, 160);
+            this.groupBoxCas.Name = "groupBoxCas";
+            this.groupBoxCas.Size = new System.Drawing.Size(118, 107);
+            this.groupBoxCas.TabIndex = 15;
+            this.groupBoxCas.TabStop = false;
+            this.groupBoxCas.Text = "Vent";
             // 
             // groupBoxPavage
             // 
@@ -349,67 +344,22 @@
             this.pictureBox1.TabIndex = 26;
             this.pictureBox1.TabStop = false;
             // 
-            // groupBoxHeuristique
+            // labelCountAndClosed
             // 
-            this.groupBoxHeuristique.Controls.Add(this.radioBtnH3);
-            this.groupBoxHeuristique.Controls.Add(this.radioBtnH2);
-            this.groupBoxHeuristique.Controls.Add(this.radioBtnH1);
-            this.groupBoxHeuristique.Controls.Add(this.radioBtnH0);
-            this.groupBoxHeuristique.Location = new System.Drawing.Point(25, 413);
-            this.groupBoxHeuristique.Name = "groupBoxHeuristique";
-            this.groupBoxHeuristique.Size = new System.Drawing.Size(212, 121);
-            this.groupBoxHeuristique.TabIndex = 27;
-            this.groupBoxHeuristique.TabStop = false;
-            this.groupBoxHeuristique.Text = "groupBox1";
-            // 
-            // radioBtnH0
-            // 
-            this.radioBtnH0.AutoSize = true;
-            this.radioBtnH0.Checked = true;
-            this.radioBtnH0.Location = new System.Drawing.Point(15, 23);
-            this.radioBtnH0.Name = "radioBtnH0";
-            this.radioBtnH0.Size = new System.Drawing.Size(124, 17);
-            this.radioBtnH0.TabIndex = 0;
-            this.radioBtnH0.TabStop = true;
-            this.radioBtnH0.Text = "Distance euclidienne";
-            this.radioBtnH0.UseVisualStyleBackColor = true;
-            // 
-            // radioBtnH1
-            // 
-            this.radioBtnH1.AutoSize = true;
-            this.radioBtnH1.Location = new System.Drawing.Point(15, 46);
-            this.radioBtnH1.Name = "radioBtnH1";
-            this.radioBtnH1.Size = new System.Drawing.Size(155, 17);
-            this.radioBtnH1.TabIndex = 1;
-            this.radioBtnH1.Text = "Manhattan sans diagonales";
-            this.radioBtnH1.UseVisualStyleBackColor = true;
-            // 
-            // radioBtnH2
-            // 
-            this.radioBtnH2.AutoSize = true;
-            this.radioBtnH2.Location = new System.Drawing.Point(15, 69);
-            this.radioBtnH2.Name = "radioBtnH2";
-            this.radioBtnH2.Size = new System.Drawing.Size(157, 17);
-            this.radioBtnH2.TabIndex = 2;
-            this.radioBtnH2.Text = "Manhattan avec diagonales";
-            this.radioBtnH2.UseVisualStyleBackColor = true;
-            // 
-            // radioBtnH3
-            // 
-            this.radioBtnH3.AutoSize = true;
-            this.radioBtnH3.Location = new System.Drawing.Point(15, 92);
-            this.radioBtnH3.Name = "radioBtnH3";
-            this.radioBtnH3.Size = new System.Drawing.Size(140, 17);
-            this.radioBtnH3.TabIndex = 3;
-            this.radioBtnH3.Text = "Heuristique par tronçons";
-            this.radioBtnH3.UseVisualStyleBackColor = true;
+            this.labelCountAndClosed.AutoSize = true;
+            this.labelCountAndClosed.Location = new System.Drawing.Point(345, 432);
+            this.labelCountAndClosed.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.labelCountAndClosed.Name = "labelCountAndClosed";
+            this.labelCountAndClosed.Size = new System.Drawing.Size(108, 13);
+            this.labelCountAndClosed.TabIndex = 27;
+            this.labelCountAndClosed.Text = "labelCountAndClosed";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1064, 561);
-            this.Controls.Add(this.groupBoxHeuristique);
+            this.Controls.Add(this.labelCountAndClosed);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -420,7 +370,7 @@
             this.Controls.Add(this.textBoxP1Y);
             this.Controls.Add(this.textBoxP1X);
             this.Controls.Add(this.groupBoxPavage);
-            this.Controls.Add(this.groupCas);
+            this.Controls.Add(this.groupBoxCas);
             this.Controls.Add(this.labelStopwatch);
             this.Controls.Add(this.nbNoeudsSolution);
             this.Controls.Add(this.tempsSolution);
@@ -434,13 +384,11 @@
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
-            this.groupCas.ResumeLayout(false);
-            this.groupCas.PerformLayout();
+            this.groupBoxCas.ResumeLayout(false);
+            this.groupBoxCas.PerformLayout();
             this.groupBoxPavage.ResumeLayout(false);
             this.groupBoxPavage.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.groupBoxHeuristique.ResumeLayout(false);
-            this.groupBoxHeuristique.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -461,7 +409,7 @@
         private System.Windows.Forms.Label tempsSolution;
         private System.Windows.Forms.Label nbNoeudsSolution;
         private System.Windows.Forms.Label labelStopwatch;
-        private System.Windows.Forms.GroupBox groupCas;
+        private System.Windows.Forms.GroupBox groupBoxCas;
         private System.Windows.Forms.GroupBox groupBoxPavage;
         private System.Windows.Forms.RadioButton radioButtonPavage1;
         private System.Windows.Forms.RadioButton radioButtonPavage0;
@@ -476,11 +424,7 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.RadioButton radioButtonPavage3;
         private System.Windows.Forms.ComboBox comboTailleCarre;
-        private System.Windows.Forms.GroupBox groupBoxHeuristique;
-        private System.Windows.Forms.RadioButton radioBtnH1;
-        private System.Windows.Forms.RadioButton radioBtnH0;
-        private System.Windows.Forms.RadioButton radioBtnH3;
-        private System.Windows.Forms.RadioButton radioBtnH2;
+        private System.Windows.Forms.Label labelCountAndClosed;
     }
 }
 

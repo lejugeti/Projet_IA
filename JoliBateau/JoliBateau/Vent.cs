@@ -11,9 +11,9 @@ namespace JoliBateau
         //permet de calculer la vitesse du vent en fonction de P(x, y) le point au milieu de P1 et P2 
         public static double GetWindSpeed(double x, double y)
         {
-            if (Point.cas == 'a')
+            if (Point.Cas == 'a')
                 return 50;
-            else if (Point.cas == 'b')
+            else if (Point.Cas == 'b')
                 if (y > 150)
                     return 50;
                 else return 20;
@@ -23,9 +23,9 @@ namespace JoliBateau
         }
         public static double GetWindDirection(double x, double y)
         {
-            if (Point.cas == 'a')
+            if (Point.Cas == 'a')
                 return 30;
-            else if (Point.cas == 'b')
+            else if (Point.Cas == 'b')
                 if (y > 150)
                     return 180;
                 else return 90;
