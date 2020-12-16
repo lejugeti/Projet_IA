@@ -99,6 +99,7 @@ namespace JoliBateau
             }
         }
 
+        // Dessine le plus court chemin trouvé par l'algorithme sur la carte
         private void AfficherSegment(Graphics g, double x1, double y1, double x2, double y2)
         {
             Pen pen = new Pen(Color.Red);
@@ -106,6 +107,7 @@ namespace JoliBateau
             g.DrawLine(pen, new PointF((int)x1, pictureBox1.Height - (int)y1), new PointF((int)x2, pictureBox1.Height - (int)y2));
         }
 
+        // Dessine une croix verte au point final sur la carte
         private void AfficherFin(Graphics g, double x1, double y1)
         {
             Pen pen = new Pen(Color.Green);

@@ -21,6 +21,8 @@ namespace JoliBateau
                 return 50;
             else return 20;
         }
+
+        //permet de calculer la direction du vent en fonction de P(x, y) le point au milieu de P1 et P2 
         public static double GetWindDirection(double x, double y)
         {
             if (Point.Cas == 'a')

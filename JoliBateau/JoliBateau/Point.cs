@@ -227,6 +227,8 @@ namespace JoliBateau
             return newNodes;
         }
 
+        // calcule l'heuristique entre le point courant et le point final
+        // L'heuristique utilisée pour le projet est celle par distance euclidienne directe
         public override double CalculeHCost()
         {
             double x1 = X;
@@ -238,52 +240,7 @@ namespace JoliBateau
             // distance euclidienne directe
             //
             double distance = Math.Sqrt(Math.Pow((x1 - x2), 2) + Math.Pow((y1 - y2), 2));
-            return distance / 45;
-            //
-            // distance de manhattan sans diagonale
-            //
-            /*double distance = Math.Abs(x1 - x2) + Math.Abs(y1 - y2);
-            double manhattan = (1 / 45) * distance;
-            return manhattan;*/
-            //
-            // distance de manhattan avec diagonale
-            //
-            /*double dx = Math.Abs(X - Pf.X);
-            double dy = Math.Abs(Y - Pf.Y);
-            double D = 1;
-            double D2 = 1;
-            return D * (dx + dy) + (D2 - 2 * D) * Math.Min(dx, dy);*/
-            //
-            // calcul par tronçons de 10km
-            //
-            /*double dTotale = Math.Sqrt(Math.Pow(Pf.X - X, 2) + Math.Pow(Pf.Y - Y, 2));
-            double nbTroncon = Math.Floor(dTotale / 10);
-            double angle = Math.Atan2(Pf.Y - Y, Pf.X - X);
-            double pasX = Math.Cos(angle) * 10;
-            double pasY = Math.Sin(angle) * 10;
-            double coutTotal = 0;
-
-            if (nbTroncon == 0)
-            {
-                coutTotal = EstimationTemps(X, Y, Pf.X, Pf.Y);
-            }
-            else
-            {
-                double tempX = X;
-                double tempY = Y;
-                for (int i = 0; i < nbTroncon; i++) // calcul de la somme des coûts pour tous les tronçons
-                {
-                    coutTotal += EstimationTemps(tempX, tempY, tempX + pasX, tempY + pasY);
-
-                }
-
-                // calcul du coût pour dernier tronçons vu qu'on a arrondi en bas leur nombre
-                coutTotal += EstimationTemps(tempX, tempY, Pf.X, Pf.Y);
-            }
-
-            return coutTotal;
-            }*/
-
+            return distance / 45
         }
 
         public override string ToString()
